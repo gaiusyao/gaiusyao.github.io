@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Pivot Photo">
+	<meta name="author" content="PivotLab Gaius-Yao">
+	<link rel="icon" href="favicon.ico">
+
+	<title>CSS Photo</title>
+
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet" >
+	<link href="https://cdn.bootcss.com/bootstrap-slider/9.8.1/css/bootstrap-slider.min.css" rel="stylesheet">
+	<!-- Custom styles for this blog -->
+	<link href="../css/pivotlab/custom.css" rel="stylesheet">
+	<link href="../css/pivotlab/csslab.css" rel="stylesheet">
+	
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-md blog-masthead justify-content-center ">
+		<button class="navbar-toggler collapsed " type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav"
+		 aria-expanded="false" aria-label="Toggle navigation">
+			<i class="fa fa-bars fa-lg nav-icon " aria-hidden="true"></i>
+		</button>
+	
+		<div class="navbar-collapse collapse justify-content-md-center " id="main-nav" style="">
+			<ul class="navbar-nav ">
+				<li>
+					<a class="nav-link " href="../index.html" style="padding-left:1.2rem">主页</a>
+				</li>
+				<li>
+					<a class="nav-link active " href="../pivotlab.html" style="padding-left:1.2rem">PivotLab</a>
+				</li>
+				<li>
+					<a class="nav-link " href="../article.html" style="padding-left:1.2rem">文章</a>
+				</li>
+				<li>
+					<a class="nav-link " href="../marvin.html" style="padding-left:1.2rem">杂谈</a>
+				</li>
+				<li>
+					<a class="nav-link " href="../about.html" style="padding-left:1.2rem">关于</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<img id="#css-img" class="img-responsive" src="../img/demo.jpg" alt="CSS Photo Demo">
+
+	<div id="bg-blend" class="bg-blend" style="background-image:url(../img/template.jpg)" alt="Zard"></div>
+
+	<div class="card-body">
+		<h4 class="card-title">调整背景图片</h4>
+		<p class="card-text">在下方表单设置相关参数：</p>
+		<form class="form-inline">
+			<div class="form-group" id="bg-blend-mode">
+				<select class="custom-select mb-2 mr-sm-2 mb-sm-0">
+					<option selected>选择混合模式</option>
+					<option value="normal">正常</option>
+					<option value="screen">滤色</option>
+					<option value="multiply">正片叠底</option>
+					<option value="overlay">叠加</option>
+					<option value="darken">变暗</option>
+					<option value="lighten">变亮</option>
+					<option value="color-dodge">颜色减淡</option>
+					<option value="saturation">饱和度</option>
+					<option value="color">颜色</option>
+					<option value="luminosity">亮度</option>
+				</select>
+			</div>
+			<div class="form-group mx-sm-3">
+				<label>颜色：</label>
+				<input type="text" class="form-control" id="bg-blend-color" placeholder="请输入颜色值">
+			</div>
+			<div class="form-group">
+				<label>高度：</label>
+				<input type="text" class="form-control" id="bg-blend-height" placeholder="请输入高度">
+			</div>
+		</form>
+
+		<div class="rgb-slider col-md-8">
+			<p>
+				<b>R: </b>
+				<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128"
+				 data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="round" />
+				<span id="rSliderVal"> 128</span>
+			</p>
+			<p>
+				<b>G: </b>
+				<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128"
+				 data-slider-id="GC" id="G" data-slider-tooltip="hide" data-slider-handle="round" />
+				<span id="gSliderVal"> 128</span>
+			</p>
+			<p>
+				<b>B: </b>
+				<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128"
+				 data-slider-id="BC" id="B" data-slider-tooltip="hide" data-slider-handle="round" />
+				<span id="bSliderVal"> 128</span>
+			</p>
+		</div>
+
+		<hr>
+
+		<button id="commit-btn" class="btn btn-custom btn-primary mx-sm-2 "> 提 交 </button>
+		<button id="cancel-btn" class="btn btn-custom mx-sm-2 "> 重 置 </button>
+
+	</div>
+
+	<footer class="blog-footer ">
+		<p>Created by
+			<a href="https://git.oschina.net/gaiusyao" target="_blank">@Gaius42</a>
+			in 2017
+		</p>
+	</footer>
+
+	<script src="../js/vendor/jquery-3.2.1.min.js "></script>
+	<script src="../js/vendor/popper.min.js "></script>
+	<script src="../js/bootstrap.min.js "></script>
+	<script src="https://cdn.bootcss.com/bootstrap-slider/9.8.1/bootstrap-slider.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="../js/ie10-viewport-bug-workaround.js "></script>
+	<script src="../js/pivotlab/custom.js "></script>
+	<script src="../js/pivotlab/csslab.js "></script>
+	<script>
+		$(document).ready(function () {
+			$("#commit-btn").click(function () {
+				$(".bg-blend").css("background-blend-mode", $("#bg-blend-mode > select").val());
+				$(".bg-blend").css("background-color", $("#bg-blend-color").val());
+				$(".bg-blend").css("height", $("#bg-blend-height").val());
+			});
+			$("#cancel-btn").click(function () {
+				$(".bg-blend").css("background-blend-mode", "luminosity");
+				$(".bg-blend").css("background-color", "hsla(197, 80%, 56%, 0.42)");
+				$(".bg-blend").css("height", "360px");
+			});
+		});
+	</script>
+
+</body>
+
+</html>

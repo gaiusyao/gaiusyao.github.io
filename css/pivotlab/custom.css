@@ -1,0 +1,309 @@
+/*
+ * Globals
+ */
+
+@media (min-width: 48em) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+  color: rgba(0,0,0,.65);
+  background: #eceff1;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: -apple-system,SF UI Display,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+  font-weight: normal;
+  color: rgba(0,0,0,.75);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/*
+ * Override Bootstrap's default container.
+ */
+
+.container {
+  max-width: 60rem;
+}
+
+/*
+ * Header
+ */
+
+.main-header {
+  padding-top: 62px;
+  padding-bottom: 62px;
+  background-repeat: no-repeat;
+  background-position: center 20%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  padding: 42px 0;
+  background: #ffffff;
+  height: 300px
+}
+
+.header-bg {
+  background:url(../../img/bg2.jpg) #2196f3 center 100%
+}
+
+/*
+ * Masthead for nav
+ */
+
+.blog-masthead {
+  background-color: #fafafa;
+  -webkit-box-shadow: inset 0 -.1rem .25rem rgba(0,0,0,.1);
+          box-shadow: inset 0 -.1rem .25rem rgba(0,0,0,.1);
+  padding: 0;
+}
+
+/* Nav icon */
+.nav-icon {
+  color: rgba(0,0,0,.5);
+  margin: .6rem 0;
+}
+
+/* Nav links */
+.nav-link {
+  position: relative;
+  padding: 1rem .6rem;
+  margin: 0 1rem;
+  font-weight: 500;
+  color: rgba(33, 150, 243, 0.57)
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: #2196f3;
+  background-color: transparent
+}
+
+/* Active state gets a caret at the bottom */
+.nav-link.active {
+  color: #2196f3;
+  border-bottom: 2px solid #2196f3;
+}
+.nav-link.active:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -.3rem;
+  vertical-align: middle;
+}
+
+/* Disable state*/
+.nav-link.disable {
+  color: rgba(33, 150, 243, 0.35)
+}
+.nav-link.disable:hover,
+.nav-link.disable:focus {
+  color: rgba(33, 150, 243, 0.35)
+}
+
+/* media */
+@media (max-width:768px) {
+  button:focus {
+    outline:1px dotted;
+    outline:5px auto transparent;
+  }
+  .nav-link {
+    color: rgba(0,0,0,.5);
+    text-align: left;
+    padding: .5rem 2rem;
+  }
+  .nav-link.active {
+    color: rgba(0,0,0,.5);
+    border-bottom: 2px solid #2196f3;
+  }
+  .navbar-nav {
+    margin: -6px 0 6px 0;
+  }
+}
+
+/*
+ * blog name and description
+ */
+
+.blog-header {
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+  border-bottom: .05rem solid #eee;
+}
+.blog-title {
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: normal;
+}
+.blog-description {
+  margin-top: 2rem;
+  padding: 0 .8rem;
+  font-size: 1.1rem;
+  color: #999;
+}
+
+@media (min-width: 40em) {
+  .blog-title {
+    font-size: 3.5rem;
+  }
+}
+
+
+/*
+ * Main column and sidebar layout
+ */
+
+/* Sidebar modules for boxing content */
+.sidebar-module {
+  padding: 1rem;
+  /*margin: 0 -1rem 1rem;*/
+}
+.sidebar-module-inset {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: .25rem;
+}
+.sidebar-module-inset p:last-child,
+.sidebar-module-inset ul:last-child,
+.sidebar-module-inset ol:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+.blog-pagination > .btn {
+  border-radius: 2rem;
+}
+
+
+/*
+ * blog posts
+ */
+
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-title {
+  margin-bottom: .25rem;
+  font-size: 2.5rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #999;
+}
+
+
+/*
+ * footer
+ */
+
+.blog-footer {
+  padding: 1.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+  margin-top: 1.5rem; 
+}
+
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  width:100%;
+}
+
+/**
+ * img
+ */
+.img-circle {
+  border-radius: 50%
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.card-img {
+  margin: 8px 0;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * spacing
+ */
+.row-spacing {
+  margin: 0 0 24px 0;
+}
+
+/**
+ * anchor
+ */
+h4 a {
+  color: rgba(0,0,0,.75);
+}
+
+h4 a:hover {
+  color: #2196f3;
+}
+
+
+/**
+ * back to top
+ */
+#back-to-top {
+  position: fixed;
+  right: 16px;
+  bottom: 96px;
+  background: rgba(33, 150 , 243, .59);
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  z-index: 1;
+  display: none;
+}
+
+#back-to-top:hover {
+  background: #2196f3;
+}
+
+#back-to-top i {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+
+/**
+ * Card
+ */
+@media screen and (max-width: 768px) {
+  .card-top {
+    margin-top: 16px; 
+  }
+}
+
+.card-padding {
+  padding: 0 8px;
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Pivot Photo">
+    <meta name="author" content="PivotLab Gaius42">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Pivot Photo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this blog -->
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/pivotlab/photo.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header id="header" class="main-header header-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="img/logo.png" alt="Pivot Photo">
+                    <h2 class="text-hide">Designed & built with all the love in the world by @Gaius</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="blog-masthead">
+        <div class="container">
+            <nav class="nav navbar-expand-md">
+                <div class="collapse navbar-collapse show justify-content-center " id="main-nav">
+                    <a class="nav-link " href="index.html">主页</a>
+                    <a class="nav-link active " href="# ">PivotLab</a>
+                    <a class="nav-link " href="# ">文章</a>
+                    <a class="nav-link " href="# ">杂谈</a>
+                    <a class="nav-link " href="# ">关于</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container ">
+
+        <div class="row justify-content-center ">
+
+            <div class="card">
+                <div id="bg-blend" class="bg-blend" style="background-image:url(img/template.jpg)" alt="Zard"></div>
+                <div class="card-body">
+                    <h4 class="card-title">调整背景图片</h4>
+                    <p class="card-text">在下方表单设置相关参数：</p>
+
+                    <img id="glfx-image" class="img-responsive " src="img/demo.jpg" alt="img-demo">
+
+                    <br class="br-custom">
+
+                    <form class="form-inline">
+                        <div class="form-group" id="bg-blend-mode">
+                            <label>滤镜：</label>
+                            <select id="filters" class="form-control">
+                                <option disabled="true">---- Adjust -----</option>
+                                <option>Brightness / Contrast</option>
+                                <option>Hue / Saturation</option>
+                                <option>Vibrance</option>
+                                <option>Denoise</option>
+                                <option>Unsharp Mask</option>
+                                <option>Noise</option>
+                                <option>Sepia</option>
+                                <option>Vignette</option>
+                                <option disabled="true">---- Blur -----</option>
+                                <option>Zoom Blur</option>
+                                <option>Triangle Blur</option>
+                                <option>Tilt Shift</option>
+                                <option>Lens Blur</option>
+                                <option disabled="true">---- Warp -----</option>
+                                <option>Swirl</option>
+                                <option>Bulge / Pinch</option>
+                                <option>Perspective</option>
+                                <option disabled="true">---- Fun -----</option>
+                                <option>Ink</option>
+                                <option>Edge Work</option>
+                                <option>Hexagonal Pixelate</option>
+                                <option>Dot Screen</option>
+                                <option>Color Halftone</option>
+                            </select>
+                        </div>
+                        <div class="form-group mx-sm-3">
+                            <label>颜色：</label>
+                            <input type="text" class="form-control" id="bg-blend-color" placeholder="请输入颜色值">
+                        </div>
+                        <div class="form-group">
+                            <label>高度：</label>
+                            <input type="text" class="form-control" id="bg-blend-height" placeholder="请输入高度">
+                        </div>
+                    </form>
+                    <hr>
+                    <button id="bg-blend-btn" class="btn btn-primary"> 提交 </button>
+                </div>
+            </div>
+            <!-- /.card -->
+
+
+        </div>
+        <!-- /.row -->
+
+        <br class="br-custom">
+
+    </div>
+    <!-- /.container -->
+
+    <footer class="blog-footer ">
+		<p>Created by
+            <a href="https://git.oschina.net/gaiusyao" target="_blank">@Gaius42</a>
+            in 2017.
+		</p>
+	</footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN
+        " crossorigin="anonymous "></script>
+    <script src="js/vendor/jquery-3.2.1.min.js "></script>
+    <script src="js/vendor/popper.min.js "></script>
+    <script src="js/bootstrap.min.js "></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js "></script>
+    <script src="js/pivotlab/custom.js"></script>
+
+
+</body>
+
+</html>

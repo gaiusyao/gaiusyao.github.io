@@ -1,0 +1,93 @@
+/**
+ * PivotLab
+ * CSSLab 
+ * Created by Gaius42
+ */
+
+/**
+ * css-img
+ */
+
+/**
+ * background blend mode
+ */
+.bg-blend {
+	max-width: 100%; 
+	height: auto;
+	background-size: cover;
+	background-color: hsla(197, 80%, 56%, 0.42);
+	background-blend-mode: luminosity;
+	transition: .5s background-color;
+}
+
+.bg-blend:hover {
+	background-color: transparent;
+}
+
+#bg-blend-btn {
+	width: 120px
+}
+
+/**
+ * img-filtter
+ */
+#img-filtter {
+	transition: 1s filter, 1s -webkit-filter;
+	-webkit-filter: sepia() saturate(4) hue-rotate(295deg);
+	filter: sepia() saturate(4) hue-rotate(295deg);
+}
+
+#img-filtter:hover,
+#img-filtter:focus {
+	-webkit-filter: none;
+	filter: none;
+}
+
+/**
+ * Components
+ */
+.btn-custom {
+  width: 120px;
+}
+
+/**
+ * RGB Slider
+ */
+#ex1Slider .slider-selection {
+	background: #e0e0e0;
+}
+
+#RGB {
+	height: 20px;
+	background: #e0e0e0;
+}
+#RC .slider-selection {
+	background: #ffcdd2;
+}
+#RC .slider-handle {
+	background: #e57373;
+}
+#RC .slider-handle:hover {
+	background: #f44336;
+}
+#GC .slider-selection {
+	background: #c8e6c9;
+}
+#GC .slider-handle {
+	background: #81c784;
+}
+#GC .slider-handle:hover {
+	background: #259b24;
+}
+#BC .slider-selection {
+	background: #bbdefb;
+}
+#BC .slider-handle {
+	background: #64B5F6;
+}
+#BC .slider-handle:hover {
+	background: #5677fc;
+}
+#R, #G, #B {
+	width: 300px;
+}
