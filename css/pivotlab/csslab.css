@@ -7,7 +7,9 @@
 /**
  * css-img
  */
-
+#css-img {
+  margin-bottom: 36px;
+}
 
 /**
  * Components
@@ -17,7 +19,7 @@
 }
 
 .slider.slider-horizontal {
-  width: 60%;
+  min-width: 60%;
   height: 24px;
 }
 
@@ -48,7 +50,7 @@
 	background: #81c784;
 }
 #GC .slider-handle:hover {
-	background: #259b24;
+	background: #4caf50;
 }
 #BC .slider-selection {
 	background: #bbdefb;
@@ -57,8 +59,34 @@
 	background: #64B5F6;
 }
 #BC .slider-handle:hover {
-	background: #5677fc;
+	background: #2196f3;
 }
 #R, #G, #B {
 	width: 300px;
 }
+
+/**
+ * Label 
+ */
+label {
+  font-size: 16px;
+  width: 80px;
+}
+
+@media screen and (max-width:768px) {
+  label {
+    font-size: 14px;
+    width: 72px;
+  }
+  .top-md {
+    margin-top: 4px;
+  }
+  #css-img {
+    margin-bottom: 16px;
+  }
+  .tooltip {
+    opacity: 0;
+  }
+}
+
+

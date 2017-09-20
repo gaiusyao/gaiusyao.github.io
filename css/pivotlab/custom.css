@@ -322,3 +322,40 @@ h4 a:hover {
 .card-padding {
   padding: 0 8px;
 }
+
+/* tooltip */
+.slider .tooltip.top {
+  margin-top: -36px;
+}
+
+.tooltip {
+  opacity: .35;
+}
+
+.tooltip+.tooltip {
+  opacity: 0;
+}
+
+.tooltip.top .tooltip-arrow {
+  bottom: -5px;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: #000;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.slider-handle {
+  background: #64B5F6; 
+}
+
+.slider-handle:hover {
+  background: #2196f3;
+}

@@ -14,21 +14,31 @@ var cssFilter = function () {
 		"brightness(" + brightness.getValue() + "%" + ")" +
 		"contrast(" + contrast.getValue() + "%" + ")" +
 		"blur(" + blur.getValue() + "px" + ")" +
-		"contrast(" + contrast.getValue() + "%" + ")" +
+		"opacity(" + opacity.getValue() + "%" + ")" +
 		"invert(" + invert.getValue() + "%" + ")" +
+		"hue-rotate(" + hueRotate.getValue() + "deg" + ")" +
 		"grayscale(" + grayscale.getValue() + "%" + ")" +
 		"sepia(" + sepia.getValue() + "%" + ")"
 	)
 }; // cssFilter
 
+/* hue-rotate */
+var hueRotate = $("#hue-rotate").slider()
+	.on("slide", cssFilter)
+	.data("slider");
+
+$("#hue-rotate").on("slide", function (slideEvt) {
+	$("#hueRotateVal").text(slideEvt.value);
+});
+
 /* grayscale */
 var grayscale = $("#grayscale").slider()
-				.on("slide", cssFilter)
-				.data("slider");
+	.on("slide", cssFilter)
+	.data("slider");
 
-$("#grayscale").on("slide", function(slideEvt) {
-    $("#grayscaleVal").text(slideEvt.value);
-}); 
+$("#grayscale").on("slide", function (slideEvt) {
+	$("#grayscaleVal").text(slideEvt.value);
+});
 
 /* sepia */
 var sepia = $("#sepia").slider()
@@ -37,7 +47,7 @@ var sepia = $("#sepia").slider()
 
 $("#sepia").on("slide", function (slideEvt) {
 	$("#sepiaVal").text(slideEvt.value);
-}); 
+});
 
 /* brightness */
 var brightness = $("#brightness").slider()
@@ -46,7 +56,7 @@ var brightness = $("#brightness").slider()
 
 $("#brightness").on("slide", function (slideEvt) {
 	$("#brightnessVal").text(slideEvt.value);
-}); 
+});
 
 /* saturate */
 var saturate = $("#saturate").slider()
@@ -55,7 +65,7 @@ var saturate = $("#saturate").slider()
 
 $("#saturate").on("slide", function (slideEvt) {
 	$("#saturateVal").text(slideEvt.value);
-}); 
+});
 
 /* contrast */
 var contrast = $("#contrast").slider()
@@ -73,24 +83,24 @@ var opacity = $("#opacity").slider()
 
 $("#opacity").on("slide", function (slideEvt) {
 	$("#opacityVal").text(slideEvt.value);
-}); 
+});
 
 /* invert */
 var invert = $("#invert").slider()
-.on("slide", cssFilter)
-.data("slider");
+	.on("slide", cssFilter)
+	.data("slider");
 
 $("#invert").on("slide", function (slideEvt) {
-$("#invertVal").text(slideEvt.value);
+	$("#invertVal").text(slideEvt.value);
 });
 
 /* blur */
 var blur = $("#blur").slider()
-.on("slide", cssFilter)
-.data("slider");
+	.on("slide", cssFilter)
+	.data("slider");
 
 $("#blur").on("slide", function (slideEvt) {
-$("#blurVal").text(slideEvt.value);
+	$("#blurVal").text(slideEvt.value);
 }); 
 
 
