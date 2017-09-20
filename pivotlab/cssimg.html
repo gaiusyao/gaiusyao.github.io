@@ -12,7 +12,7 @@
 	<title>CSS image</title>
 
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
-	<link href="../css/font-awesome.min.css" rel="stylesheet" >
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
 	<link href="https://cdn.bootcss.com/bootstrap-slider/9.8.1/css/bootstrap-slider.min.css" rel="stylesheet">
 	<!-- Custom styles for this blog -->
 	<link href="../css/pivotlab/custom.css" rel="stylesheet">
@@ -27,7 +27,7 @@
 		 aria-expanded="false" aria-label="Toggle navigation">
 			<i class="fa fa-bars fa-lg nav-icon " aria-hidden="true"></i>
 		</button>
-	
+
 		<div class="navbar-collapse collapse justify-content-md-center " id="main-nav" style="">
 			<ul class="navbar-nav ">
 				<li>
@@ -55,18 +55,75 @@
 	</div>
 
 	<div class="container">
+
 		<div class="row top-md">
-			<input id="ex6" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0"/>
-			<span id="ex6CurrentSliderValLabel">Current Slider Value: <span id="ex6SliderVal">0</span></span>
+
+			<div class="col-md-6">
+				<label class="right-sm">对比度：</label>
+				<input id="contrast" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="100" />
+				<span class="left-sm"><em id="contrastVal">100</em>%</span>
+			</div>
+			<div class="col-md-6">
+				<label class="right-sm">亮度：</label>
+				<input id="brightness" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="100"
+				/>
+				<span class="left-sm"><em id="brightnessVal">100</em>%</span>
+			</div>
+
 		</div>
-	</div>
+
+		<div class="row top-md">
+			<div class="col-md-6">
+				<label class="right-sm">饱和度：</label>
+				<input id="saturate" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="100" />
+				<span class="left-sm"><em id="saturateVal">100</em>%</span>
+			</div>
+			<div class="col-md-6">
+				<label class="right-sm">灰度：</label>
+				<input id="grayscale" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" />
+				<span class="left-sm"><em id="grayscaleVal">0</em>%</span>
+			</div>
+
+
+
+		</div>
+
+		<div class="row top-md">
+			<div class="col-md-6">
+				<label class="right-sm">不透明度：</label>
+				<input id="opacity" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="100" />
+				<span class="left-sm"><em id="opacityVal">100</em>%</span>
+			</div>
+			<div class="col-md-6">
+				<label class="right-sm">褐色：</label>
+				<input id="sepia" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" />
+				<span class="left-sm"><em id="sepiaVal">0</em>%</span>
+			</div>
+
+		</div>
+
+		<div class="row top-md">
+			<div class="col-md-6">
+				<label class="right-sm">高斯模糊：</label>
+				<input id="blur" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="0" />
+				<span class="left-sm"><em id="blurVal">0</em>px</span>
+			</div>
+			<div class="col-md-6">
+				<label class="right-sm">反转：</label>
+				<input id="invert" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" />
+				<span class="left-sm"><em id="invertVal">0</em>%</span>
+			</div>
+
+
+
+		</div>
 
 	</div>
+	<!-- container -->
 
 	<footer class="blog-footer ">
 		<p>Created by
-			<a href="https://git.oschina.net/gaiusyao" target="_blank">@Gaius42</a>
-			in 2017
+			<a href="https://git.oschina.net/gaiusyao" target="_blank">@Gaius42</a> in 2017
 		</p>
 	</footer>
 
@@ -78,7 +135,7 @@
 	<script src="../js/ie10-viewport-bug-workaround.js "></script>
 	<script src="../js/pivotlab/custom.js "></script>
 	<script src="../js/pivotlab/csslab.js "></script>
-	
+
 </body>
 
 </html>

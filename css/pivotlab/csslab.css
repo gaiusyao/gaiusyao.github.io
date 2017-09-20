@@ -16,6 +16,11 @@
   width: 120px;
 }
 
+.slider.slider-horizontal {
+  width: 60%;
+  height: 24px;
+}
+
 /**
  * RGB Slider
  */

@@ -8,19 +8,91 @@
 /**
  * CSS image
  */
-var cssFilter = function() {
-	$("#css-img").css("filter", "grayscale("+grayscale.getValue()+"%"+")")
+var cssFilter = function () {
+	$("#css-img").css("filter",
+		"saturate(" + saturate.getValue() + "%" + ")" +
+		"brightness(" + brightness.getValue() + "%" + ")" +
+		"contrast(" + contrast.getValue() + "%" + ")" +
+		"blur(" + blur.getValue() + "px" + ")" +
+		"contrast(" + contrast.getValue() + "%" + ")" +
+		"invert(" + invert.getValue() + "%" + ")" +
+		"grayscale(" + grayscale.getValue() + "%" + ")" +
+		"sepia(" + sepia.getValue() + "%" + ")"
+	)
 }; // cssFilter
 
 /* grayscale */
-var grayscale = $("#ex6").slider()
+var grayscale = $("#grayscale").slider()
 				.on("slide", cssFilter)
 				.data("slider");
 
-$("#ex6").slider();
-$("#ex6").on("slide", function(slideEvt) {
-    $("#ex6SliderVal").text(slideEvt.value);
+$("#grayscale").on("slide", function(slideEvt) {
+    $("#grayscaleVal").text(slideEvt.value);
 }); 
+
+/* sepia */
+var sepia = $("#sepia").slider()
+	.on("slide", cssFilter)
+	.data("slider");
+
+$("#sepia").on("slide", function (slideEvt) {
+	$("#sepiaVal").text(slideEvt.value);
+}); 
+
+/* brightness */
+var brightness = $("#brightness").slider()
+	.on("slide", cssFilter)
+	.data("slider");
+
+$("#brightness").on("slide", function (slideEvt) {
+	$("#brightnessVal").text(slideEvt.value);
+}); 
+
+/* saturate */
+var saturate = $("#saturate").slider()
+	.on("slide", cssFilter)
+	.data("slider");
+
+$("#saturate").on("slide", function (slideEvt) {
+	$("#saturateVal").text(slideEvt.value);
+}); 
+
+/* contrast */
+var contrast = $("#contrast").slider()
+	.on("slide", cssFilter)
+	.data("slider");
+
+$("#contrast").on("slide", function (slideEvt) {
+	$("#contrastVal").text(slideEvt.value);
+});
+
+/* opacity */
+var opacity = $("#opacity").slider()
+	.on("slide", cssFilter)
+	.data("slider");
+
+$("#opacity").on("slide", function (slideEvt) {
+	$("#opacityVal").text(slideEvt.value);
+}); 
+
+/* invert */
+var invert = $("#invert").slider()
+.on("slide", cssFilter)
+.data("slider");
+
+$("#invert").on("slide", function (slideEvt) {
+$("#invertVal").text(slideEvt.value);
+});
+
+/* blur */
+var blur = $("#blur").slider()
+.on("slide", cssFilter)
+.data("slider");
+
+$("#blur").on("slide", function (slideEvt) {
+$("#blurVal").text(slideEvt.value);
+}); 
+
 
 /**
  * RGB Slider
