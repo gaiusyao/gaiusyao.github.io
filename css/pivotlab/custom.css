@@ -261,6 +261,10 @@ h6, .h6 {
   margin: 0 0 24px 0;
 }
 
+.top-md {
+  margin-top: 24px;
+}
+
 /**
  * anchor
  */
