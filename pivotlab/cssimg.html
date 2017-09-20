@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="Pivot Photo">
 	<meta name="author" content="PivotLab Gaius-Yao">
-	<link rel="icon" href="favicon.ico">
+	<link rel="icon" href="../favicon.ico">
 
 	<title>CSS Photo</title>
 
@@ -125,21 +125,7 @@
 	<script src="../js/ie10-viewport-bug-workaround.js "></script>
 	<script src="../js/pivotlab/custom.js "></script>
 	<script src="../js/pivotlab/csslab.js "></script>
-	<script>
-		$(document).ready(function () {
-			$("#commit-btn").click(function () {
-				$(".bg-blend").css("background-blend-mode", $("#bg-blend-mode > select").val());
-				$(".bg-blend").css("background-color", $("#bg-blend-color").val());
-				$(".bg-blend").css("height", $("#bg-blend-height").val());
-			});
-			$("#cancel-btn").click(function () {
-				$(".bg-blend").css("background-blend-mode", "luminosity");
-				$(".bg-blend").css("background-color", "hsla(197, 80%, 56%, 0.42)");
-				$(".bg-blend").css("height", "360px");
-			});
-		});
-	</script>
-
+	
 </body>
 
 </html>
