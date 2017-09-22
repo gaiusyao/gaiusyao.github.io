@@ -1,0 +1,15 @@
+/**
+ * PivotLab
+ * Material Deisgn
+ * Greated by @Gaius42
+ */
+
+.color-block {
+  height: 32px;
+  max-width: 100%;
+}
+
+/* Red */
+.red-500 {
+  background: #f44336;
+}

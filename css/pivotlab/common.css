@@ -257,6 +257,10 @@ h6, .h6 {
 /**
  * spacing
  */
+.padding-md {
+  padding: 24px;
+}
+
 .row-spacing {
   margin: 0 0 24px 0;
 }
