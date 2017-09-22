@@ -3,10 +3,21 @@
  * Material Deisgn
  * Greated by @Gaius42
  */
+.color-bar {
+  height: 588px;
+  max-width: 100%;  
+}
 
 .color-block {
-  height: 32px;
+  z-index: 1;
+  height: 42px;
   max-width: 100%;
+  text-align: center;
+  line-height: 42px;
+}
+
+.color-block p {
+  margin-bottom: 0;
 }
 
 /* Red */
