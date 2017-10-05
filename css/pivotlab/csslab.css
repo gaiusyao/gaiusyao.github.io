@@ -5,15 +5,13 @@
  */
 
 /**
- * css-img
+ * CSS-Photo
  */
 #css-img {
   margin-bottom: 36px;
 }
 
-/**
- * Components
- */
+/* Components */
 .btn-custom {
   width: 120px;
 }
@@ -23,9 +21,7 @@
   height: 24px;
 }
 
-/**
- * RGB Slider
- */
+/* RGB Slider */
 #ex1Slider .slider-selection {
 	background: #e0e0e0;
 }
@@ -65,9 +61,7 @@
 	width: 300px;
 }
 
-/**
- * Label 
- */
+/* Label */
 label {
   font-size: 16px;
   width: 80px;
@@ -89,4 +83,18 @@ label {
   }
 }
 
+/**
+ * MD Color
+ */
+ .md-bar ul {
+  text-align: left; 
+  padding: 0; 
+  display: block; 
+  width: 100%;
+  font-size: .8rem;
+}
 
+.md-bar ul li {
+  list-style: none; 
+  padding: 15px;
+}
