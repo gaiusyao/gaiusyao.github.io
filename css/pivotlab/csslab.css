@@ -86,7 +86,7 @@ label {
 /**
  * MD Color
  */
- .md-bar ul {
+ .mdc-bar ul {
   text-align: left; 
   padding: 0; 
   display: block; 
@@ -94,7 +94,17 @@ label {
   font-size: .8rem;
 }
 
-.md-bar ul li {
+.mdc-bar ul li {
   list-style: none; 
   padding: 15px;
+}
+
+.mdc-name {
+  display: block; 
+  margin-bottom: 60px;
+}
+
+.mdc-info {
+  display: flex; 
+  justify-content: space-between;
 }
