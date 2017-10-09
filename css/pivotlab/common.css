@@ -157,6 +157,7 @@ h6, .h6 {
   color: #999;
 }
 
+
 @media (min-width: 40em) {
   .blog-title {
     font-size: 3.5rem;
@@ -167,6 +168,10 @@ h6, .h6 {
 /*
  * Main column and sidebar layout
  */
+
+.blog-main {
+  margin-bottom: 4rem;
+}
 
 /* Sidebar modules for boxing content */
 .sidebar-module {
@@ -199,7 +204,7 @@ h6, .h6 {
  */
 
 .blog-post {
-  margin-bottom: 4rem;
+  margin-bottom: 0;
 }
 .blog-post-title {
   margin-bottom: .25rem;
@@ -367,3 +372,13 @@ h4 a:hover {
 .slider-handle:hover {
   background: #2196f3;
 }
+
+/**
+ * Markdown
+ */
+blockquote { 
+  border-left:rgba(33, 150 , 243, .59) solid 5px; 
+  padding-left:16px; 
+  background: rgb(245, 245, 245);
+} 
+
