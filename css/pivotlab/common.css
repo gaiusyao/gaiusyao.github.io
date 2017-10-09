@@ -169,10 +169,6 @@ h6, .h6 {
  * Main column and sidebar layout
  */
 
-.blog-main {
-  margin-bottom: 4.2rem;
-}
-
 /* Sidebar modules for boxing content */
 .sidebar-module {
   padding: 1rem;
@@ -221,6 +217,7 @@ h6, .h6 {
  */
 
 .blog-footer {
+  margin-top: 4.2rem;
   padding: 1.5rem 0;
   color: #999;
   text-align: center;
