@@ -178,6 +178,22 @@
 
         
 
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/项目介绍/">
+                    项目介绍 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/项目介绍/Gaius-Blog/">
+                    Gaius-Blog <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
     </ul>
 </div>
 
@@ -230,7 +246,7 @@
 
 
             </div>
-            <time class="deep-orange-link-context" datetime="2017-10-15T07:49:11.004Z"><a href="/2017/10/15/article_0001/">2017-10-15</a></time>
+            <time class="deep-orange-link-context" datetime="2017-10-14T16:00:00.000Z"><a href="/2017/10/15/article_0001/">2017-10-15</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -253,7 +269,8 @@
 
 
             <div class="entry deep-orange-link-context">
-                <p>今天刚建好博客，还没什么内容可以放上来，就先从如何搭建个人博客（毕竟在这走了不少弯路）开始，写一篇微小的教程吧！<br>首先，笔者的个人博客是使用Hexo + GitHub Pages搭建的。至于为什么要使用Hexo来搭建个人博客，而不是GitHub Pages钦定的jeklly，这和笔者被jeklly坑过完全没关系，主要是Hexo足够快速、简洁和高效。不过这里不展开介绍了，详细介绍可以看<a href="https://hexo.io/" target="_blank" rel="external">Hexo官网</a>，英语不好的同学点<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">这里</a>。接着，我们先从<strong>Hexo的安装与常用命令</strong>开始，介绍如何使用Hexo + GitHub Pages搭建个人博客。<br><em>// 笔者系统环境为win10</em></p>
+                <p>今天刚建好博客，还没什么内容可以放上来，就先从如何搭建个人博客（毕竟在这走了不少弯路）开始，写一篇微小的教程吧！<br>首先，笔者的个人博客是使用Hexo + GitHub Pages搭建的。至于为什么要使用Hexo来搭建个人博客，而不是GitHub Pages钦定的jeklly，这和笔者被jeklly坑过完全没关系，主要是Hexo足够快速、简洁和高效。不过这里不展开介绍了，详细介绍可以看<a href="https://hexo.io/" target="_blank" rel="external">Hexo官网</a>，英语不好的同学点<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">这里</a>。接着，我们先从<strong>Hexo的安装与常用命令</strong>开始，介绍如何使用Hexo + GitHub Pages搭建个人博客。</p>
+<p><em>// 笔者系统环境为win10</em></p>
 <h2 id="Hexo的安装与常用命令"><a href="#Hexo的安装与常用命令" class="headerlink" title="Hexo的安装与常用命令"></a>Hexo的安装与常用命令</h2><h3 id="安装前的准备"><a href="#安装前的准备" class="headerlink" title="安装前的准备"></a>安装前的准备</h3><p>在安装Hexo前，需要先安装Noed.js以及Git，如果还未接触过两者，可参考下面的链接。</p>
 <ul>
 <li><a href="https://nodejs.org/en/" target="_blank" rel="external">下载Node.js</a></li>
@@ -281,7 +298,7 @@
 <li><a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages主页</a></li>
 <li><a href="http://www.jianshu.com/p/c5d5cb61d4e9" target="_blank" rel="external">给懒癌患者看的GitHub Pages手册</a></li>
 </ul>
-<h3 id="部署Hexo到Github-Pages"><a href="#部署Hexo到Github-Pages" class="headerlink" title="部署Hexo到Github Pages"></a>部署Hexo到Github Pages</h3><p>最激动人心的一步来了，将Hexo部署到Github Pages后，就可以在你的github.io上看到Hexo搭建的个人博客。不过，首先让我们明确要做什么，基本上部署到Github Pages就是两步：<em>hexo g</em> 生成静态网站和<em>git commit</em>提交代码，但具体操作需要使用hexo deploy或git命令行。</p>
+<h3 id="部署Hexo到Github-Pages"><a href="#部署Hexo到Github-Pages" class="headerlink" title="部署Hexo到Github Pages"></a>部署Hexo到Github Pages</h3><p>最激动人心的一步来了，将Hexo部署到Github Pages后，就可以在你的github.io上看到Hexo搭建的个人博客。不过，首先让我们明确要做什么，基本上部署到Github Pages就是两步：<code>hexo g</code> 生成静态网站和<code>git commit</code>提交代码，但具体操作需要使用hexo deploy或git命令行。</p>
 <h3 id="使用hexo-deploy部署"><a href="#使用hexo-deploy部署" class="headerlink" title="使用hexo deploy部署"></a>使用hexo deploy部署</h3><p>使用hexo deploy部署，首先要安装一个拓展：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save hexo-deployer-git</div></pre></td></tr></table></figure>
 <p>接着要在配置文件<code>blog\_config.yml</code>的<code># Deployment</code>下做如下修改：</p>
@@ -323,6 +340,12 @@
 </blockquote>
 
                 
+<p class="deep-orange-link-context">
+    <a href="/2017/10/20/article_0002/" rel="next" title="个人博客的迭代历程">
+    上一篇：个人博客的迭代历程
+  </a>
+</p>
+
 
 
 
