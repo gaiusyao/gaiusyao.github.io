@@ -7,7 +7,7 @@
 
     
 
-    <title>Gaius Things Done  </title>
+    <title>Gaius Things Done | </title>
     <meta name="author" content="Gaius Yao">
     
     <meta name="description" content="Gaius Yao Blog">
@@ -87,6 +87,14 @@
                         </a>
                     </li>
                 
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
             </ul>
             <div>
     <ul class="side-nav blue darken-1" id="main-menu">
@@ -147,36 +155,20 @@
                 </a>
             </li>
         
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
     </ul>
 
     <ul class="side-nav blue darken-1" id="category-menu">
     
 
             
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/代码之路/">
-                    代码之路 <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/代码之路/微小的教程/">
-                    微小的教程 <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-2" collapse-level="2">
-                <a class="no-padding" href="/categories/代码之路/微小的教程/Hexo/">
-                    Hexo <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/项目介绍/">
@@ -205,6 +197,30 @@
             <li class="collapse-level-2" collapse-level="2">
                 <a class="no-padding" href="/categories/项目介绍/Gaius-Things-Done/GTD笔记/">
                     GTD笔记 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/代码之路/">
+                    代码之路 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/代码之路/微小的教程/">
+                    微小的教程 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-2" collapse-level="2">
+                <a class="no-padding" href="/categories/代码之路/微小的教程/Hexo/">
+                    Hexo <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -277,7 +293,7 @@
     <div class="footer-container container">
         <div class="row">
             
-            <div class="social-group col m4 s12">
+            <div class="social-group col m8 s12">
                 <h5 class="white-text">社交</h5>
                 
                     <a class="social-link" href="https://github.com/gaiusyao" target="_blank">
@@ -288,11 +304,33 @@
                         <i class="fa fa-2x fa-codepen"></i>
                     </a>
                 
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                <!--
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+-->
+
             </div>
             
 
             
-            <div class="col m8 s12">
+            <div class="col m4 s12">
                 <h5 class="white-text">友情链接</h5>
                 
                     <a class="social-link" href="https://william8188.github.io/" target="_blank">李梓峰的技术博客</a>
@@ -404,7 +442,7 @@
 
             
             // 添加new标签
-            $('').append('<span class="new badge deep-orange"></span>');
+            $('.menu-search').append('<span class="new badge deep-orange"></span>');
             
 
             // 搜索功能
