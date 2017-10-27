@@ -77,9 +77,9 @@
         
         <tags>
             
-            <tag> D&amp;B </tag>
-            
             <tag> GTD </tag>
+            
+            <tag> D&amp;B </tag>
             
         </tags>
         
@@ -237,6 +237,8 @@
         
     </entry>
     
+  
+  
     
     <entry>
       <title><![CDATA[关于]]></title>
@@ -244,7 +246,12 @@
       <content type="html"><![CDATA[<p>尧翔，男，1995年生，广东人。<br>在持续寻找问题更优解的过程中，让正确的事情相继发生。</p>
 ]]></content>
     </entry>
-
+    
+    <entry>
+      <title><![CDATA[读书]]></title>
+      <url>/reading/index.html</url>
+      <content type="html"></content>
+    </entry>
     
   
 </search>

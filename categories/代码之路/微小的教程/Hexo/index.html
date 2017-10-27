@@ -38,7 +38,7 @@
 <body>
     <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
 
-    <nav class="blue">
+    <nav class="indigo">
     <div class="nav-wrapper">
         <a href="#" data-activates="main-menu" class="button-collapse">
             <i class="fa fa-navicon"></i>
@@ -97,7 +97,7 @@
                 
             </ul>
             <div>
-    <ul class="side-nav blue darken-1" id="main-menu">
+    <ul class="side-nav indigo darken-1" id="main-menu">
         
         <li class="side-user">
             <div class="row">
@@ -165,7 +165,7 @@
         
     </ul>
 
-    <ul class="side-nav blue darken-1" id="category-menu">
+    <ul class="side-nav indigo darken-1" id="category-menu">
     
 
             
@@ -173,14 +173,6 @@
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/项目介绍/">
                     项目介绍 <span class="right">2 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/项目介绍/Gaius-Blog/">
-                    Gaius-Blog <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -197,6 +189,14 @@
             <li class="collapse-level-2" collapse-level="2">
                 <a class="no-padding" href="/categories/项目介绍/Gaius-Things-Done/GTD笔记/">
                     GTD笔记 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/项目介绍/Gaius-Blog/">
+                    Gaius-Blog <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -252,7 +252,7 @@
     
 
 <nav class="page-nav hide-on-small-only">
-    <div class="nav-wrapper blue">
+    <div class="nav-wrapper indigo">
         <span class="breadcrumb">当前位置（分类目录）</span>
         
 
@@ -278,17 +278,17 @@
 </div>
 
         <div class="fixed-action-btn float-sitemap">
-    <a class="btn-floating btn-large deep-orange">
+    <a class="btn-floating btn-large red">
       <i class="fa fa-caret-square-o-up"></i>
     </a>
     <ul>
-      <li><a class="btn-return-top btn-floating waves-effect cyan" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-return-top btn-floating waves-effect indigo" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
       <li><a class="btn-floating waves-effect button-collapse orange darken-1"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
     </ul>
   </div>
 
     </main>
-    <footer class="page-footer blue darken-1">
+    <footer class="page-footer indigo darken-1">
     
     <div class="footer-container container">
         <div class="row">
@@ -341,7 +341,7 @@
     </div>
     
 
-    <div class="footer-copyright deep-orange-link-context">
+    <div class="footer-copyright red-link-context">
         <div class="container">
             © 2017 Gaius-Yao, All rights reserved.
             <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
@@ -438,11 +438,11 @@
             $('li.tab a').hover(function() {
                 $(this).toggleClass('text-lighten-4');
             });
-            $('.indicator').addClass('deep-orange lighten-2');
+            $('.indicator').addClass('red lighten-2');
 
             
             // 添加new标签
-            $('.menu-search').append('<span class="new badge deep-orange"></span>');
+            $('.menu-search').append('<span class="new badge red"></span>');
             
 
             // 搜索功能
@@ -517,7 +517,7 @@
                             if (isMatch) {
                                 keywords.forEach(function(keyword) {
                                     var regS = new RegExp(keyword, "gi");
-                                    data_title = data_title.replace(regS, "<span class=\"search-keyword deep-orange lighten-2\">" + keyword + "</span>");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
                                 });
 
                                 str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
@@ -539,7 +539,7 @@
                                     // highlight all keywords
                                     keywords.forEach(function(keyword) {
                                         var regS = new RegExp(keyword, "gi");
-                                        match_content = match_content.replace(regS, "<span class=\"search-keyword deep-orange lighten-2\">" + keyword + "</span>");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
                                     });
 
                                     str += "<p class=\"search-result\">..." + match_content + "...</p>"
