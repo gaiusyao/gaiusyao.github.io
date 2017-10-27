@@ -1,0 +1,693 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>变量和简单数据类型 | </title>
+    <meta name="author" content="Gaius Yao">
+    
+    <meta name="description" content="Gaius Yao Blog">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="变量和简单数据类型"/>
+    <meta property="og:site_name" content="尧翔的个人博客"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="尧翔的个人博客" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">尧翔的个人博客</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://oxv2o8wp9.bkt.clouddn.com/gaius.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">尧翔</p>
+                        <p class="desc">PM, UXer, Huge Nerd</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/项目介绍/">
+                    项目介绍 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/项目介绍/Gaius-Blog/">
+                    Gaius-Blog <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/项目介绍/Gaius-Things-Done/">
+                    Gaius-Things-Done <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-2" collapse-level="2">
+                <a class="no-padding" href="/categories/项目介绍/Gaius-Things-Done/GTD笔记/">
+                    GTD笔记 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/代码之路/">
+                    代码之路 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/代码之路/人生苦短，我用Python/">
+                    人生苦短，我用Python <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-2" collapse-level="2">
+                <a class="no-padding" href="/categories/代码之路/人生苦短，我用Python/Python基础/">
+                    Python基础 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/代码之路/微小的教程/">
+                    微小的教程 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-2" collapse-level="2">
+                <a class="no-padding" href="/categories/代码之路/微小的教程/Hexo/">
+                    Hexo <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/代码之路/">代码之路</a><a class="breadcrumb" href="/categories/代码之路/人生苦短，我用Python/">人生苦短，我用Python</a><a class="breadcrumb" href="/categories/代码之路/人生苦短，我用Python/Python基础/">Python基础</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>变量和简单数据类型</h1>
+    
+
+
+            </div>
+            <time class="red-link-context" datetime="2017-10-26T16:00:00.000Z"><a href="/2017/10/27/numbers&strings/">2017-10-27</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
+        
+    </div>
+
+
+            <div class="toc red-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#（一）变量"><span class="section table-of-contents-text">（一）变量</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-1-变量和变量值"><span class="section table-of-contents-text">1.1 变量和变量值</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-2-变量的命名和使用"><span class="section table-of-contents-text">1.2 变量的命名和使用</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#（二）数字-Numbers"><span class="section table-of-contents-text">（二）数字(Numbers)</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-1-整型"><span class="section table-of-contents-text">2.1 整型</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-2-浮点型"><span class="section table-of-contents-text">2.2 浮点型</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-3-math模块"><span class="section table-of-contents-text">2.3 math模块</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#（三）字符串-Strings"><span class="section table-of-contents-text">（三）字符串(Strings)</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-1-split"><span class="section table-of-contents-text">3.1 split()</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-2-join"><span class="section table-of-contents-text">3.2 join()</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-3-strip"><span class="section table-of-contents-text">3.3 strip()</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-4-replace"><span class="section table-of-contents-text">3.4 replace()</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-5-lower-、upper-和capitalize"><span class="section table-of-contents-text">3.5 lower()、upper()和capitalize()</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry red-link-context">
+                <p>  <strong>人生苦短，我用Python。</strong></p>
+<p>  根据<a href="https://octoverse.github.com/" target="_blank" rel="external">GitHub2017开发者年度报告</a>，Python已成为了GitHub上第二受欢迎的语言（第一名是JavaScript）。这从一个侧面反映了Python正越来越被广泛地使用，也许是越来越多的开发者明白了“生命的可贵”？<br>  作为一名会点编程的产品狗，从大二开始接触Python，但除写爬虫以外，基本没用Python做什么正确的事情。目前对使用Python进行数据分析很感兴趣，计划先把Python基础再过一遍，然后尝试使用Python（或许会结合R）进行数据分析的工作。这里介绍一个IDE——<a href="https://www.anaconda.com/what-is-anaconda/" target="_blank" rel="external">Anaconda</a> ,它所提供的包管理和环境管理功能，可以省去不少麻烦，安装配置教程请戳<a href="http://www.jianshu.com/p/eecd77803508" target="_blank" rel="external">这儿</a>。安装好Python或Anaconda后，就让我们先从Python的变量和简单数据类型开始：</p>
+<p><em>// 笔者使用的版本为Python3.6.3</em></p>
+<h2 id="（一）变量"><a href="#（一）变量" class="headerlink" title="（一）变量"></a>（一）变量</h2><p>  按照惯例，先从<em>Hello World</em>开始，运行下面的代码，将会显示<code>Hello world</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Hello world"</span>)</div></pre></td></tr></table></figure></p>
+<h3 id="1-1-变量和变量值"><a href="#1-1-变量和变量值" class="headerlink" title="1.1 变量和变量值"></a>1.1 变量和变量值</h3><p>  下面尝试使用变量来输出<code>Hello world</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hello_world = <span class="string">"Hello world"</span></div><div class="line"><span class="built_in">print</span>(hello_world)</div><div class="line">hello_world = <span class="string">"Hello Python world"</span></div><div class="line"><span class="built_in">print</span>(hello_world)</div></pre></td></tr></table></figure></p>
+<p>  这里，我们首先添加了一个名为<code>hello_world</code>的变量，并给其赋值为<code>&quot;Hello world&quot;</code>，接着，又将变量<code>hello_world</code>的值修改为<code>&quot;Hello Python world&quot;</code>。执行这四行代码，将会先后打印<code>Hello world</code>和<code>Hello Python world</code>。因此，在程序中可随时修改变量的值，而Python将始终记录变量的最新值。</p>
+<h3 id="1-2-变量的命名和使用"><a href="#1-2-变量的命名和使用" class="headerlink" title="1.2 变量的命名和使用"></a>1.2 变量的命名和使用</h3><p>  在Python中，变量的命名和使用需要遵循一定的规则，违反这些规则将带来不必要的错误，或使得代码变得难以阅读和理解。因此，请务必牢记并遵循以下规则：</p>
+<ul>
+<li>变量名只能包含字母、数字和下划线，且不能以数字打头；</li>
+<li>变量名不能包含空格，但可使用下划线来分隔其中的单词；</li>
+<li>不要将Python关键字和函数名用作变量名；</li>
+<li>变量名应既简短又具有描述性，如<code>greeting_message</code>；</li>
+<li>谨慎使用小写字母l和大写字母O，易被误认为是数字1和0;</li>
+<li>变量名宜统一使用小写。</li>
+</ul>
+<p>  另外，请注意不要出现拼写错误（如hello_world拼成了hello_wolrd），因为解释器不会对代码进行拼写检查。一旦出现拼写错误，解释器将会返回一个名称错误（NameError）:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NameError: name <span class="string">'hello_wolrd'</span> is not defined</div></pre></td></tr></table></figure></p>
+<p><em>// 名称错误的出现通常是因为出现拼写错误，或未在使用变量前给其赋值。</em></p>
+<h2 id="（二）数字-Numbers"><a href="#（二）数字-Numbers" class="headerlink" title="（二）数字(Numbers)"></a>（二）数字(Numbers)</h2><p>  Python支持4种数字类型：</p>
+<ul>
+<li>int（整型）：10            </li>
+<li>long（长整型）：51924361L</li>
+<li>float（浮点型）：0.0</li>
+<li>complex（复数）：3.14j</li>
+</ul>
+<p>  其中，整型和浮点型应用的最为广泛，下面就重点介绍着两种数字类型。</p>
+<h3 id="2-1-整型"><a href="#2-1-整型" class="headerlink" title="2.1 整型"></a>2.1 整型</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">x = 42</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #1: &#123;0&#125;"</span>.format(x))</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #2: &#123;0&#125;"</span>.format(3**4))</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #3: &#123;0&#125;"</span>.format(int(8.1)/int(2.7)))</div></pre></td></tr></table></figure>
+<p>  <code>Output #1</code>展示了如何将一个整数（数字42）赋给变量x，然后将变量x打印出来。<code>Output #5</code>说明了如何得到3的4次方并将结果打印出来。<code>Output #3</code>演示了将数值转换成整数并进行除法运算的方法。数值通过内置的<code>int</code>函数转换成整数，所以算式变成了8.1除以2.7，结果为3.0。</p>
+<p><em>// format()为格式化函数</em></p>
+<h3 id="2-2-浮点型"><a href="#2-2-浮点型" class="headerlink" title="2.2 浮点型"></a>2.2 浮点型</h3><p>  浮点型即带小数点的数，和整型一样，都是最常用的数字类型，示例如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #4: &#123;0:.3f&#125;"</span>.format(8.1/2.7))</div><div class="line">y = 2.5 * 4.8</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #5: &#123;0:.1f&#125;"</span>.format(y))</div><div class="line">r = 8 / <span class="built_in">float</span>(3)</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #6: &#123;0:.2f&#125;"</span>.format(r))</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #7: &#123;0:.4f&#125;"</span>.format(8.0/3))</div></pre></td></tr></table></figure></p>
+<p>  <code>Output #4</code>和<code>Output #6</code>非常相似，除了将两个相除的数保留为浮点数，这样算式就是8.1除以2.7，等于3.000。这个示例中print语句的语法，<code>&quot;{0:.3f}&quot;.format(floating_point_number/floating_point_number)</code>，说明了如何设置print 语句中的小数位数。在这示例中，<code>.3f</code>设定了打印的输出值应该有3位小数。<code>Output #8</code>表示用2.5 乘以4.8，将结果赋给变量y，然后将结果打印出来，带有一位小数。这两个浮点数相乘的结果是12，所以打印出的值是12.0。<code>Output #6</code>和<code>Output #7</code>表示以两种方式计算8除以3，结果都是一个浮点数，大约等于2.667。</p>
+<h3 id="2-3-math模块"><a href="#2-3-math模块" class="headerlink" title="2.3 math模块"></a>2.3 math模块</h3><p>  <code>math</code>是一个十分有用的标准模块，可以满足一些常见的数字计算。需要使用math模块时，只需在脚本开头添加<code>from math import [function name]</code>，如<code>from math import exp, log, sqrt</code>添加了exp、log和sqrt三个函数，即可进行乘方、自然对数和平方根的计算。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">z = 6</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #8: &#123;0:.4f&#125;"</span>.format(exp(z)))</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #9: &#123;0:.2f&#125;"</span>.format(<span class="built_in">log</span>(z)))</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #10: &#123;0:.1f&#125;"</span>.format(sqrt(z)))</div></pre></td></tr></table></figure></p>
+<p>  <code>Output #8</code>到<code>Output #10</code>分别输出z的乘方、自然对数和平方根，约为403.4288，1.79，2.4。<br>  关于数学模块和其他标准模块以及内置函数的更多信息，可以参考<a href="https://docs.python.org/3/library/index.html" target="_blank" rel="external">Python3标准库</a>。</p>
+<h2 id="（三）字符串-Strings"><a href="#（三）字符串-Strings" class="headerlink" title="（三）字符串(Strings)"></a>（三）字符串(Strings)</h2><p>  字符串就是一系列字符组成的序列，是Python中的另一种基本数据类型。字符串由引号括起，其中的引号可以是单引号，也可以是双引号，甚至是3个单引号或3个双引号。下面是字符串的几个示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #11: &#123;0:s&#125;"</span>.format(<span class="string">'I\'</span>m enjoying learning Python.<span class="string">'))</span></div><div class="line"><span class="string">print("Output #12: &#123;0:s&#125;".format("This is a long string. Without the backslash\</span></div><div class="line"><span class="string">it would run off of the page on the right in the text editor and be very\</span></div><div class="line"><span class="string">difficult to read and edit. By using the backslash you can split the long\</span></div><div class="line"><span class="string">string into smaller strings on separate lines so that the whole string is easy\</span></div><div class="line"><span class="string">to view in the text editor."))</span></div><div class="line"><span class="string">print("Output #13: &#123;0:s&#125;".format('</span><span class="string">''</span>You can use triple single quotes</div><div class="line"><span class="keyword">for</span> multi-line comment strings.<span class="string">''</span><span class="string">'))</span></div><div class="line"><span class="string">print("Output #14: &#123;0:s&#125;".format("""You can also use triple double quotes</span></div><div class="line"><span class="string">for multi-line comment strings."""))</span></div></pre></td></tr></table></figure></p>
+<p>  从上面的示例中，我们不难发现，由1个单引号或1个双引号括起的字符串为单行字符串，需要换行的时候，必须在行尾加上<code>\</code>。但这种办法不够稳妥，因为<code>\</code>必须是行尾最后一个字符，如果意外地按了一下空格键，<code>\</code>后面就会出现一个看不见的空格，从而出现语法错误，不能正常运行。而由3个单引号或3个双引号括起的，则为多行字符串，不需要行尾添加<code>\</code>，这个特性也被人用来创建多行注释（并不建议这样做）。下面是几个常用的字符串函数：</p>
+<h3 id="3-1-split"><a href="#3-1-split" class="headerlink" title="3.1 split()"></a>3.1 split()</h3><p>  split()函数将一个字符串拆分成一个子字符串列表，列表中的子字符串正好可以构成原字符串（列表为Python中的另一种数据类型，属于下一篇的内容）。split()函数可以在括号中使用两个附加参数，分别表示使用哪个字符进行拆分合进行拆分的次数。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">string1 = <span class="string">"My deliverable is due in May"</span></div><div class="line">string1_list1 = string1.split()</div><div class="line">string1_list2 = string1.split(<span class="string">" "</span>,2)</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #15: &#123;0&#125;"</span>.format(string1_list1))</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #16: FIRST PIECE:&#123;0&#125; SECOND PIECE:&#123;1&#125; THIRD PIECE:&#123;2&#125;"</span>\</div><div class="line">.format(string1_list2[0], string1_list2[1], string1_list2[2]))</div><div class="line">string2 = <span class="string">"Your,deliverable,is,due,in,June"</span></div><div class="line">string2_list = string2.split(<span class="string">','</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #17: &#123;0&#125;"</span>.format(string2_list))</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #18: &#123;0&#125; &#123;1&#125; &#123;2&#125;"</span>.format(string2_list[1], string2_list[5],\</div><div class="line">string2_list[-1]))</div></pre></td></tr></table></figure></p>
+<p>  <code>Output #15</code>中，括号内无附加参数，因此<code>split()</code>函数按默认值（空格字符）进行拆分，又因为字符串中含有5个空格被拆分为6个子字符串。<code>Output #16</code>则包含了两个附加参数<code>&quot; &quot;</code>和<code>2</code>，即只想使用前两个空格进行拆分，生成含有三个子字符串的列表。<code>Output #17</code>和<code>Output #18</code>的附加参数为<code>,</code>，因此在出现逗号的位置拆分字符串。</p>
+<h3 id="3-2-join"><a href="#3-2-join" class="headerlink" title="3.2 join()"></a>3.2 join()</h3><p>  join()函数与split()函数相反，将列表中的子字符串组合成一个字符串。使用时，将一个参数放在join()面前，表示使用这个字符（或字符串）在子字符串之间进行组合：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #19: &#123;0&#125;"</span>.format(<span class="string">','</span>.join(string2_list)))</div></pre></td></tr></table></figure></p>
+<p>  结果为<code>Your,deliverable,is,due,in,June</code>。</p>
+<h3 id="3-3-strip"><a href="#3-3-strip" class="headerlink" title="3.3 strip()"></a>3.3 strip()</h3><p>  strip()函数可以从字符串的两侧去除空格、制表符和换行符，而想要仅从字符串地方左侧或右侧去除，则需要用到lstrip()或rstrip()函数。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">string3 = <span class="string">" Remove unwanted characters from this string.\t\t \n"</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #20: string3: &#123;0:s&#125;"</span>.format(string3))</div><div class="line">string3_lstrip = string3.lstrip()</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #21: lstrip: &#123;0:s&#125;"</span>.format(string3_lstrip))</div><div class="line">string3_rstrip = string3.rstrip()</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #22: rstrip: &#123;0:s&#125;"</span>.format(string3_rstrip))</div><div class="line">string3_strip = string3.strip()</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #23: strip: &#123;0:s&#125;"</span>.format(string3_strip))</div></pre></td></tr></table></figure></p>
+<p>  strip()函数还可以设置附加参数，以从字符串两端删除其他字符，如<code>Output #25</code>将<code>string4</code>中的<code>&#39;$_-+&#39;</code>字符全部删去。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">string4 = <span class="string">"$<span class="variable">$Here</span>'s another string that has unwanted characters.__---++"</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #24: &#123;0:s&#125;"</span>.format(string4))</div><div class="line">string4 = <span class="string">"$<span class="variable">$The</span> unwanted characters have been removed.__---++"</span></div><div class="line">string4_strip = string4.strip(<span class="string">'$_-+'</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #25: &#123;0:s&#125;"</span>.format(string4_strip))</div></pre></td></tr></table></figure></p>
+<h3 id="3-4-replace"><a href="#3-4-replace" class="headerlink" title="3.4 replace()"></a>3.4 replace()</h3><p>  replace()函数将字符串中的一个或一组字符替换为另一个或另一组字符。这个函数在括号中使用两个附加参数，第一个参数是要在字符串中查找替换的字符或一组字符，第二个参数是要用来替换掉第一个参数的字符或一组字符：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">string5 = <span class="string">"Let's replace the spaces in this sentence with other characters."</span></div><div class="line">string5_replace = string5.replace(<span class="string">" "</span>, <span class="string">"!@!"</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #26 (with !@!): &#123;0:s&#125;"</span>.format(string5_replace))</div><div class="line">string5_replace = string5.replace(<span class="string">" "</span>, <span class="string">","</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #27 (with commas): &#123;0:s&#125;"</span>.format(string5_replace))</div></pre></td></tr></table></figure></p>
+<p>  <code>Output #32</code>展示了如何使用replace()函数将字符串中的空格替换为!@!，而<code>Output #33</code>则展示了如何使用逗号替换字符串中的空格。</p>
+<h3 id="3-5-lower-、upper-和capitalize"><a href="#3-5-lower-、upper-和capitalize" class="headerlink" title="3.5 lower()、upper()和capitalize()"></a>3.5 lower()、upper()和capitalize()</h3><p>  lower()和upper()函数分别用来将字符串中的字母转换成小写或大写，而capitalize()函数则是将字符串中的第一个字母变为大写，其余变为小写。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">string6 = <span class="string">"Here's WHAT Happens WHEN You Use lower."</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #28: &#123;0:s&#125;"</span>.format(string6.lower()))</div><div class="line">string7 = <span class="string">"Here's what Happens when You Use UPPER."</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #29: &#123;0:s&#125;"</span>.format(string7.upper()))</div><div class="line">string5 = <span class="string">"here's WHAT Happens WHEN you use Capitalize."</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #30: &#123;0:s&#125;"</span>.format(string5.capitalize()))</div><div class="line">string5_list = string5.split()</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #31 (on each word):"</span>)</div><div class="line"><span class="keyword">for</span> word <span class="keyword">in</span> string5_list:</div><div class="line">    <span class="built_in">print</span>(<span class="string">"&#123;0:s&#125;"</span>.format(word.capitalize()))</div></pre></td></tr></table></figure></p>
+<p>  <code>Output #28</code>和<code>Output #29</code>通过lower()和upper()，将<code>string6</code>中的所有字母变为小写，<code>string7</code>中的所有字母变为大写。<code>Output #30</code>和<code>Output #31</code>则演示了capitalize()，其中`Output #31用到了<strong>for循环</strong>（在控制流中再详细讨论）将每一个子符串首字母大写。</p>
+
+                
+
+
+<p class="red-link-context">
+    <a href="/2017/10/21/gtd-intro/" rel="next" title="GTD简介">
+    下一篇：GTD简介
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large red">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect indigo" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse orange darken-1"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m8 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="https://github.com/gaiusyao" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://codepen.io/gaiusyao/" target="_blank">
+                        <i class="fa fa-2x fa-codepen"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                <!--
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+-->
+
+            </div>
+            
+
+            
+            <div class="col m4 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="https://william8188.github.io/" target="_blank">李梓峰的技术博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright red-link-context">
+        <div class="container">
+            © 2017 Gaius-Yao, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('red lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-search').append('<span class="new badge red"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=63863615" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
