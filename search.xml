@@ -237,14 +237,6 @@
         
     </entry>
     
-  
-  
-    
-    <entry>
-      <title><![CDATA[404]]></title>
-      <url>//404.html</url>
-      <content type="html"><![CDATA[<html><br><head><br></head><br><body><br><script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="http://leyar.me" homepagename="返回主页"></script><br></body><br></html>]]></content>
-    </entry>
     
     <entry>
       <title><![CDATA[关于]]></title>
@@ -252,12 +244,7 @@
       <content type="html"><![CDATA[<p>尧翔，男，1995年生，广东人。<br>在持续寻找问题更优解的过程中，让正确的事情相继发生。</p>
 ]]></content>
     </entry>
-    
-    <entry>
-      <title><![CDATA[读书]]></title>
-      <url>/reading/index.html</url>
-      <content type="html"></content>
-    </entry>
+
     
   
 </search>
