@@ -1,0 +1,669 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>03.字典 </title>
+    <meta name="author" content="Gaius Yao">
+    
+    <meta name="description" content="Gaius Yao Blog">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="03.字典"/>
+    <meta property="og:site_name" content="尧翔的个人博客"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="尧翔的个人博客" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">尧翔的个人博客</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://oxv2o8wp9.bkt.clouddn.com/gaius.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">尧翔</p>
+                        <p class="desc">PM, UXer, Huge Nerd</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/项目介绍/">
+                    项目介绍 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/项目介绍/Gaius-Things-Done/">
+                    Gaius-Things-Done <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-2" collapse-level="2">
+                <a class="no-padding" href="/categories/项目介绍/Gaius-Things-Done/GTD笔记/">
+                    GTD笔记 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/项目介绍/Gaius-Blog/">
+                    Gaius-Blog <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/代码之路/">
+                    代码之路 <span class="right">4 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/代码之路/人生苦短，我用Python/">
+                    人生苦短，我用Python <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-2" collapse-level="2">
+                <a class="no-padding" href="/categories/代码之路/人生苦短，我用Python/Python基础/">
+                    Python基础 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/代码之路/微小的教程/">
+                    微小的教程 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-2" collapse-level="2">
+                <a class="no-padding" href="/categories/代码之路/微小的教程/Hexo/">
+                    Hexo <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/代码之路/">代码之路</a><a class="breadcrumb" href="/categories/代码之路/人生苦短，我用Python/">人生苦短，我用Python</a><a class="breadcrumb" href="/categories/代码之路/人生苦短，我用Python/Python基础/">Python基础</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>03.字典</h1>
+    
+
+
+            </div>
+            <time class="red-link-context" datetime="2017-10-28T13:17:18.000Z"><a href="/2017/10/28/dictionaries/">2017-10-28</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
+        
+    </div>
+
+
+            <div class="toc red-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#3-1-字典-Dictionaries-简介"><span class="section table-of-contents-text">3.1 字典(Dictionaries)简介</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#3-2-使用字典"><span class="section table-of-contents-text">3.2 使用字典</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-2-1-访问字典中的值"><span class="section table-of-contents-text">3.2.1 访问字典中的值</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-2-2-添加键—值对"><span class="section table-of-contents-text">3.2.2 添加键—值对</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-2-3-先创建一个空字典"><span class="section table-of-contents-text">3.2.3 先创建一个空字典</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-2-4-修改字典中的值"><span class="section table-of-contents-text">3.2.4 修改字典中的值</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-2-5-删除键—值对"><span class="section table-of-contents-text">3.2.5 删除键—值对</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-2-6-由类似对象组成的字典"><span class="section table-of-contents-text">3.2.6 由类似对象组成的字典</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#3-3-遍历字典"><span class="section table-of-contents-text">3.3 遍历字典</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-3-1-遍历所有的键—值对"><span class="section table-of-contents-text">3.3.1 遍历所有的键—值对</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-3-2-遍历字典中的所有键"><span class="section table-of-contents-text">3.3.2 遍历字典中的所有键</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-3-3-按顺序遍历字典中的所有键"><span class="section table-of-contents-text">3.3.3 按顺序遍历字典中的所有键</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-3-4-遍历字典中的所有值"><span class="section table-of-contents-text">3.3.4 遍历字典中的所有值</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#3-4-嵌套"><span class="section table-of-contents-text">3.4 嵌套</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-4-1-字典列表"><span class="section table-of-contents-text">3.4.1 字典列表</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-4-2-在字典中存储列表"><span class="section table-of-contents-text">3.4.2 在字典中存储列表</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-4-2-在字典中存储字典"><span class="section table-of-contents-text">3.4.2 在字典中存储字典</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry red-link-context">
+                <h2 id="3-1-字典-Dictionaries-简介"><a href="#3-1-字典-Dictionaries-简介" class="headerlink" title="3.1 字典(Dictionaries)简介"></a>3.1 字典(Dictionaries)简介</h2><p>  Python中的字典本质上是包含各种带有唯一标识符的成对信息的列表，可以理解为是一系列的<strong>键—值对</strong>，但与列表不同的是，字典是以<strong>键</strong>（整数、字符串、列表、字典或其他Python 对象）而非索引来引用某个元素，在唯一键值比连续整数更能反映出变量值含义的情况下，这个特点使字典比列表更实用。另外，字典是由花括号<code>{}</code>括起的，而非列表的中括号<code>[]</code>。而更为关键的是，字典不同于列表，字典是没有内置排序的，而列表会根据索引值（连续整数）进行隐式排序，这让字典可以很方便快速的进行搜索或添加操作（计算机不需要重新分配索引），这也让字典比列表更适合处理数据量多的情况。下面是一个简单的字典示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">simple_dict = &#123;<span class="string">'one'</span>:1, <span class="string">'two'</span>:2, <span class="string">'three'</span>:3&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #1: &#123;0&#125;"</span>.format(simple_dict)) <span class="comment">#将字典打印出来，包括花括号</span></div></pre></td></tr></table></figure></p>
+<h2 id="3-2-使用字典"><a href="#3-2-使用字典" class="headerlink" title="3.2 使用字典"></a>3.2 使用字典</h2><h3 id="3-2-1-访问字典中的值"><a href="#3-2-1-访问字典中的值" class="headerlink" title="3.2.1 访问字典中的值"></a>3.2.1 访问字典中的值</h3><p>  要获取与键相关联的值，可依次指定字典名和放在方括号内的键<code>dict_name[key]</code>，如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ninja_turtle_0 = &#123;<span class="string">'name'</span>:<span class="string">'Leonardo'</span>, <span class="string">'color'</span>:<span class="string">'blue'</span>, <span class="string">'weapon'</span>:<span class="string">'katana'</span>&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #2: &#123;0&#125;"</span>.format(ninja_turtle_0[<span class="string">'name'</span>])) <span class="comment">#Leonardo</span></div></pre></td></tr></table></figure></p>
+<h3 id="3-2-2-添加键—值对"><a href="#3-2-2-添加键—值对" class="headerlink" title="3.2.2 添加键—值对"></a>3.2.2 添加键—值对</h3><p>  字典是一种动态结构，可随时在其中添加键—值对。要添加键—值对，可依次指定字典名、用方括号括起的键和相关联的值。下面为<code>ninja_turtle_0</code>添加两项信息：位置的X坐标和Y坐标。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ninja_turtle_0[<span class="string">'x_position'</span>] = 190</div><div class="line">ninja_turtle_0[<span class="string">'y_position'</span>] = 250</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #3: &#123;0&#125;"</span>.format(ninja_turtle_0))</div></pre></td></tr></table></figure></p>
+<h3 id="3-2-3-先创建一个空字典"><a href="#3-2-3-先创建一个空字典" class="headerlink" title="3.2.3 先创建一个空字典"></a>3.2.3 先创建一个空字典</h3><p>  使用字典来存储用户提供的数据或在编写能自动生成大量键—值对的代码时，通常都需要先定义一个空字典：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">master_rat = &#123;&#125;</div><div class="line">master_rat[<span class="string">'name'</span>] = <span class="string">"Splinter"</span></div><div class="line">master_rat[<span class="string">'color'</span>] = <span class="string">"grey"</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #4: &#123;0&#125;"</span>.format(master_rat))</div></pre></td></tr></table></figure></p>
+<h3 id="3-2-4-修改字典中的值"><a href="#3-2-4-修改字典中的值" class="headerlink" title="3.2.4 修改字典中的值"></a>3.2.4 修改字典中的值</h3><p>  要修改字典中的值，可依次指定字典名、用方括号括起的键以及与该键相关联的新值。例如，修改忍者神龟的位置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ninja_turtle_0[<span class="string">'x_position'</span>] = 250</div><div class="line">ninja_turtle_0[<span class="string">'y_position'</span>] = 200</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #5: &#123;0&#125;, &#123;1&#125;"</span>.format(ninja_turtle_0[<span class="string">'x_position'</span>], ninja_turtle_0[<span class="string">'y_position'</span>]))</div></pre></td></tr></table></figure></p>
+<h3 id="3-2-5-删除键—值对"><a href="#3-2-5-删除键—值对" class="headerlink" title="3.2.5 删除键—值对"></a>3.2.5 删除键—值对</h3><p>  对于字典中不再需要的信息，可使用del语句将相应的键—值对彻底删除。这里要注意的是，在使用del语句时，必须指定字典名和要删除的键：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">del ninja_turtle_0[<span class="string">'weapon'</span>]</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #6: &#123;0&#125;"</span>.format(ninja_turtle_0))</div></pre></td></tr></table></figure></p>
+<h3 id="3-2-6-由类似对象组成的字典"><a href="#3-2-6-由类似对象组成的字典" class="headerlink" title="3.2.6 由类似对象组成的字典"></a>3.2.6 由类似对象组成的字典</h3><p>  字典存储的是一个对象（忍者神龟里的角色）的多种信息，但你也可以使用字典来存储众多对象的同一种信息。例如，假设你要调查很多人，询问他们最喜欢的编程语言，可使用一个字典来存储这种简单调查的结果，如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">favorite_languages = &#123;</div><div class="line">    <span class="string">'jen'</span>: <span class="string">'python'</span>,</div><div class="line">    <span class="string">'sarah'</span>: <span class="string">'c'</span>,</div><div class="line">    <span class="string">'edward'</span>: <span class="string">'ruby'</span>,</div><div class="line">    <span class="string">'phil'</span>: <span class="string">'python'</span>,</div><div class="line">    &#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #7: \nSarah's favorite language is "</span> + favorite_languages[<span class="string">'sarah'</span>].title() + <span class="string">"."</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="3-3-遍历字典"><a href="#3-3-遍历字典" class="headerlink" title="3.3 遍历字典"></a>3.3 遍历字典</h2><h3 id="3-3-1-遍历所有的键—值对"><a href="#3-3-1-遍历所有的键—值对" class="headerlink" title="3.3.1 遍历所有的键—值对"></a>3.3.1 遍历所有的键—值对</h3><p>  使用for循环遍历<code>favorite_languages</code>中的所有键—值对，并逐个打印出每人最喜欢什么编程语言：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #8: "</span>)</div><div class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> favorite_languages.items():</div><div class="line">    <span class="built_in">print</span>(key.title() + <span class="string">"'s favorite language is "</span> + value.title() + <span class="string">"."</span>)</div></pre></td></tr></table></figure></p>
+<h3 id="3-3-2-遍历字典中的所有键"><a href="#3-3-2-遍历字典中的所有键" class="headerlink" title="3.3.2 遍历字典中的所有键"></a>3.3.2 遍历字典中的所有键</h3><p>  在不需要使用字典中的值时，可以利用keys()函数提取字典的键。下面来遍历<code>favorite_languages</code>，并将每个被调查者的名字都打印出来：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #9: "</span>)</div><div class="line"><span class="keyword">for</span> name <span class="keyword">in</span> favorite_languages.keys():</div><div class="line">    <span class="built_in">print</span>(name.title())</div></pre></td></tr></table></figure></p>
+<h3 id="3-3-3-按顺序遍历字典中的所有键"><a href="#3-3-3-按顺序遍历字典中的所有键" class="headerlink" title="3.3.3 按顺序遍历字典中的所有键"></a>3.3.3 按顺序遍历字典中的所有键</h3><p>  字典总是明确地记录键和值之间的关联关系，但获取字典的元素时，获取顺序是不可预测的。要以特定的顺序返回元素，一种办法是在for循环中对返回的键进行排序。为此，可使用之前用过的sorted()函数来获得按特定顺序排列的键列表的副本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #10: "</span>)</div><div class="line"><span class="keyword">for</span> name <span class="keyword">in</span> sorted(favorite_languages.keys()):</div><div class="line">    <span class="built_in">print</span>(<span class="string">"&#123;0&#125;, thank you for taking the poll."</span>.format(name.title()))</div></pre></td></tr></table></figure></p>
+<h3 id="3-3-4-遍历字典中的所有值"><a href="#3-3-4-遍历字典中的所有值" class="headerlink" title="3.3.4 遍历字典中的所有值"></a>3.3.4 遍历字典中的所有值</h3><p>  如果你感兴趣的主要是字典包含的值，可使用values()函数，它返回一个值列表，而不包含任何键。例如，如果我们想获得一个列表只包含被调查者选择的各种语言，而不包含被调查者的名字，可以这样做：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #11: "</span>)</div><div class="line"><span class="keyword">for</span> language <span class="keyword">in</span> favorite_languages.values():</div><div class="line">    <span class="built_in">print</span>(language.title())</div></pre></td></tr></table></figure></p>
+<p>  这里得到的结果会出现两个<code>Python</code>，如果不希望结果中出现重复的元素，可使用集合（set）。集合类似于列表，但每个元素都必须是独一无二的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #12: "</span>)</div><div class="line"><span class="keyword">for</span> language <span class="keyword">in</span> <span class="built_in">set</span>(favorite_languages.values()):</div><div class="line">    <span class="built_in">print</span>(language.title())</div></pre></td></tr></table></figure></p>
+<h2 id="3-4-嵌套"><a href="#3-4-嵌套" class="headerlink" title="3.4 嵌套"></a>3.4 嵌套</h2><h3 id="3-4-1-字典列表"><a href="#3-4-1-字典列表" class="headerlink" title="3.4.1 字典列表"></a>3.4.1 字典列表</h3><p>  字典<code>ninja_turtle_0</code>中只存储了一个忍者神龟的信息，而需要存储其他忍者神龟的信息，则需要创建一个忍者神龟列表，其中每一个忍者神龟都是一个字典，包含各种相关信息，如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ninja_turtle_0 = &#123;<span class="string">'name'</span>:<span class="string">'Leonardo'</span>, <span class="string">'color'</span>:<span class="string">'blue'</span>, <span class="string">'weapon'</span>:<span class="string">'katana'</span>&#125;</div><div class="line">ninja_turtle_1 = &#123;<span class="string">'name'</span>:<span class="string">'Raphael'</span>, <span class="string">'color'</span>:<span class="string">'red'</span>, <span class="string">'weapon'</span>:<span class="string">'sai'</span>&#125;</div><div class="line">ninja_turtle_2 = &#123;<span class="string">'name'</span>:<span class="string">'Michelangelo'</span>, <span class="string">'color'</span>:<span class="string">'orange'</span>, <span class="string">'weapon'</span>:<span class="string">'double-cut stick'</span>&#125;</div><div class="line">ninja_turtle_3 = &#123;<span class="string">'name'</span>:<span class="string">'Donatello'</span>, <span class="string">'color'</span>:<span class="string">'purple'</span>, <span class="string">'weapon'</span>:<span class="string">'bo'</span>&#125;</div><div class="line"></div><div class="line">ninja_turtles = [ninja_turtle_0, ninja_turtle_1, ninja_turtle_2, ninja_turtle_3]</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #13: "</span>)</div><div class="line"><span class="keyword">for</span> ninja_turtle <span class="keyword">in</span> ninja_turtles:</div><div class="line">    <span class="built_in">print</span>(ninja_turtle)</div></pre></td></tr></table></figure></p>
+<p>  完成忍者神龟字典列表的创建后，我们再用range()生成30个脚帮杂兵：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#创建一个空列表</span></div><div class="line">foot_ninjas = []</div><div class="line"></div><div class="line"><span class="comment">#创建30个脚帮杂兵</span></div><div class="line"><span class="keyword">for</span> foot_ninja_num <span class="keyword">in</span> range(30):</div><div class="line">    new_foot_ninja = &#123;<span class="string">'color'</span>: <span class="string">'black'</span>, <span class="string">'weapon'</span>:<span class="string">'sword'</span>&#125;</div><div class="line">    foot_ninjas.append(new_foot_ninja)</div><div class="line"></div><div class="line"><span class="comment">#显示前5个脚帮杂兵的详细信息，和总数</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #14: "</span>)</div><div class="line"><span class="keyword">for</span> foot_ninja <span class="keyword">in</span> foot_ninjas[:5]:</div><div class="line">    <span class="built_in">print</span>(foot_ninja)</div><div class="line"><span class="built_in">print</span>(<span class="string">"Total number of foot ninjas: "</span> + str(len(foot_ninjas)))</div></pre></td></tr></table></figure></p>
+<p>  这里我们还可以利用切片操作，将一部分脚帮杂兵的武器改为弓箭：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #15: "</span>)</div><div class="line"><span class="keyword">for</span> foot_ninja <span class="keyword">in</span> foot_ninjas[3:9]:</div><div class="line">    <span class="keyword">if</span> foot_ninja[<span class="string">'weapon'</span>] != <span class="string">'bow'</span>:</div><div class="line">        foot_ninja[<span class="string">'weapon'</span>] = <span class="string">'bow'</span></div><div class="line">    <span class="built_in">print</span>(foot_ninja)</div></pre></td></tr></table></figure></p>
+<h3 id="3-4-2-在字典中存储列表"><a href="#3-4-2-在字典中存储列表" class="headerlink" title="3.4.2 在字典中存储列表"></a>3.4.2 在字典中存储列表</h3><p>  有时候，需要将列表存储在字典中，而不是将字典存储在列表中。例如，你如何描述顾客点的比萨呢？如果使用列表，只能存储要添加的比萨配料；但如果使用字典，就不仅可在其中包含配料列表，还可包含其他有关比萨的描述。在下面的示例中，存储了比萨的两方面信息：外皮类型和配料列表。其中的配料列表是一个与键<code>toppings</code>相关联的值:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">pizza = &#123;</div><div class="line">    <span class="string">'crust'</span>: <span class="string">'thick'</span>,</div><div class="line">    <span class="string">'toppings'</span>: [<span class="string">'mushrooms'</span>, <span class="string">'extra cheese'</span>],</div><div class="line">    &#125;</div><div class="line"><span class="comment"># 概述所点的比萨</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #16: \nYou ordered a &#123;0&#125;-crust pizza with the following toppings:"</span>.format(pizza[<span class="string">'crust'</span>]))</div><div class="line"><span class="keyword">for</span> topping <span class="keyword">in</span> pizza[<span class="string">'toppings'</span>]:</div><div class="line">    <span class="built_in">print</span>(<span class="string">"\t"</span> + topping)</div></pre></td></tr></table></figure></p>
+<p>  每当需要在字典中将一个键关联到多个值时，都可以在字典中嵌套一个列表。在本章前面有关喜欢的编程语言的示例中，如果将每个人的回答都存储在一个列表中，被调查者就可选择多种喜欢的语言:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">favorite_languages = &#123;</div><div class="line">    <span class="string">'jen'</span>: [<span class="string">'python'</span>, <span class="string">'ruby'</span>],</div><div class="line">    <span class="string">'sarah'</span>: [<span class="string">'c'</span>],</div><div class="line">    <span class="string">'edward'</span>: [<span class="string">'ruby'</span>, <span class="string">'go'</span>],</div><div class="line">    <span class="string">'phil'</span>: [<span class="string">'python'</span>, <span class="string">'haskell'</span>],</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #17: "</span>)</div><div class="line"><span class="keyword">for</span> name, languages <span class="keyword">in</span> favorite_languages.items():</div><div class="line">    <span class="built_in">print</span>(<span class="string">"\n&#123;0&#125;'s favorite languages are:"</span>.format(name.title()))</div><div class="line">    <span class="keyword">for</span> language <span class="keyword">in</span> languages:</div><div class="line">        <span class="built_in">print</span>(<span class="string">"\t&#123;0&#125;"</span>.format(language.title()))</div></pre></td></tr></table></figure></p>
+<h3 id="3-4-2-在字典中存储字典"><a href="#3-4-2-在字典中存储字典" class="headerlink" title="3.4.2 在字典中存储字典"></a>3.4.2 在字典中存储字典</h3><p>  可在字典中嵌套字典，但这样做时，代码可能很快复杂起来。例如，如果有多个网站用户，每个都有独特的用户名，可在字典中将用户名作为键，然后将每位用户的信息存储在一个字典中，并将该字典作为与用户名相关联的值：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">users = &#123;</div><div class="line">    <span class="string">'aeinstein'</span>: &#123;</div><div class="line">        <span class="string">'first'</span>: <span class="string">'albert'</span>,</div><div class="line">        <span class="string">'last'</span>: <span class="string">'einstein'</span>,</div><div class="line">        <span class="string">'location'</span>: <span class="string">'princeton'</span>,</div><div class="line">        &#125;,</div><div class="line">    <span class="string">'mcurie'</span>: &#123;</div><div class="line">        <span class="string">'first'</span>: <span class="string">'marie'</span>,</div><div class="line">        <span class="string">'last'</span>: <span class="string">'curie'</span>,</div><div class="line">        <span class="string">'location'</span>: <span class="string">'paris'</span>,</div><div class="line">        &#125;,</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> username, user_info <span class="keyword">in</span> users.items():</div><div class="line">    <span class="built_in">print</span>(<span class="string">"\nUsername: &#123;0&#125;"</span>.format(username))</div><div class="line">    full_name = user_info[<span class="string">'first'</span>] + <span class="string">" "</span> + user_info[<span class="string">'last'</span>]</div><div class="line">    location = user_info[<span class="string">'location'</span>]</div><div class="line">    <span class="built_in">print</span>(<span class="string">"\tFull name: &#123;0&#125;"</span>.format(full_name.title()))</div><div class="line">    <span class="built_in">print</span>(<span class="string">"\tLocation: &#123;0&#125;"</span>.format(location.title()))</div></pre></td></tr></table></figure></p>
+<p>  需要注意的是，这里表示每位用户的字典的结构都相同，这使得嵌套的字典处理起来更容易。倘若表示每位用户的字典都包含不同的键，for循环内部的代码将更复杂。</p>
+<p>  本篇文章的代码可从<a href="https://github.com/gaiusyao/pivotlab/tree/master/learn_python" target="_blank" rel="external">我的GitHub</a>上获取。</p>
+
+                
+
+
+<p class="red-link-context">
+    <a href="/2017/10/28/lists-tuples/" rel="next" title="02.列表和元组">
+    上一篇：02.列表和元组
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large red">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect indigo" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse orange darken-1"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m8 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="https://github.com/gaiusyao" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://codepen.io/gaiusyao/" target="_blank">
+                        <i class="fa fa-2x fa-codepen"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                <!--
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+-->
+
+            </div>
+            
+
+            
+            <div class="col m4 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="https://william8188.github.io/" target="_blank">李梓峰的技术博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright red-link-context">
+        <div class="container">
+            © 2017 Gaius-Yao, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('red lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-search').append('<span class="new badge red"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=63863615" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
