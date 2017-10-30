@@ -1,0 +1,682 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>05.函数 </title>
+    <meta name="author" content="Gaius Yao">
+    
+    <meta name="description" content="Gaius Yao Blog">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="05.函数"/>
+    <meta property="og:site_name" content="尧翔的个人博客"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="尧翔的个人博客" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">尧翔的个人博客</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://oxv2o8wp9.bkt.clouddn.com/gaius.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">尧翔</p>
+                        <p class="desc">PM, UXer, Huge Nerd</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/代码之路/">
+                    代码之路 <span class="right">6 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/代码之路/人生苦短，我用Python/">
+                    人生苦短，我用Python <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-2" collapse-level="2">
+                <a class="no-padding" href="/categories/代码之路/人生苦短，我用Python/Python基础/">
+                    Python基础 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/代码之路/微小的教程/">
+                    微小的教程 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-2" collapse-level="2">
+                <a class="no-padding" href="/categories/代码之路/微小的教程/Hexo/">
+                    Hexo <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/项目介绍/">
+                    项目介绍 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/项目介绍/Gaius-Blog/">
+                    Gaius-Blog <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/项目介绍/Gaius-Things-Done/">
+                    Gaius-Things-Done <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-2" collapse-level="2">
+                <a class="no-padding" href="/categories/项目介绍/Gaius-Things-Done/GTD笔记/">
+                    GTD笔记 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/代码之路/">代码之路</a><a class="breadcrumb" href="/categories/代码之路/人生苦短，我用Python/">人生苦短，我用Python</a><a class="breadcrumb" href="/categories/代码之路/人生苦短，我用Python/Python基础/">Python基础</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>05.函数</h1>
+    
+
+
+            </div>
+            <time class="red-link-context" datetime="2017-10-30T03:03:45.000Z"><a href="/2017/10/30/functions/">2017-10-30</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
+        
+    </div>
+
+
+            <div class="toc red-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#5-1-函数的定义"><span class="section table-of-contents-text">5.1 函数的定义</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-1-1-示例"><span class="section table-of-contents-text">5.1.1 示例</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-1-2-向函数传递信息"><span class="section table-of-contents-text">5.1.2 向函数传递信息</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-1-3-实参和形参"><span class="section table-of-contents-text">5.1.3 实参和形参</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#5-2-传递实参"><span class="section table-of-contents-text">5.2 传递实参</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-2-1-位置实参"><span class="section table-of-contents-text">5.2.1 位置实参</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-2-2-关键字实参"><span class="section table-of-contents-text">5.2.2 关键字实参</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-2-3-默认值"><span class="section table-of-contents-text">5.2.3 默认值</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#5-3-返回值"><span class="section table-of-contents-text">5.3 返回值</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-3-1-返回简单值"><span class="section table-of-contents-text">5.3.1 返回简单值</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-3-2-可选实参"><span class="section table-of-contents-text">5.3.2 可选实参</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-3-3-返回字典"><span class="section table-of-contents-text">5.3.3 返回字典</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-3-4-结合while循环"><span class="section table-of-contents-text">5.3.4 结合while循环</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#5-4-传递列表"><span class="section table-of-contents-text">5.4 传递列表</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#5-5-传递任意数量的实参"><span class="section table-of-contents-text">5.5 传递任意数量的实参</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#5-6-将函数存储在模块中"><span class="section table-of-contents-text">5.6 将函数存储在模块中</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#5-7-函数编写注意事项"><span class="section table-of-contents-text">5.7 函数编写注意事项</span></a></li></ol>
+</div>
+
+
+            <div class="entry red-link-context">
+                <p>  可以将函数理解为带名字的代码块，用于被反复调用以完成具体的工作。函数的使用，极大地减少了重复代码的出现，提升了代码的可复用性，让程序的编写、阅读、测试和修复都变得更容易。</p>
+<h2 id="5-1-函数的定义"><a href="#5-1-函数的定义" class="headerlink" title="5.1 函数的定义"></a>5.1 函数的定义</h2><h3 id="5-1-1-示例"><a href="#5-1-1-示例" class="headerlink" title="5.1.1 示例"></a>5.1.1 示例</h3><p>  通过关键字<code>def</code>引入函数的定义。它必须后跟函数名和形式参数的括号列表。形成函数体的语句从下一行开始，必须缩进。下面定义了一个函数，用以将<strong>Fibonacci</strong>序列写入任意边界：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">def fib(n):</div><div class="line">    <span class="string">""</span><span class="string">"打印一个Fibonacci序列"</span><span class="string">""</span></div><div class="line">    a, b = 0, 1</div><div class="line">    <span class="keyword">while</span> a &lt; n:</div><div class="line">        <span class="built_in">print</span>(a, end = <span class="string">' '</span>)</div><div class="line">        a, b = b, a+b</div></pre></td></tr></table></figure></p>
+<p>  第1行代码是<strong>函数定义</strong>，向Python指出了函数名，还可能在括号内指出函数为完成其任务需要什么样的信息。第2行的文本是被称为<strong>文档字符串</strong>（docstring）的注释，描述了函数是做什么的，由三引号括起，Python使用它来生成有关程序中函数的文档。第3至第6行则是具体的执行代码，负责打印一个Fibonacci序列。</p>
+<h3 id="5-1-2-向函数传递信息"><a href="#5-1-2-向函数传递信息" class="headerlink" title="5.1.2 向函数传递信息"></a>5.1.2 向函数传递信息</h3><p>  通过在定义函数fib()添加一个变量<code>n</code>，就可让函数接受你给<code>n</code>指定的任何值，使得调用<code>fib(n)</code>时可以给<code>n</code>指定一个值，从而生成相应的输出，下面的代码将会打印一个Fibonacci序列：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fib(2000)</div><div class="line"><span class="comment">#0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597</span></div></pre></td></tr></table></figure></p>
+<h3 id="5-1-3-实参和形参"><a href="#5-1-3-实参和形参" class="headerlink" title="5.1.3 实参和形参"></a>5.1.3 实参和形参</h3><p>  在前面定义的函数fib()中，变量<code>n</code>是一个形参——函数完成其工作所需的一项信息。在代码<code>fib(2000)</code>中，值<code>2000</code>是一个实参——调用函数时传递给函数的信息。在<code>fib(2000)</code>中，将实参<code>2000</code>传递给了函数fib()，这个值被存储在形参<code>n</code>中，由此得到想要的结果。</p>
+<h2 id="5-2-传递实参"><a href="#5-2-传递实参" class="headerlink" title="5.2 传递实参"></a>5.2 传递实参</h2><h3 id="5-2-1-位置实参"><a href="#5-2-1-位置实参" class="headerlink" title="5.2.1 位置实参"></a>5.2.1 位置实参</h3><p>  在调用函数时，Python必须将函数调用中的每个实参都关联到函数定义中的一个形参。为此，最简单的关联方式是基于实参的顺序。这种关联方式被称为<strong>位置实参</strong>。下面是一个显示宠物信息的函数,这个函数指出一个宠物属于哪种动物以及它叫什么名字，在调用它时，需要按顺序提供位置实参数（一种动物类型和一个名字），如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def describe_pet(animal_type, pet_name):</div><div class="line">    <span class="string">""</span><span class="string">"显示宠物的信息"</span><span class="string">""</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"I have a &#123;0&#125;."</span>.format(animal_type))</div><div class="line">    <span class="built_in">print</span>(<span class="string">"My &#123;0&#125;'s name is &#123;1&#125;."</span>.format(animal_type, pet_name.title()))</div><div class="line">   </div><div class="line">describe_pet(<span class="string">'hamster'</span>, <span class="string">'harry'</span>) </div><div class="line"><span class="comment"># I have a hamster.</span></div><div class="line"><span class="comment"># My hamster's name is Harry.</span></div></pre></td></tr></table></figure></p>
+<h3 id="5-2-2-关键字实参"><a href="#5-2-2-关键字实参" class="headerlink" title="5.2.2 关键字实参"></a>5.2.2 关键字实参</h3><p>  <strong>关键字实参</strong>是传递给函数的名称—值对，直接在实参中将名称和值关联起来了，因此向函数传递实参时不会混淆。关键字实参让你无需考虑函数调用中的实参顺序，还清楚地指出了函数调用中各个值的用途。重写5.2.1的代码，使用关键字实参来调用describe_pet()：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">describe_pet(pet_name=<span class="string">'harry'</span>, animal_type=<span class="string">'hamster'</span>)</div><div class="line"><span class="comment"># I have a hamster.</span></div><div class="line"><span class="comment"># My hamster's name is Harry.</span></div></pre></td></tr></table></figure></p>
+<h3 id="5-2-3-默认值"><a href="#5-2-3-默认值" class="headerlink" title="5.2.3 默认值"></a>5.2.3 默认值</h3><p>  编写函数时，可给每个形参指定<strong>默认值</strong>。在调用函数中给形参提供了实参时，Python将使用指定的实参值；否则，将使用形参的默认值。重写5.2.1的代码，形参<code>animal_type</code>的默认值设置为<code>&#39;dog&#39;</code>：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">def describe_pet(pet_name, animal_type=<span class="string">'dog'</span>):</div><div class="line">    <span class="string">""</span><span class="string">"显示宠物的信息"</span><span class="string">""</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"I have a &#123;0&#125;."</span>.format(animal_type))</div><div class="line">    <span class="built_in">print</span>(<span class="string">"My &#123;0&#125;'s name is &#123;1&#125;."</span>.format(animal_type, pet_name.title()))</div><div class="line">describe_pet(pet_name=<span class="string">'willie'</span>)</div><div class="line"><span class="comment"># I have a dog.</span></div><div class="line"><span class="comment"># My hamster's name is Willie.</span></div></pre></td></tr></table></figure></p>
+<p>  上述三种调用方式基本等效，因此使用哪种无关紧要，只要函数调用能生成你希望的输出就行。但要注意避免<strong>实参不匹配错误</strong>，即提供的实参多于或少于函数完成其工作所需的信息。</p>
+<h2 id="5-3-返回值"><a href="#5-3-返回值" class="headerlink" title="5.3 返回值"></a>5.3 返回值</h2><h3 id="5-3-1-返回简单值"><a href="#5-3-1-返回简单值" class="headerlink" title="5.3.1 返回简单值"></a>5.3.1 返回简单值</h3><p>  下面来看一个函数，它接受名和姓两个参数，并返回一个简单值（一个整洁的姓名）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">def get_formatted_name(first_name, last_name):</div><div class="line">    <span class="string">""</span><span class="string">"返回整洁的姓名"</span><span class="string">""</span></div><div class="line">    full_name = first_name + <span class="string">' '</span> + last_name</div><div class="line">    <span class="built_in">return</span> full_name.title()</div><div class="line">musician = get_formatted_name(<span class="string">'jimi'</span>, <span class="string">'hendrix'</span>)</div><div class="line"><span class="built_in">print</span>(musician)</div><div class="line"><span class="comment"># Jimi Hendrix</span></div></pre></td></tr></table></figure></p>
+<h3 id="5-3-2-可选实参"><a href="#5-3-2-可选实参" class="headerlink" title="5.3.2 可选实参"></a>5.3.2 可选实参</h3><p>  有时候，需要让实参变成可选的，这样使用函数的人就只需在必要时才提供额外的信息。可使用默认值来让实参变成可选的。例如，假设我们要扩展5.3.1的函数<code>get_formatted_name()</code>，使其还能处理中间名（如果有）。为此，可将中间名放在最后，且默认为空，修改后如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">def get_formatted_name(first_name, last_name, middle_name=<span class="string">''</span>):</div><div class="line">    <span class="string">""</span><span class="string">"返回整洁的姓名"</span><span class="string">""</span></div><div class="line">    <span class="keyword">if</span> middle_name:</div><div class="line">        full_name = first_name + <span class="string">' '</span> + middle_name + <span class="string">' '</span> + last_name</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        full_name = first_name + <span class="string">' '</span> + last_name</div><div class="line">    <span class="built_in">return</span> full_name.title()</div><div class="line">musician = get_formatted_name(<span class="string">'jimi'</span>, <span class="string">'hendrix'</span>)</div><div class="line"><span class="built_in">print</span>(musician)</div><div class="line"><span class="comment"># Jimi Hendrix</span></div><div class="line">musician = get_formatted_name(<span class="string">'john'</span>, <span class="string">'lee'</span>, <span class="string">'hooker'</span>)</div><div class="line"><span class="built_in">print</span>(musician)</div><div class="line"><span class="comment"># John Hooker Lee</span></div></pre></td></tr></table></figure></p>
+<h3 id="5-3-3-返回字典"><a href="#5-3-3-返回字典" class="headerlink" title="5.3.3 返回字典"></a>5.3.3 返回字典</h3><p>  函数可返回任何类型的值，包括列表和字典等较复杂的数据结构。例如，下面的函数接受姓名的组成部分，并返回一个表示人的字典：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">def build_person(first_name, last_name):</div><div class="line">    <span class="string">""</span><span class="string">"返回一个字典，其中包含有关一个人的信息"</span><span class="string">""</span></div><div class="line">    person = &#123;<span class="string">'first'</span>: first_name, <span class="string">'last'</span>: last_name&#125;</div><div class="line">    <span class="built_in">return</span> person</div><div class="line"></div><div class="line">musician = build_person(<span class="string">'jimi'</span>, <span class="string">'hendrix'</span>)</div><div class="line"><span class="built_in">print</span>(musician)</div></pre></td></tr></table></figure></p>
+<h3 id="5-3-4-结合while循环"><a href="#5-3-4-结合while循环" class="headerlink" title="5.3.4 结合while循环"></a>5.3.4 结合while循环</h3><p>  结合while循环，以更正规的方式问候用户，直到用户输入的姓或名为’q’为止：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">def get_formatted_name(first_name, last_name, middle_name=<span class="string">''</span>):</div><div class="line">    <span class="string">""</span><span class="string">"返回整洁的姓名"</span><span class="string">""</span></div><div class="line">    <span class="keyword">if</span> middle_name:</div><div class="line">        full_name = first_name + <span class="string">' '</span> + middle_name + <span class="string">' '</span> + last_name</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        full_name = first_name + <span class="string">' '</span> + last_name</div><div class="line">    <span class="built_in">return</span> full_name.title()</div><div class="line"></div><div class="line"><span class="keyword">while</span> True:</div><div class="line">    <span class="built_in">print</span>(<span class="string">"\nPlease tell me your name:"</span>)</div><div class="line">    <span class="built_in">print</span>(<span class="string">"(enter 'q' at any time to quit)"</span>)</div><div class="line"></div><div class="line">    f_name = input(<span class="string">"First name: "</span>)</div><div class="line">    <span class="keyword">if</span> f_name == <span class="string">'q'</span>:</div><div class="line">        <span class="built_in">break</span></div><div class="line"></div><div class="line">    l_name = input(<span class="string">"Last name: "</span>)</div><div class="line">    <span class="keyword">if</span> l_name == <span class="string">'q'</span>:</div><div class="line">        <span class="built_in">break</span></div><div class="line"></div><div class="line">    formatted_name = get_formatted_name(f_name, l_name)</div><div class="line">    <span class="built_in">print</span>(<span class="string">"\nHello, "</span> + formatted_name + <span class="string">"!"</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="5-4-传递列表"><a href="#5-4-传递列表" class="headerlink" title="5.4 传递列表"></a>5.4 传递列表</h2><p>  向函数传递列表非常有用，这种列表包含的可能是名字、数字或更复杂的对象（如字典）。将列表传递给函数后，函数就能直接访问其内容。下面的示例将一个名字列表传递给一个名为<code>greet_users()</code>的函数，这个函数问候列表中的每个人：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">def greet_users(names):</div><div class="line">    <span class="string">""</span><span class="string">"向列表中的每位用户都发出简单的问候"</span><span class="string">""</span></div><div class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> names:</div><div class="line">        <span class="built_in">print</span>(<span class="string">"Hello, &#123;0&#125;!"</span>.format(name.title()))</div><div class="line"></div><div class="line">usernames = [<span class="string">'hannah'</span>, <span class="string">'ty'</span>, <span class="string">'margot'</span>]</div><div class="line">greet_users(usernames)</div><div class="line"><span class="comment"># Hello, Hannah!</span></div><div class="line"><span class="comment"># Hello, Ty!</span></div><div class="line"><span class="comment"># Hello, Margot!</span></div></pre></td></tr></table></figure></p>
+<h2 id="5-5-传递任意数量的实参"><a href="#5-5-传递任意数量的实参" class="headerlink" title="5.5 传递任意数量的实参"></a>5.5 传递任意数量的实参</h2><p>  有时候，预先不知道函数需要接受多少个实参，好在Python允许函数从调用语句中收集任意数量的实参。下面的函数包含了两个形参，其中第二个形参<code>*toppings</code>中的<code>*</code>让Python创建一个名为<code>toppings</code>的空元组，但不管调用语句为第二个形参提供了多少实参，<code>*toppings</code>都将它们统统收入囊中：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def make_pizza(size, *toppings):</div><div class="line">    <span class="string">""</span><span class="string">"概述要制作的比萨"</span><span class="string">""</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"\nMaking a &#123;0&#125;-inch pizza with the following toppings:"</span>.format(str(size)))</div><div class="line">    <span class="keyword">for</span> topping <span class="keyword">in</span> toppings:</div><div class="line">        <span class="built_in">print</span>(<span class="string">"- &#123;0&#125;"</span>.format(topping))</div><div class="line"></div><div class="line">make_pizza(16, <span class="string">'pepperoni'</span>)</div><div class="line">make_pizza(12, <span class="string">'mushrooms'</span>, <span class="string">'green peppers'</span>, <span class="string">'extra cheese'</span>)</div></pre></td></tr></table></figure></p>
+<p>  有时候，需要接受任意数量的实参，但预先不知道传递给函数的会是什么样的信息。在这种情况下，可将函数编写成能够接受任意数量的键—值对——调用语句提供了多少就接受多少。一个这样的示例是创建用户简介：你知道你将收到有关用户的信息，但不确定会是什么样的信息。在下面的示例中，函数<code>build_profile()</code>接受名和姓，同时还接受任意数量的关键字实参。其中，<code>**user_info</code>创建一个名为user_info的空字典，并将收到的所有名称—值对都封装到这个字典中:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">def build_profile(first, last, **user_info):</div><div class="line">    <span class="string">""</span><span class="string">"创建一个字典，其中包含我们知道的有关用户的一切"</span><span class="string">""</span></div><div class="line">    profile = &#123;&#125;</div><div class="line">    profile[<span class="string">'first_name'</span>] = first</div><div class="line">    profile[<span class="string">'last_name'</span>] = last </div><div class="line"></div><div class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> user_info.items():</div><div class="line">        profile[key] = value</div><div class="line">    <span class="built_in">return</span> profile</div><div class="line"></div><div class="line">user_profile = build_profile(<span class="string">'albert'</span>, <span class="string">'einstein'</span>, location=<span class="string">'princeton'</span>, field=<span class="string">'physics'</span>)</div><div class="line"><span class="built_in">print</span>(user_profile)</div></pre></td></tr></table></figure></p>
+<h2 id="5-6-将函数存储在模块中"><a href="#5-6-将函数存储在模块中" class="headerlink" title="5.6 将函数存储在模块中"></a>5.6 将函数存储在模块中</h2><p>  函数的优点之一是，使用它们可将代码块与主程序分离。通过给函数指定描述性名称，可让主程序容易理解得多。你还可以更进一步，将函数存储在被称为模块的独立文件中，再将模块导入到主程序中。<strong>import语句</strong>允许在当前运行的程序文件中使用模块中的代码。导入方式主要有以下几种：</p>
+<ul>
+<li>导入整个模块：<code>import module_name</code></li>
+<li>导入模块中所有函数：<code>from module_name import *</code></li>
+<li>导入特定的函数：<code>from module_name import function_0, function_1, function_2</code><br>  此外，可以通过<strong>as语句</strong>为导入的模块或函数命名：</li>
+<li>为导入模块命名：<code>import module_name as mn</code></li>
+<li>为导入函数命名：<code>from module_name import function_name as fn</code></li>
+</ul>
+<h2 id="5-7-函数编写注意事项"><a href="#5-7-函数编写注意事项" class="headerlink" title="5.7 函数编写注意事项"></a>5.7 函数编写注意事项</h2><p>  编写函数时，需要牢记几个细节：</p>
+<ul>
+<li>应给函数指定描述性名称，且只在其中使用小写字母和下划线；</li>
+<li>每个函数都应包含简要地阐述其功能的注释，该注释应紧跟在函数定义后面，并采用文档字符串格式；</li>
+<li>给形参指定默认值时，等号两边不要有空格：<code>def function_name(parameter_0, parameter_1=&#39;default value&#39;)</code>；</li>
+<li>对于函数调用中的关键字实参，也应遵循这种约定：<code>function_name(value_0, parameter_1=&#39;value&#39;)</code>；</li>
+<li>所有的import语句都应放在文件开头的文档注释后。</li>
+</ul>
+<p>  本篇文章的代码可从<a href="https://github.com/gaiusyao/pivotlab/tree/master/learn_python" target="_blank" rel="external">我的GitHub</a>上获取。</p>
+
+                
+
+
+<p class="red-link-context">
+    <a href="/2017/10/29/control-flow/" rel="next" title="04.控制流">
+    上一篇：04.控制流
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large red">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect indigo" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse orange darken-1"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m8 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="https://github.com/gaiusyao" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://codepen.io/gaiusyao/" target="_blank">
+                        <i class="fa fa-2x fa-codepen"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                <!--
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+-->
+
+            </div>
+            
+
+            
+            <div class="col m4 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="https://william8188.github.io/" target="_blank">李梓峰的技术博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright red-link-context">
+        <div class="container">
+            © 2017 Gaius-Yao, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('red lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-search').append('<span class="new badge red"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=63863615" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
