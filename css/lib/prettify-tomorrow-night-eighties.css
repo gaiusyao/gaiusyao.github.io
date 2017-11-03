@@ -1,7 +1,7 @@
 /* Tomorrow Night Eighties Theme */
 /* Original theme - https://github.com/chriskempson/tomorrow-theme */
 .prettyprint {
-  background: #1D1F21;
+  background: #2b2e3b;
   font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
   font-size: 13px;
   line-height: 1.5;
@@ -111,6 +111,8 @@
     color: #006600;
   }
 }
+
+
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums {
   margin-top: 0;
