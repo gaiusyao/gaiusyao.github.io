@@ -1,0 +1,916 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>Python分析葡萄酒质量 </title>
+    <meta name="author" content="Gaius Yao">
+    
+    <meta name="description" content="Gaius Yao Blog">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="Python分析葡萄酒质量"/>
+    <meta property="og:site_name" content="尧翔的个人博客"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="尧翔的个人博客" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">尧翔的个人博客</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://oxv2o8wp9.bkt.clouddn.com/gaius.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">尧翔</p>
+                        <p class="desc">PM, UXer, Huge Nerd</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/代码之美/">
+                    代码之美 <span class="right">8 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/代码之美/人生苦短，我用Python/">
+                    人生苦短，我用Python <span class="right">7 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-2" collapse-level="2">
+                <a class="no-padding" href="/categories/代码之美/人生苦短，我用Python/Python基础/">
+                    Python基础 <span class="right">6 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-2" collapse-level="2">
+                <a class="no-padding" href="/categories/代码之美/人生苦短，我用Python/Python数据分析/">
+                    Python数据分析 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/代码之美/Hexo/">
+                    Hexo <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/项目介绍/">
+                    项目介绍 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/项目介绍/Gaius-Things-Done/">
+                    Gaius-Things-Done <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/代码之美/">代码之美</a><a class="breadcrumb" href="/categories/代码之美/人生苦短，我用Python/">人生苦短，我用Python</a><a class="breadcrumb" href="/categories/代码之美/人生苦短，我用Python/Python数据分析/">Python数据分析</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Python分析葡萄酒质量</h1>
+    
+
+
+            </div>
+            <time class="red-link-context" datetime="2017-11-04T12:30:48.000Z"><a href="/2017/11/04/wine-quality/">2017-11-04</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
+        
+            <a href="/tags/牛刀小试/" class="chip red lighten-1">牛刀小试</a>
+        
+    </div>
+
+
+            <div class="toc red-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#（一）描述性统计"><span class="section table-of-contents-text">（一）描述性统计</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-1-将数据集读入数据框"><span class="section table-of-contents-text">1.1 将数据集读入数据框</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-2-显示所有变量的描述性统计量"><span class="section table-of-contents-text">1.2 显示所有变量的描述性统计量</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-3-分析质量列"><span class="section table-of-contents-text">1.3 分析质量列</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-4-分组显示"><span class="section table-of-contents-text">1.4 分组显示</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-5-相关矩阵"><span class="section table-of-contents-text">1.5 相关矩阵</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#（二）直方图与t检验"><span class="section table-of-contents-text">（二）直方图与t检验</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#（三）成对变量之间的关系和相关性"><span class="section table-of-contents-text">（三）成对变量之间的关系和相关性</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#（四）使用最小二乘估计进行线性回归"><span class="section table-of-contents-text">（四）使用最小二乘估计进行线性回归</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#（五）自变量标准化"><span class="section table-of-contents-text">（五）自变量标准化</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#（六）预测"><span class="section table-of-contents-text">（六）预测</span></a></li></ol>
+</div>
+
+
+            <div class="entry red-link-context">
+                <p>  本篇博文是作者在阅读完<em>Foundations for Analytics with Python</em>一书后，使用Python进行数据分析的一次实战，所用数据集为<a href="https://github.com/gaiusyao/pivotlab/blob/master/datawarehouse/gaiusyao-blog/winequality-both.csv" target="_blank" rel="external">葡萄酒质量数据集</a>，该数据集是由UCI机器学习资料库中找到的两个数据集合并成的:</p>
+<ul>
+<li><a href="http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv" target="_blank" rel="external">红葡萄酒</a></li>
+<li><a href="http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv" target="_blank" rel="external">白葡萄酒</a></li>
+</ul>
+<h2 id="（一）描述性统计"><a href="#（一）描述性统计" class="headerlink" title="（一）描述性统计"></a>（一）描述性统计</h2><h3 id="1-1-将数据集读入数据框"><a href="#1-1-将数据集读入数据框" class="headerlink" title="1.1 将数据集读入数据框"></a>1.1 将数据集读入数据框</h3><p>  在下面的代码中，首先完成了<code>import</code>工作，将所需的包加载到脚本中。之后用<code>pandas</code>的<code>read_csv</code>方法将文本文件<em>csv\winequality-both.csv</em>读入到数据框<code>wine</code>中，并将列标题中包含的空格替换为<code>_</code>。最后通过<code>head</code>方法打印出下标题行和前5行数据，以确保数据被正确地加载。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</div><div class="line"><span class="keyword">import</span> statsmodels.formula.api <span class="keyword">as</span> smf</div><div class="line"><span class="keyword">from</span> statsmodels.formula.api <span class="keyword">import</span> ols, glm</div><div class="line"></div><div class="line">wine = pd.read_csv(<span class="string">'csv\winequality-both.csv'</span>, sep=<span class="string">','</span>, header=<span class="number">0</span>)</div><div class="line">wine.columns = wine.columns.str.replace(<span class="string">' '</span>, <span class="string">'_'</span>)</div><div class="line">print(wine.head())</div></pre></td></tr></table></figure>
+<pre><code>  type  fixed_acidity  volatile_acidity  citric_acid  residual_sugar  \
+0  red            7.4              0.70         0.00             1.9   
+1  red            7.8              0.88         0.00             2.6   
+2  red            7.8              0.76         0.04             2.3   
+3  red           11.2              0.28         0.56             1.9   
+4  red            7.4              0.70         0.00             1.9   
+
+   chlorides  free_sulfur_dioxide  total_sulfur_dioxide  density    pH  \
+0      0.076                 11.0                  34.0   0.9978  3.51   
+1      0.098                 25.0                  67.0   0.9968  3.20   
+2      0.092                 15.0                  54.0   0.9970  3.26   
+3      0.075                 17.0                  60.0   0.9980  3.16   
+4      0.076                 11.0                  34.0   0.9978  3.51   
+
+   sulphates  alcohol  quality  
+0       0.56      9.4        5  
+1       0.68      9.8        5  
+2       0.65      9.8        5  
+3       0.58      9.8        6  
+4       0.56      9.4        5  
+</code></pre><h3 id="1-2-显示所有变量的描述性统计量"><a href="#1-2-显示所有变量的描述性统计量" class="headerlink" title="1.2 显示所有变量的描述性统计量"></a>1.2 显示所有变量的描述性统计量</h3><p>  通过<code>describe</code>方法，打印出在所有变量的描述性统计量，包括总数、均值、标准差、最小值、第25个百分位数、中位数、第75个百分位数和最大值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(wine.describe())</div></pre></td></tr></table></figure>
+<pre><code>       fixed_acidity  volatile_acidity  citric_acid  residual_sugar  \
+count    6497.000000       6497.000000  6497.000000     6497.000000   
+mean        7.215307          0.339666     0.318633        5.443235   
+std         1.296434          0.164636     0.145318        4.757804   
+min         3.800000          0.080000     0.000000        0.600000   
+25%         6.400000          0.230000     0.250000        1.800000   
+50%         7.000000          0.290000     0.310000        3.000000   
+75%         7.700000          0.400000     0.390000        8.100000   
+max        15.900000          1.580000     1.660000       65.800000   
+
+         chlorides  free_sulfur_dioxide  total_sulfur_dioxide      density  \
+count  6497.000000          6497.000000           6497.000000  6497.000000   
+mean      0.056034            30.525319            115.744574     0.994697   
+std       0.035034            17.749400             56.521855     0.002999   
+min       0.009000             1.000000              6.000000     0.987110   
+25%       0.038000            17.000000             77.000000     0.992340   
+50%       0.047000            29.000000            118.000000     0.994890   
+75%       0.065000            41.000000            156.000000     0.996990   
+max       0.611000           289.000000            440.000000     1.038980   
+
+                pH    sulphates      alcohol      quality  
+count  6497.000000  6497.000000  6497.000000  6497.000000  
+mean      3.218501     0.531268    10.491801     5.818378  
+std       0.160787     0.148806     1.192712     0.873255  
+min       2.720000     0.220000     8.000000     3.000000  
+25%       3.110000     0.430000     9.500000     5.000000  
+50%       3.210000     0.510000    10.300000     6.000000  
+75%       3.320000     0.600000    11.300000     6.000000  
+max       4.010000     2.000000    14.900000     9.000000  
+</code></pre><h3 id="1-3-分析质量列"><a href="#1-3-分析质量列" class="headerlink" title="1.3 分析质量列"></a>1.3 分析质量列</h3><p>  从1.2中的结果我们可以得知，质量列中有6497个观测，范围从3到9，平均数为5.8，标准差为0.87。通过<code>unique</code>方法，识别出质量列中的唯一值，并以升序打印在屏幕上，输出显示质量列中的唯一值是3、4、5、6、7、8 和9。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(sorted(wine.quality.unique()))</div></pre></td></tr></table></figure>
+<pre><code>[3, 4, 5, 6, 7, 8, 9]
+</code></pre><p>  接着计算质量列中唯一值出现的频率，可以看到质量评分为6的最多，有2836个观测，而质量评分最高分9则最少，只有5个观测。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(wine.quality.value_counts())</div></pre></td></tr></table></figure>
+<pre><code>6    2836
+5    2138
+7    1079
+4     216
+8     193
+3      30
+9       5
+Name: quality, dtype: int64
+</code></pre><h3 id="1-4-分组显示"><a href="#1-4-分组显示" class="headerlink" title="1.4 分组显示"></a>1.4 分组显示</h3><p>  前面计算出的统计量是针对整个数据集的，既包括红葡萄酒数据也包括白葡萄酒数据。下面通过<code>groupby</code>方法，按照葡萄酒类型（<code>type</code>）分别显示红葡萄酒和白葡萄酒的描述性统计量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(wine.groupby(<span class="string">'type'</span>)[[<span class="string">'alcohol'</span>]].describe().unstack(<span class="string">'type'</span>))</div></pre></td></tr></table></figure>
+<pre><code>                type 
+alcohol  count  red      1599.000000
+                white    4898.000000
+         mean   red        10.422983
+                white      10.514267
+         std    red         1.065668
+                white       1.230621
+         min    red         8.400000
+                white       8.000000
+         25%    red         9.500000
+                white       9.500000
+         50%    red        10.200000
+                white      10.400000
+         75%    red        11.100000
+                white      11.400000
+         max    red        14.900000
+                white      14.200000
+dtype: float64
+</code></pre><p>  接着，使用<code>quantile</code>函数对质量列计算第25百分位数和第75百分位数，并按照葡萄酒类型显示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(wine.groupby(<span class="string">'type'</span>)[[<span class="string">'quality'</span>]].quantile([<span class="number">0.25</span>, <span class="number">0.75</span>]).unstack(<span class="string">'type'</span>))</div></pre></td></tr></table></figure>
+<pre><code>     quality      
+type     red white
+0.25     5.0   5.0
+0.75     6.0   6.0
+</code></pre><h3 id="1-5-相关矩阵"><a href="#1-5-相关矩阵" class="headerlink" title="1.5 相关矩阵"></a>1.5 相关矩阵</h3><p>  这里通过<code>corr</code>方法计算得到所有变量的相关矩阵，结果将会在后面用到。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(wine.corr())</div></pre></td></tr></table></figure>
+<pre><code>                      fixed_acidity  volatile_acidity  citric_acid  \
+fixed_acidity              1.000000          0.219008     0.324436   
+volatile_acidity           0.219008          1.000000    -0.377981   
+citric_acid                0.324436         -0.377981     1.000000   
+residual_sugar            -0.111981         -0.196011     0.142451   
+chlorides                  0.298195          0.377124     0.038998   
+free_sulfur_dioxide       -0.282735         -0.352557     0.133126   
+total_sulfur_dioxide      -0.329054         -0.414476     0.195242   
+density                    0.458910          0.271296     0.096154   
+pH                        -0.252700          0.261454    -0.329808   
+sulphates                  0.299568          0.225984     0.056197   
+alcohol                   -0.095452         -0.037640    -0.010493   
+quality                   -0.076743         -0.265699     0.085532   
+
+                      residual_sugar  chlorides  free_sulfur_dioxide  \
+fixed_acidity              -0.111981   0.298195            -0.282735   
+volatile_acidity           -0.196011   0.377124            -0.352557   
+citric_acid                 0.142451   0.038998             0.133126   
+residual_sugar              1.000000  -0.128940             0.402871   
+chlorides                  -0.128940   1.000000            -0.195045   
+free_sulfur_dioxide         0.402871  -0.195045             1.000000   
+total_sulfur_dioxide        0.495482  -0.279630             0.720934   
+density                     0.552517   0.362615             0.025717   
+pH                         -0.267320   0.044708            -0.145854   
+sulphates                  -0.185927   0.395593            -0.188457   
+alcohol                    -0.359415  -0.256916            -0.179838   
+quality                    -0.036980  -0.200666             0.055463   
+
+                      total_sulfur_dioxide   density        pH  sulphates  \
+fixed_acidity                    -0.329054  0.458910 -0.252700   0.299568   
+volatile_acidity                 -0.414476  0.271296  0.261454   0.225984   
+citric_acid                       0.195242  0.096154 -0.329808   0.056197   
+residual_sugar                    0.495482  0.552517 -0.267320  -0.185927   
+chlorides                        -0.279630  0.362615  0.044708   0.395593   
+free_sulfur_dioxide               0.720934  0.025717 -0.145854  -0.188457   
+total_sulfur_dioxide              1.000000  0.032395 -0.238413  -0.275727   
+density                           0.032395  1.000000  0.011686   0.259478   
+pH                               -0.238413  0.011686  1.000000   0.192123   
+sulphates                        -0.275727  0.259478  0.192123   1.000000   
+alcohol                          -0.265740 -0.686745  0.121248  -0.003029   
+quality                          -0.041385 -0.305858  0.019506   0.038485   
+
+                       alcohol   quality  
+fixed_acidity        -0.095452 -0.076743  
+volatile_acidity     -0.037640 -0.265699  
+citric_acid          -0.010493  0.085532  
+residual_sugar       -0.359415 -0.036980  
+chlorides            -0.256916 -0.200666  
+free_sulfur_dioxide  -0.179838  0.055463  
+total_sulfur_dioxide -0.265740 -0.041385  
+density              -0.686745 -0.305858  
+pH                    0.121248  0.019506  
+sulphates            -0.003029  0.038485  
+alcohol               1.000000  0.444319  
+quality               0.444319  1.000000  
+</code></pre><h2 id="（二）直方图与t检验"><a href="#（二）直方图与t检验" class="headerlink" title="（二）直方图与t检验"></a>（二）直方图与t检验</h2><p>  这里通过<code>seaborn</code>包创建一幅统计图，图中有两个直方图，分别表示红葡萄酒和白葡萄酒。从下图可以看出，两种葡萄酒的评分都近似正态分布。与原始数据的摘要统计量相比，直方图更容易看出两种葡萄酒的质量评分的分布。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">red_wine = wine.loc[wine[<span class="string">'type'</span>]==<span class="string">'red'</span>, <span class="string">'quality'</span>]</div><div class="line">white_wine = wine.loc[wine[<span class="string">'type'</span>]==<span class="string">'white'</span>, <span class="string">'quality'</span>]</div><div class="line">sns.set_style(<span class="string">"dark"</span>)</div><div class="line">print(sns.distplot(red_wine, \</div><div class="line">norm_hist=<span class="keyword">True</span>, kde=<span class="keyword">False</span>, color=<span class="string">"red"</span>, label=<span class="string">"Red wine"</span>, axlabel=<span class="keyword">False</span>))</div><div class="line">print(sns.distplot(white_wine, \</div><div class="line">norm_hist=<span class="keyword">True</span>, kde=<span class="keyword">False</span>, color=<span class="string">"white"</span>, label=<span class="string">"White wine"</span>, axlabel=<span class="keyword">False</span>))</div><div class="line">plt.title(<span class="string">"Distribution of Quality by Wine Type"</span>)</div><div class="line">plt.legend()</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<p><img src="http://oxv2o8wp9.bkt.clouddn.com/output_7_1.png" alt="直方图"></p>
+<p>  接着，进行一下<strong>t检验</strong>，判断红葡萄酒和白葡萄酒的平均评分是否有区别。下面的代码演示了如何使用<code>groupby</code>和<code>agg</code>函数来为数据集中的分组计算一系列统计量。从结果中，我们可以得知，白葡萄酒的平均质量评分在统计意义上大于红葡萄酒的平均质量评分。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">print(wine.groupby([<span class="string">'type'</span>])[[<span class="string">'quality'</span>]].agg([<span class="string">'std'</span>]))</div><div class="line">tstat, pvalue, df = sm.stats.ttest_ind(red_wine, white_wine)</div><div class="line">print(<span class="string">'tstat: %.3f pvalue: %.4f'</span> % (tstat, pvalue))</div></pre></td></tr></table></figure>
+<pre><code>        quality
+            std
+type           
+red    0.807569
+white  0.885639
+tstat: -9.686 pvalue: 0.0000
+</code></pre><h2 id="（三）成对变量之间的关系和相关性"><a href="#（三）成对变量之间的关系和相关性" class="headerlink" title="（三）成对变量之间的关系和相关性"></a>（三）成对变量之间的关系和相关性</h2><p>  前面已经检查了输出变量，下面简单研究一下输入变量。让我们计算一下输入变量两两之间的相关性，在1.5我们用<code>corr</code>函数计算出数据集中所有变量的相关矩阵，它揭示了所有变量两两之间的线性相关性——酒精含量、硫酸盐、pH 值、游离二氧化硫和柠檬酸这些指标与质量是正相关的，相反，非挥发性酸、挥发性酸、残余糖分、氯化物、总二氧化硫和密度这些指标与质量是负相关的。下面的代码则将从红葡萄酒和白葡萄酒的数据中抽样取出一个“小”样本（200条红葡萄酒数据和200条白葡萄酒数据）来进行绘图，并通过<code>seaborn</code>的<code>pairplot</code>函数创建一个统计图矩阵。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">take_sample</span><span class="params">(data_frame, replace=False, n=<span class="number">200</span>)</span>:</span></div><div class="line">    <span class="keyword">return</span> data_frame.loc[np.random.choice(data_frame.index, replace=replace, size=n)]</div><div class="line">reds_sample = take_sample(wine.loc[wine[<span class="string">'type'</span>]==<span class="string">'red'</span>, :])</div><div class="line">whites_sample = take_sample(wine.loc[wine[<span class="string">'type'</span>]==<span class="string">'white'</span>, :])</div><div class="line">wine_sample = pd.concat([reds_sample, whites_sample])</div><div class="line">wine[<span class="string">'in_sample'</span>] = np.where(wine.index.isin(wine_sample.index), <span class="number">1.</span>,<span class="number">0.</span>)</div><div class="line">print(pd.crosstab(wine.in_sample, wine.type, margins=<span class="keyword">True</span>))</div><div class="line"></div><div class="line">sns.set_style(<span class="string">"dark"</span>)</div><div class="line">g = sns.pairplot(wine_sample, kind=<span class="string">'reg'</span>, plot_kws=&#123;<span class="string">"ci"</span>: <span class="keyword">False</span>,\</div><div class="line"><span class="string">"x_jitter"</span>: <span class="number">0.25</span>, <span class="string">"y_jitter"</span>: <span class="number">0.25</span>&#125;, hue=<span class="string">'type'</span>, diag_kind=<span class="string">'hist'</span>,\</div><div class="line">diag_kws=&#123;<span class="string">"bins"</span>: <span class="number">10</span>, <span class="string">"alpha"</span>: <span class="number">1.0</span>&#125;, palette=dict(red=<span class="string">"red"</span>, white=<span class="string">"white"</span>),\</div><div class="line">markers=[<span class="string">"o"</span>, <span class="string">"s"</span>], vars=[<span class="string">'quality'</span>, <span class="string">'alcohol'</span>, <span class="string">'residual_sugar'</span>])</div><div class="line">print(g)</div><div class="line">plt.suptitle(<span class="string">'Histograms and Scatter Plots of Quality, Alcohol, and Residual\</span></div><div class="line"><span class="string">Sugar'</span>, fontsize=<span class="number">14</span>, horizontalalignment=<span class="string">'center'</span>, verticalalignment=<span class="string">'top'</span>,\</div><div class="line">x=<span class="number">0.5</span>, y=<span class="number">0.999</span>)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<p>  下方的统计图矩阵显示了葡萄酒质量、酒精含量和残余糖分之间的关系。红条和红点表示红葡萄酒，白条和白点表示白葡萄酒。主对角线上的图以直方图或密度图的形式显示了每个变量的单变量分布，对角线之外的图以散点图的形式显示了每两个变量之间的双变量分布，散点图中可以有回归直线，也可以没有。   </p>
+<p><img src="http://oxv2o8wp9.bkt.clouddn.com/output_10_1.png" alt="统计图矩阵"></p>
+<p>  从这些统计图可以看出，对于红葡萄酒和白葡萄酒来说，酒精含量的均值和标准差是大致相同的，但是，白葡萄酒残余糖分的均值和标准差却大于红葡萄酒残余糖分的均值和标准差。从回归直线可以看出，对于两种类型的葡萄酒，酒精含量增加时，质量评分也随之提高，相反，残余糖分增加时，质量评分则随之降低。这两个变量对白葡萄酒的影响都要大于对红葡萄酒的影响。  </p>
+<h2 id="（四）使用最小二乘估计进行线性回归"><a href="#（四）使用最小二乘估计进行线性回归" class="headerlink" title="（四）使用最小二乘估计进行线性回归"></a>（四）使用最小二乘估计进行线性回归</h2><p>  这里使用使用<code>statsmodel</code>包来进行线性回归, 首先将一个包含回归公式定义的字符串赋给<code>my_formula</code> 。在该字符串中，<code>~</code>左侧的变量<code>quality</code>是因变量，右侧的均为自变量。接下来用公式和数据拟合一个普通最小二乘回归模型，并将结果赋给变量<code>lm</code>。最后打印模型的结果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">my_formula = <span class="string">'quality ~ alcohol + chlorides + citric_acid + density\</span></div><div class="line"><span class="string">+ fixed_acidity + free_sulfur_dioxide + pH + residual_sugar + sulphates\</span></div><div class="line"><span class="string">+ total_sulfur_dioxide + volatile_acidity'</span></div><div class="line">lm = ols(my_formula, data=wine).fit()</div><div class="line">print(lm.summary())</div><div class="line">print(<span class="string">"\nQuantities you can extract from the result:\n%s"</span> % dir(lm))</div><div class="line">print(<span class="string">"\nCoefficients:\n%s"</span> % lm.params)</div><div class="line">print(<span class="string">"\nCoefficient Std Errors:\n%s"</span> % lm.bse)</div><div class="line">print(<span class="string">"\nAdj. R-squared:\n%.2f"</span> % lm.rsquared_adj)</div><div class="line">print(<span class="string">"\nF-statistic: %.1f  P-value: %.2f"</span> % (lm.fvalue, lm.f_pvalue))</div><div class="line">print(<span class="string">"\nNumber of obs: %d  Number of fitted values: %s"</span> % (lm.nobs, len(lm.fittedvalues)))</div></pre></td></tr></table></figure>
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                quality   R-squared:                       0.292
+Model:                            OLS   Adj. R-squared:                  0.291
+Method:                 Least Squares   F-statistic:                     243.3
+Date:                Thu, 09 Nov 2017   Prob (F-statistic):               0.00
+Time:                        08:35:41   Log-Likelihood:                -7215.5
+No. Observations:                6497   AIC:                         1.445e+04
+Df Residuals:                    6485   BIC:                         1.454e+04
+Df Model:                          11                                         
+Covariance Type:            nonrobust                                         
+========================================================================================
+                           coef    std err          t      P&gt;|t|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+Intercept               55.7627     11.894      4.688      0.000      32.447      79.079
+alcohol                  0.2670      0.017     15.963      0.000       0.234       0.300
+chlorides               -0.4837      0.333     -1.454      0.146      -1.136       0.168
+citric_acid             -0.1097      0.080     -1.377      0.168      -0.266       0.046
+density                -54.9669     12.137     -4.529      0.000     -78.760     -31.173
+fixed_acidity            0.0677      0.016      4.346      0.000       0.037       0.098
+free_sulfur_dioxide      0.0060      0.001      7.948      0.000       0.004       0.007
+pH                       0.4393      0.090      4.861      0.000       0.262       0.616
+residual_sugar           0.0436      0.005      8.449      0.000       0.033       0.054
+sulphates                0.7683      0.076     10.092      0.000       0.619       0.917
+total_sulfur_dioxide    -0.0025      0.000     -8.969      0.000      -0.003      -0.002
+volatile_acidity        -1.3279      0.077    -17.162      0.000      -1.480      -1.176
+==============================================================================
+Omnibus:                      144.075   Durbin-Watson:                   1.646
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              324.712
+Skew:                          -0.006   Prob(JB):                     3.09e-71
+Kurtosis:                       4.095   Cond. No.                     2.49e+05
+==============================================================================
+
+Quantities you can extract from the result:
+[&apos;HC0_se&apos;, &apos;HC1_se&apos;, &apos;HC2_se&apos;, &apos;HC3_se&apos;, &apos;_HCCM&apos;, &apos;__class__&apos;, &apos;__delattr__&apos;, &apos;__dict__&apos;, &apos;__dir__&apos;, &apos;__doc__&apos;, &apos;__eq__&apos;, &apos;__format__&apos;, &apos;__ge__&apos;, &apos;__getattribute__&apos;, &apos;__gt__&apos;, &apos;__hash__&apos;, &apos;__init__&apos;, &apos;__init_subclass__&apos;, &apos;__le__&apos;, &apos;__lt__&apos;, &apos;__module__&apos;, &apos;__ne__&apos;, &apos;__new__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__setattr__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;__weakref__&apos;, &apos;_cache&apos;, &apos;_data_attr&apos;, &apos;_get_robustcov_results&apos;, &apos;_is_nested&apos;, &apos;_wexog_singular_values&apos;, &apos;aic&apos;, &apos;bic&apos;, &apos;bse&apos;, &apos;centered_tss&apos;, &apos;compare_f_test&apos;, &apos;compare_lm_test&apos;, &apos;compare_lr_test&apos;, &apos;condition_number&apos;, &apos;conf_int&apos;, &apos;conf_int_el&apos;, &apos;cov_HC0&apos;, &apos;cov_HC1&apos;, &apos;cov_HC2&apos;, &apos;cov_HC3&apos;, &apos;cov_kwds&apos;, &apos;cov_params&apos;, &apos;cov_type&apos;, &apos;df_model&apos;, &apos;df_resid&apos;, &apos;diagn&apos;, &apos;eigenvals&apos;, &apos;el_test&apos;, &apos;ess&apos;, &apos;f_pvalue&apos;, &apos;f_test&apos;, &apos;fittedvalues&apos;, &apos;fvalue&apos;, &apos;get_influence&apos;, &apos;get_prediction&apos;, &apos;get_robustcov_results&apos;, &apos;initialize&apos;, &apos;k_constant&apos;, &apos;llf&apos;, &apos;load&apos;, &apos;model&apos;, &apos;mse_model&apos;, &apos;mse_resid&apos;, &apos;mse_total&apos;, &apos;nobs&apos;, &apos;normalized_cov_params&apos;, &apos;outlier_test&apos;, &apos;params&apos;, &apos;predict&apos;, &apos;pvalues&apos;, &apos;remove_data&apos;, &apos;resid&apos;, &apos;resid_pearson&apos;, &apos;rsquared&apos;, &apos;rsquared_adj&apos;, &apos;save&apos;, &apos;scale&apos;, &apos;ssr&apos;, &apos;summary&apos;, &apos;summary2&apos;, &apos;t_test&apos;, &apos;tvalues&apos;, &apos;uncentered_tss&apos;, &apos;use_t&apos;, &apos;wald_test&apos;, &apos;wald_test_terms&apos;, &apos;wresid&apos;]
+
+Coefficients:
+Intercept               55.762750
+alcohol                  0.267030
+chlorides               -0.483714
+citric_acid             -0.109657
+density                -54.966942
+fixed_acidity            0.067684
+free_sulfur_dioxide      0.005970
+pH                       0.439296
+residual_sugar           0.043559
+sulphates                0.768252
+total_sulfur_dioxide    -0.002481
+volatile_acidity        -1.327892
+dtype: float64
+
+Coefficient Std Errors:
+Intercept               11.893899
+alcohol                  0.016728
+chlorides                0.332683
+citric_acid              0.079619
+density                 12.137473
+fixed_acidity            0.015573
+free_sulfur_dioxide      0.000751
+pH                       0.090371
+residual_sugar           0.005156
+sulphates                0.076123
+total_sulfur_dioxide     0.000277
+volatile_acidity         0.077373
+dtype: float64
+
+Adj. R-squared:
+0.29
+
+F-statistic: 243.3  P-value: 0.00
+
+Number of obs: 6497  Number of fitted values: 6497
+</code></pre><h2 id="（五）自变量标准化"><a href="#（五）自变量标准化" class="headerlink" title="（五）自变量标准化"></a>（五）自变量标准化</h2><p>  这里尝试使用<code>pandas</code>包在数据框中对变量进行标准化，首先创建了一个名为<code>dependent_variable</code>的序列来保存质量数据，以及创建了一个名为<code>independent_variables</code>的数据框来保存初始的葡萄酒数据集中除quality、type和in_sample之外的所有变量。接着，对每个变量，在每个观测中减去变量的均值，并且使用结果除以变量的标准差，以对其进行标准化。然后将因变量<code>quality</code>作为一列添加到自变量数据框中，并创建一个带有标准化自变量的新数据集<code>wine_standardized</code>。最后再次进行线性回归，并查看一下摘要统计：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">dependent_variable = wine[<span class="string">'quality'</span>]</div><div class="line">independent_variables = wine[wine.columns.difference([<span class="string">'quality'</span>, <span class="string">'type'</span>,\</div><div class="line"><span class="string">'in_sample'</span>])]</div><div class="line"></div><div class="line">independent_variables_standardized = (independent_variables -\</div><div class="line">independent_variables.mean()) / independent_variables.std()</div><div class="line"></div><div class="line">wine_standardized = pd.concat([dependent_variable, independent_variables\</div><div class="line">_standardized], axis=<span class="number">1</span>)</div><div class="line"></div><div class="line">lm_standardized = ols(my_formula, data=wine_standardized).fit()</div><div class="line">print(lm_standardized.summary())</div></pre></td></tr></table></figure>
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                quality   R-squared:                       0.292
+Model:                            OLS   Adj. R-squared:                  0.291
+Method:                 Least Squares   F-statistic:                     243.3
+Date:                Thu, 09 Nov 2017   Prob (F-statistic):               0.00
+Time:                        08:36:32   Log-Likelihood:                -7215.5
+No. Observations:                6497   AIC:                         1.445e+04
+Df Residuals:                    6485   BIC:                         1.454e+04
+Df Model:                          11                                         
+Covariance Type:            nonrobust                                         
+========================================================================================
+                           coef    std err          t      P&gt;|t|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+Intercept                5.8184      0.009    637.785      0.000       5.800       5.836
+alcohol                  0.3185      0.020     15.963      0.000       0.279       0.358
+chlorides               -0.0169      0.012     -1.454      0.146      -0.040       0.006
+citric_acid             -0.0159      0.012     -1.377      0.168      -0.039       0.007
+density                 -0.1648      0.036     -4.529      0.000      -0.236      -0.093
+fixed_acidity            0.0877      0.020      4.346      0.000       0.048       0.127
+free_sulfur_dioxide      0.1060      0.013      7.948      0.000       0.080       0.132
+pH                       0.0706      0.015      4.861      0.000       0.042       0.099
+residual_sugar           0.2072      0.025      8.449      0.000       0.159       0.255
+sulphates                0.1143      0.011     10.092      0.000       0.092       0.137
+total_sulfur_dioxide    -0.1402      0.016     -8.969      0.000      -0.171      -0.110
+volatile_acidity        -0.2186      0.013    -17.162      0.000      -0.244      -0.194
+==============================================================================
+Omnibus:                      144.075   Durbin-Watson:                   1.646
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              324.712
+Skew:                          -0.006   Prob(JB):                     3.09e-71
+Kurtosis:                       4.095   Cond. No.                         9.61
+==============================================================================
+</code></pre><h2 id="（六）预测"><a href="#（六）预测" class="headerlink" title="（六）预测"></a>（六）预测</h2><p>  在某些情况下，我们需要使用没有用来拟合模型的新数据进行预测。例如，你会收到关于葡萄酒成分的一个新观测，并需要根据这些成分预测这种葡萄酒的质量评分。下面使用葡萄酒数据集中的前10个观测创建10个“新”观测（只包含模型中使用的自变量），接着基于新观测中的葡萄酒特性预测质量评分，并将预测值打印到屏幕上。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">new_observations = wine.ix[wine.index.isin(range(<span class="number">10</span>)), \</div><div class="line">independent_variables.columns]</div><div class="line">y_predicted = lm.predict(new_observations)</div><div class="line">y_predicted_rounded = [round(score, <span class="number">2</span>) <span class="keyword">for</span> score <span class="keyword">in</span> y_predicted]</div><div class="line">print(y_predicted_rounded)</div></pre></td></tr></table></figure>
+<pre><code>[5.0, 4.92, 5.03, 5.68, 5.0, 5.04, 5.02, 5.30, 5.24, 5.69]
+</code></pre>
+                
+
+
+<p class="red-link-context">
+    <a href="/2017/10/30/class/" rel="next" title="06.类">
+    上一篇：06.类
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large red">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect indigo" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse orange darken-1"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m8 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="https://github.com/gaiusyao" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://codepen.io/gaiusyao/" target="_blank">
+                        <i class="fa fa-2x fa-codepen"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                <!--
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+-->
+
+            </div>
+            
+
+            
+            <div class="col m4 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="https://william8188.github.io/" target="_blank">李梓峰的技术博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright red-link-context">
+        <div class="container">
+            © 2017 Gaius-Yao, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('red lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-search').append('<span class="new badge red"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=63863615" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
