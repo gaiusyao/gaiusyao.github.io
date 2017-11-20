@@ -3,6 +3,30 @@
   
     
     <entry>
+      <title><![CDATA[Python进阶01：Pandas]]></title>
+      <url>/2017/11/10/python-pandas/</url>
+      <content type="html"></content>
+      
+        <categories>
+            
+            <category> 代码之美 </category>
+            
+            <category> 人生苦短，我用Python </category>
+            
+            <category> Python进阶 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> python3 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Python分析葡萄酒质量]]></title>
       <url>/2017/11/04/wine-quality/</url>
       <content type="html"><![CDATA[<p>  本篇博文是作者在阅读完<em>Foundations for Analytics with Python</em>一书后，使用Python进行数据分析的一次实战，所用数据集为<a href="https://github.com/gaiusyao/pivotlab/blob/master/datawarehouse/gaiusyao-blog/winequality-both.csv" target="_blank" rel="external">葡萄酒质量数据集</a>，该数据集是由UCI机器学习资料库中找到的两个数据集合并成的:</p>
@@ -310,7 +334,7 @@ Kurtosis:                       4.095   Cond. No.                         9.61
     </entry>
     
     <entry>
-      <title><![CDATA[06.类]]></title>
+      <title><![CDATA[Python基础06：类]]></title>
       <url>/2017/10/30/class/</url>
       <content type="html"><![CDATA[<p>  <strong>面向对象编程</strong>是最有效的软件编写方法之一。而理解面向对象编程有助于你像程序员那样看世界，还可以帮助你真正明白自己编写的代码：不仅是各行代码的作用，还有代码背后更宏大的概念。在面向对象编程中，需要编写表示现实世界中的事物和情景的<strong>类</strong>，并基于这些类来创建对象。</p>
 <h2 id="6-1-创建和使用类"><a href="#6-1-创建和使用类" class="headerlink" title="6.1 创建和使用类"></a>6.1 创建和使用类</h2><h3 id="6-1-1-创建Dog类"><a href="#6-1-1-创建Dog类" class="headerlink" title="6.1.1 创建Dog类"></a>6.1.1 创建Dog类</h3><p>  使用类几乎可以模拟任何东西。下面来编写一个表示小狗的简单类Dog——它表示的不是特定的小狗，而是任何小狗。根据Dog类创建的每个实例都将存储名字和年龄，且赋予了每条小狗蹲下（sit()）和打滚（roll_over()）的能力：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Dog():</div><div class="line">    <span class="string">""</span><span class="string">"一次模拟小狗的简单尝试"</span><span class="string">""</span></div><div class="line"></div><div class="line">    def __init__(self, name, age):</div><div class="line">        <span class="string">""</span><span class="string">"初始化属性name和age"</span><span class="string">""</span></div><div class="line">        self.name = name</div><div class="line">        self.age = age</div><div class="line"></div><div class="line">    def sit(self):</div><div class="line">        <span class="string">""</span><span class="string">"模拟小狗被命令时蹲下"</span><span class="string">""</span></div><div class="line">        <span class="built_in">print</span>(<span class="string">"&#123;0&#125; is now sitting."</span>.format(self.name.title()))</div><div class="line"></div><div class="line">    def roll_over(self):</div><div class="line">        <span class="string">""</span><span class="string">"模拟小狗被命令时打滚"</span><span class="string">""</span></div><div class="line">        <span class="built_in">print</span>(<span class="string">"&#123;0&#125; rolled over!"</span>.format(self.name.title()))</div></pre></td></tr></table></figure></p>
@@ -371,7 +395,7 @@ Kurtosis:                       4.095   Cond. No.                         9.61
     </entry>
     
     <entry>
-      <title><![CDATA[05.函数]]></title>
+      <title><![CDATA[Python基础05：函数]]></title>
       <url>/2017/10/30/functions/</url>
       <content type="html"><![CDATA[<p>  可以将函数理解为带名字的代码块，用于被反复调用以完成具体的工作。函数的使用，极大地减少了重复代码的出现，提升了代码的可复用性，让程序的编写、阅读、测试和修复都变得更容易。</p>
 <h2 id="5-1-函数的定义"><a href="#5-1-函数的定义" class="headerlink" title="5.1 函数的定义"></a>5.1 函数的定义</h2><h3 id="5-1-1-示例"><a href="#5-1-1-示例" class="headerlink" title="5.1.1 示例"></a>5.1.1 示例</h3><p>  通过关键字<code>def</code>引入函数的定义。它必须后跟函数名和形式参数的括号列表。形成函数体的语句从下一行开始，必须缩进。下面定义了一个函数，用以将<strong>Fibonacci</strong>序列写入任意边界：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">def fib(n):</div><div class="line">    <span class="string">""</span><span class="string">"打印一个Fibonacci序列"</span><span class="string">""</span></div><div class="line">    a, b = 0, 1</div><div class="line">    <span class="keyword">while</span> a &lt; n:</div><div class="line">        <span class="built_in">print</span>(a, end = <span class="string">' '</span>)</div><div class="line">        a, b = b, a+b</div></pre></td></tr></table></figure></p>
@@ -428,7 +452,7 @@ Kurtosis:                       4.095   Cond. No.                         9.61
     </entry>
     
     <entry>
-      <title><![CDATA[04.控制流]]></title>
+      <title><![CDATA[Python基础04：控制流]]></title>
       <url>/2017/10/29/control-flow/</url>
       <content type="html"><![CDATA[<p>  目前为止，除了简单地使用过if语句和for循环以外，Python都是按从上到下的顺序执行语句。如果想要让程序根据不同的情况做不同的事情，例如根据条件执行语句或循环语句，则需要用到控制流。这里介绍三种常见的控制流语句————if、for和while。</p>
 <h2 id="4-1-条件测试"><a href="#4-1-条件测试" class="headerlink" title="4.1 条件测试"></a>4.1 条件测试</h2><h3 id="4-1-1-一个if语句的简单示例"><a href="#4-1-1-一个if语句的简单示例" class="headerlink" title="4.1.1 一个if语句的简单示例"></a>4.1.1 一个if语句的简单示例</h3><p>  下面是一个简短的示例，演示了如何使用if语句来正确地处理特殊情况：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">avengers = [<span class="string">'iron man'</span>, <span class="string">'captain america'</span>, <span class="string">'hulk'</span>, <span class="string">'thor'</span>]</div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #1: "</span>)</div><div class="line"><span class="keyword">for</span> avenger <span class="keyword">in</span> avengers:</div><div class="line">    <span class="keyword">if</span> avenger == <span class="string">'iron man'</span>:</div><div class="line">        <span class="built_in">print</span>(<span class="string">"\t&#123;0&#125; is very rich."</span>.format(avenger.title()))</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="built_in">print</span>(<span class="string">"\t&#123;0&#125; has no money."</span>.format(avenger.title()))</div></pre></td></tr></table></figure></p>
@@ -495,7 +519,7 @@ Kurtosis:                       4.095   Cond. No.                         9.61
     </entry>
     
     <entry>
-      <title><![CDATA[03.字典]]></title>
+      <title><![CDATA[Python基础03：字典]]></title>
       <url>/2017/10/28/dictionaries/</url>
       <content type="html"><![CDATA[<h2 id="3-1-字典-Dictionaries-简介"><a href="#3-1-字典-Dictionaries-简介" class="headerlink" title="3.1 字典(Dictionaries)简介"></a>3.1 字典(Dictionaries)简介</h2><p>  Python中的字典本质上是包含各种带有唯一标识符的成对信息的列表，可以理解为是一系列的<strong>键—值对</strong>，但与列表不同的是，字典是以<strong>键</strong>（整数、字符串、列表、字典或其他Python 对象）而非索引来引用某个元素，在唯一键值比连续整数更能反映出变量值含义的情况下，这个特点使字典比列表更实用。另外，字典是由花括号<code>{}</code>括起的，而非列表的中括号<code>[]</code>。而更为关键的是，字典不同于列表，字典是没有内置排序的，而列表会根据索引值（连续整数）进行隐式排序，这让字典可以很方便快速的进行搜索或添加操作（计算机不需要重新分配索引），这也让字典比列表更适合处理数据量多的情况。下面是一个简单的字典示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">simple_dict = &#123;<span class="string">'one'</span>:1, <span class="string">'two'</span>:2, <span class="string">'three'</span>:3&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #1: &#123;0&#125;"</span>.format(simple_dict)) <span class="comment">#将字典打印出来，包括花括号</span></div></pre></td></tr></table></figure></p>
 <h2 id="3-2-使用字典"><a href="#3-2-使用字典" class="headerlink" title="3.2 使用字典"></a>3.2 使用字典</h2><h3 id="3-2-1-访问字典中的值"><a href="#3-2-1-访问字典中的值" class="headerlink" title="3.2.1 访问字典中的值"></a>3.2.1 访问字典中的值</h3><p>  要获取与键相关联的值，可依次指定字典名和放在方括号内的键<code>dict_name[key]</code>，如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ninja_turtle_0 = &#123;<span class="string">'name'</span>:<span class="string">'Leonardo'</span>, <span class="string">'color'</span>:<span class="string">'blue'</span>, <span class="string">'weapon'</span>:<span class="string">'katana'</span>&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #2: &#123;0&#125;"</span>.format(ninja_turtle_0[<span class="string">'name'</span>])) <span class="comment">#Leonardo</span></div></pre></td></tr></table></figure></p>
@@ -539,7 +563,7 @@ Kurtosis:                       4.095   Cond. No.                         9.61
     </entry>
     
     <entry>
-      <title><![CDATA[02.列表和元组]]></title>
+      <title><![CDATA[Python基础02：列表和元组]]></title>
       <url>/2017/10/28/lists-tuples/</url>
       <content type="html"><![CDATA[<h2 id="2-1-序列-Sequence-简介"><a href="#2-1-序列-Sequence-简介" class="headerlink" title="2.1 序列(Sequence)简介"></a>2.1 序列(Sequence)简介</h2><p>  序列是Python中最基本的数据结构，一组有顺序的元素的集合。序列中的每个元素都分配一个数字指向它的位置，这个数字被称之为索引，第一个索引是0，第二个索引是1，依此类推。</p>
 <h3 id="2-1-1-基本序列类型"><a href="#2-1-1-基本序列类型" class="headerlink" title="2.1.1 基本序列类型"></a>2.1.1 基本序列类型</h3><p>  Python有6个序列的内置类型，但最常见的是列表(lists)和元组(tuples)。其中，列表是由一系列按特定顺序排列的元素组成，用方括号<code>[]</code>来表示列表，并用逗号来分隔其中的元素。下面是一个简单的列表示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">band = [<span class="string">'Bon Jovi'</span>, <span class="string">'Guns &amp; Roses'</span>, <span class="string">'Radiohead'</span>, <span class="string">'Simple Plan'</span>]</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #1: &#123;0&#125;"</span>.format(band)) <span class="comment">#将列表打印出来，包括方括号</span></div></pre></td></tr></table></figure></p>
@@ -652,7 +676,7 @@ Kurtosis:                       4.095   Cond. No.                         9.61
     </entry>
     
     <entry>
-      <title><![CDATA[01.变量和简单数据类型]]></title>
+      <title><![CDATA[Python基础01：变量和简单数据类型]]></title>
       <url>/2017/10/27/numbers-strings/</url>
       <content type="html"><![CDATA[<p>  <strong>人生苦短，我用Python。</strong></p>
 <p>  根据<a href="https://octoverse.github.com/" target="_blank" rel="external">GitHub2017开发者年度报告</a>，Python已成为了GitHub上第二受欢迎的语言（第一名是JavaScript）。这从一个侧面反映了Python正越来越被广泛地使用，也许是因为越来越多的开发者明白了“生命的可贵”？<br>  作为一名会点编程的产品狗，从大二开始接触Python，但除写爬虫以外，基本没用Python做什么正确的事情。目前对使用Python进行数据分析很感兴趣，计划先把Python基础再过一遍，然后尝试使用Python（或许会结合R）进行数据分析的工作。这里介绍一个IDE——<a href="https://www.anaconda.com/what-is-anaconda/" target="_blank" rel="external">Anaconda</a> ,它所提供的包管理和环境管理功能，可以省去不少麻烦，安装配置教程请戳<a href="http://www.jianshu.com/p/eecd77803508" target="_blank" rel="external">这儿</a>。安装好Python或Anaconda后，就让我们先从Python的变量和简单数据类型开始：</p>
