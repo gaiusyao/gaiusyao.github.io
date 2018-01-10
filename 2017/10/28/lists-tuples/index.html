@@ -1,315 +1,206 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=63863615"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    
+    
+    <title>Python基础02：列表和元组 | Gaius Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python3">
+    <meta name="description" content="2.1 序列(Sequence)简介  序列是Python中最基本的数据结构，一组有顺序的元素的集合。序列中的每个元素都分配一个数字指向它的位置，这个数字被称之为索引，第一个索引是0，第二个索引是1，依此类推。 2.1.1 基本序列类型  Python有6个序列的内置类型，但最常见的是列表(lists)和元组(tuples)。其中，列表是由一系列按特定顺序排列的元素组成，用方括号[]来表示列表，并">
+<meta name="keywords" content="python3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python基础02：列表和元组">
+<meta property="og:url" content="http://gaiusyao.cn/2017/10/28/lists-tuples/index.html">
+<meta property="og:site_name" content="Gaius Blog">
+<meta property="og:description" content="2.1 序列(Sequence)简介  序列是Python中最基本的数据结构，一组有顺序的元素的集合。序列中的每个元素都分配一个数字指向它的位置，这个数字被称之为索引，第一个索引是0，第二个索引是1，依此类推。 2.1.1 基本序列类型  Python有6个序列的内置类型，但最常见的是列表(lists)和元组(tuples)。其中，列表是由一系列按特定顺序排列的元素组成，用方括号[]来表示列表，并">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-09T09:39:09.787Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python基础02：列表和元组">
+<meta name="twitter:description" content="2.1 序列(Sequence)简介  序列是Python中最基本的数据结构，一组有顺序的元素的集合。序列中的每个元素都分配一个数字指向它的位置，这个数字被称之为索引，第一个索引是0，第二个索引是1，依此类推。 2.1.1 基本序列类型  Python有6个序列的内置类型，但最常见的是列表(lists)和元组(tuples)。其中，列表是由一系列按特定顺序排列的元素组成，用方括号[]来表示列表，并">
+    
+        <link rel="alternate" type="application/atom+xml" title="Gaius Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
+    <!-- custom head -->
     
 
-    <title>Python基础02：列表和元组 </title>
-    <meta name="author" content="Gaius Yao">
-    
-    <meta name="description" content="Gaius Yao Blog">
-    
-    
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <meta property="og:title" content="Python基础02：列表和元组"/>
-    <meta property="og:site_name" content="尧翔的个人博客"/>
-
-    
-    <meta property="og:image" content=""/>
-    
-
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="alternate" href="/atom.xml" title="尧翔的个人博客" type="application/atom+xml">
-    <link rel="stylesheet" href="/css/lib/materialize.min.css">
-    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-
-    
-        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
-    
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
-
 <body>
-    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+    <div id="loading" class="active"></div>
 
-    <nav class="indigo">
-    <div class="nav-wrapper">
-        <a href="#" data-activates="main-menu" class="button-collapse">
-            <i class="fa fa-navicon"></i>
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="https://github.com/gaiusyao" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
         </a>
-        <div class="">
-            <a href="/" class="brand-logo hide-on-med-and-down">尧翔的个人博客</a>
-            <ul class="right hide-on-med-and-down">
-                
-                    <li>
-                        <a class="menu-home " href="/" >
-                            <i class="fa fa-home "></i>
-                            
-                            首页
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-archive " href="/archives" >
-                            <i class="fa fa-archive "></i>
-                            
-                            归档
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
-                            <i class="fa fa-bookmark "></i>
-                            
-                            分类
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-reading " href="/reading" >
-                            <i class="fa fa-book "></i>
-                            
-                            读书
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-about " href="/about" >
-                            <i class="fa fa-user "></i>
-                            
-                            关于
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-search modal-trigger " href="#search" >
-                            <i class="fa fa-search "></i>
-                            
-                            搜索
-                        </a>
-                    </li>
-                
-            </ul>
-            <div>
-    <ul class="side-nav indigo darken-1" id="main-menu">
+        <hgroup class="introduce">
+          <h5 class="nickname">Gaius Yao</h5>
+          <a href="mailto:gaiusyao@yeah.net" title="gaiusyao@yeah.net" class="mail">gaiusyao@yeah.net</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
         
-        <li class="side-user">
-            <div class="row">
-                <div class="col s4 no-padding">
-                    <img class="avatar-image circle responsive-img" src="http://oxv2o8wp9.bkt.clouddn.com/gaius.jpg" alt="User Avatar">
-                </div>
-                <div class="info col s8 valign-wrapper no-padding">
-                    <div class="valign">
-                        <p class="name">尧翔</p>
-                        <p class="desc">PM, UXer, Huge Nerd</p>
-                    </div>
-                </div>
-            </div>
-        </li>
-        
-
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-home " href="/" >
-                    <i class="fa fa-home "></i>
-                    
-                    首页
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
             </li>
         
-            <li class="no-padding">
-                <a class="waves-effect menu-archive " href="/archives" >
-                    <i class="fa fa-archive "></i>
-                    
-                    归档
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
             </li>
         
-            <li class="no-padding">
-                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
-                    <i class="fa fa-bookmark "></i>
-                    
-                    分类
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
             </li>
         
-            <li class="no-padding">
-                <a class="waves-effect menu-reading " href="/reading" >
-                    <i class="fa fa-book "></i>
-                    
-                    读书
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
             </li>
         
-            <li class="no-padding">
-                <a class="waves-effect menu-about " href="/about" >
-                    <i class="fa fa-user "></i>
-                    
-                    关于
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/gaiusyao" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
             </li>
         
-            <li class="no-padding">
-                <a class="waves-effect menu-search modal-trigger " href="#search" >
-                    <i class="fa fa-search "></i>
-                    
-                    搜索
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="https://www.jianshu.com/u/f9bdc00c5771" target="_blank" >
+                <i class="icon icon-lg icon-bookmark"></i>
+                简书
+              </a>
             </li>
         
-    </ul>
+      </ul>
+    </div>
+  </div>
+</aside>
 
-    <ul class="side-nav indigo darken-1" id="category-menu">
-    
-
-            
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/项目介绍/">
-                    项目介绍 <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python基础02：列表和元组</div>
         
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/项目介绍/Gaius-Things-Done/">
-                    Gaius-Things-Done <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/代码之美/">
-                    代码之美 <span class="right">9 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/代码之美/人生苦短，我用Python/">
-                    人生苦短，我用Python <span class="right">8 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-2" collapse-level="2">
-                <a class="no-padding" href="/categories/代码之美/人生苦短，我用Python/Python基础/">
-                    Python基础 <span class="right">6 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-2" collapse-level="2">
-                <a class="no-padding" href="/categories/代码之美/人生苦短，我用Python/Python进阶/">
-                    Python进阶 <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-2" collapse-level="2">
-                <a class="no-padding" href="/categories/代码之美/人生苦短，我用Python/Python数据分析/">
-                    Python数据分析 <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/代码之美/Hexo/">
-                    Hexo <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-    </ul>
-</div>
-
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
         </div>
-    </div>
-</nav>
-
-<div id="search" class="modal search-modal">
-    <div class="row">
-        <div class="input-field col s12">
-              <input id="search-input" type="text">
-              <label for="search-input">搜索</label>
-        </div>
-
-    </div>
-    <div id="search-result" class="search-result col s12">
-
-    </div>
-</div>
-
-
-    <main>
-        <div class="container main-container">
-    <nav class="page-nav hide-on-small-only">
-    <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（分类目录）</span>
         
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python基础02：列表和元组</h1>
+        <h5 class="subtitle">
             
-    
-    
-    <a class="breadcrumb" href="/categories/代码之美/">代码之美</a><a class="breadcrumb" href="/categories/代码之美/人生苦短，我用Python/">人生苦短，我用Python</a><a class="breadcrumb" href="/categories/代码之美/人生苦短，我用Python/Python基础/">Python基础</a>
+                <time datetime="2017-10-28T02:42:18.000Z" itemprop="datePublished" class="page-time">
+  2017-10-28
+</time>
 
 
-        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/">人生苦短，我用Python</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/Python基础/">Python基础</a></li></ul></li></ul>
 
-        
-    </div>
-</nav>
-
-<article>
-    <div class="card">
-        <div class="card-content">
             
+        </h5>
+    </div>
 
-            <div class="article-title">
-                
-    
-        <h1>Python基础02：列表和元组</h1>
     
 
 
-            </div>
-            <time class="red-link-context" datetime="2017-10-28T02:42:18.000Z"><a href="/2017/10/28/lists-tuples/">2017-10-28</a></time>
+</header>
 
-            <span id="busuanzi_container_page_pv" class="read-times-container">
-    <i class="fa fa-eye"></i>
-    <span id="busuanzi_value_page_pv"></span>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-序列-Sequence-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">2.1 序列(Sequence)简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-1-基本序列类型"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">2.1.1 基本序列类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-2-通用序列操作"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.1.2 通用序列操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-列表（Lists）元素"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.2 列表（Lists）元素</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-1-访问列表元素"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.2.1 访问列表元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-2-使用列表中的各个值"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2.2 使用列表中的各个值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-3-添加列表元素"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.2.3 添加列表元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-4-修改列表元素"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">2.2.4 修改列表元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-5-删除列表元素"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">2.2.5 删除列表元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-6-对列表进行排序"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">2.2.6 对列表进行排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-7-反转列表"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">2.2.7 反转列表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-8-确定列表长度"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">2.2.8 确定列表长度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-9-索引错误-IndexError"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">2.2.9 索引错误(IndexError)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-操作列表"><span class="post-toc-number">3.</span> <span class="post-toc-text">2.3 操作列表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-1-遍历整个列表"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2.3.1 遍历整个列表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-2-创建数值列表"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.3.2 创建数值列表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-3-使用列表的一部分"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">2.3.3 使用列表的一部分</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-元组-Tuples"><span class="post-toc-number">4.</span> <span class="post-toc-text">2.4 元组(Tuples)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-1-定义元组"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">2.4.1 定义元组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-2-遍历元组"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">2.4.2 遍历元组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-3-修改元组变量"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">2.4.3 修改元组变量</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-lists-tuples"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python基础02：列表和元组</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-28 10:42:18" datetime="2017-10-28T02:42:18.000Z"  itemprop="datePublished">2017-10-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/">人生苦短，我用Python</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/Python基础/">Python基础</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
-            
-    <div class="tags-row">
-        
-            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
-        
-    </div>
 
-
-            <div class="toc red-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#2-1-序列-Sequence-简介"><span class="section table-of-contents-text">2.1 序列(Sequence)简介</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-1-1-基本序列类型"><span class="section table-of-contents-text">2.1.1 基本序列类型</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-1-2-通用序列操作"><span class="section table-of-contents-text">2.1.2 通用序列操作</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#2-2-列表（Lists）元素"><span class="section table-of-contents-text">2.2 列表（Lists）元素</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-2-1-访问列表元素"><span class="section table-of-contents-text">2.2.1 访问列表元素</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-2-2-使用列表中的各个值"><span class="section table-of-contents-text">2.2.2 使用列表中的各个值</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-2-3-添加列表元素"><span class="section table-of-contents-text">2.2.3 添加列表元素</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-2-4-修改列表元素"><span class="section table-of-contents-text">2.2.4 修改列表元素</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-2-5-删除列表元素"><span class="section table-of-contents-text">2.2.5 删除列表元素</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-2-6-对列表进行排序"><span class="section table-of-contents-text">2.2.6 对列表进行排序</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-2-7-反转列表"><span class="section table-of-contents-text">2.2.7 反转列表</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-2-8-确定列表长度"><span class="section table-of-contents-text">2.2.8 确定列表长度</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-2-9-索引错误-IndexError"><span class="section table-of-contents-text">2.2.9 索引错误(IndexError)</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#2-3-操作列表"><span class="section table-of-contents-text">2.3 操作列表</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-3-1-遍历整个列表"><span class="section table-of-contents-text">2.3.1 遍历整个列表</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-3-2-创建数值列表"><span class="section table-of-contents-text">2.3.2 创建数值列表</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-3-3-使用列表的一部分"><span class="section table-of-contents-text">2.3.3 使用列表的一部分</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#2-4-元组-Tuples"><span class="section table-of-contents-text">2.4 元组(Tuples)</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-4-1-定义元组"><span class="section table-of-contents-text">2.4.1 定义元组</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-4-2-遍历元组"><span class="section table-of-contents-text">2.4.2 遍历元组</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-4-3-修改元组变量"><span class="section table-of-contents-text">2.4.3 修改元组变量</span></a></li></ol></li></ol>
-</div>
-
-
-            <div class="entry red-link-context">
-                <h2 id="2-1-序列-Sequence-简介"><a href="#2-1-序列-Sequence-简介" class="headerlink" title="2.1 序列(Sequence)简介"></a>2.1 序列(Sequence)简介</h2><p>  序列是Python中最基本的数据结构，一组有顺序的元素的集合。序列中的每个元素都分配一个数字指向它的位置，这个数字被称之为索引，第一个索引是0，第二个索引是1，依此类推。</p>
-<h3 id="2-1-1-基本序列类型"><a href="#2-1-1-基本序列类型" class="headerlink" title="2.1.1 基本序列类型"></a>2.1.1 基本序列类型</h3><p>  Python有6个序列的内置类型，但最常见的是列表(lists)和元组(tuples)。其中，列表是由一系列按特定顺序排列的元素组成，用方括号<code>[]</code>来表示列表，并用逗号来分隔其中的元素。下面是一个简单的列表示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">band = [<span class="string">'Bon Jovi'</span>, <span class="string">'Guns &amp; Roses'</span>, <span class="string">'Radiohead'</span>, <span class="string">'Simple Plan'</span>]</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #1: &#123;0&#125;"</span>.format(band)) <span class="comment">#将列表打印出来，包括方括号</span></div></pre></td></tr></table></figure></p>
-<p>  列表非常适合用于存储在程序运行期间可能变化的数据集，因为列表是可以修改的，但有的时候，也需要创建一系列不可修改的元素。Python将不能修改的值称为<strong>不可变的(immutable)</strong>，而不可变的序列被称为元组，下面是一个简单的元组实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dimensions = (200, 120)</div></pre></td></tr></table></figure></p>
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="2-1-序列-Sequence-简介"><a href="#2-1-序列-Sequence-简介" class="headerlink" title="2.1 序列(Sequence)简介"></a>2.1 序列(Sequence)简介</h2><p>  序列是Python中最基本的数据结构，一组有顺序的元素的集合。序列中的每个元素都分配一个数字指向它的位置，这个数字被称之为索引，第一个索引是0，第二个索引是1，依此类推。</p>
+<h3 id="2-1-1-基本序列类型"><a href="#2-1-1-基本序列类型" class="headerlink" title="2.1.1 基本序列类型"></a>2.1.1 基本序列类型</h3><p>  Python有6个序列的内置类型，但最常见的是列表(lists)和元组(tuples)。其中，列表是由一系列按特定顺序排列的元素组成，用方括号<code>[]</code>来表示列表，并用逗号来分隔其中的元素。下面是一个简单的列表示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">band = [<span class="string">'Bon Jovi'</span>, <span class="string">'Guns &amp; Roses'</span>, <span class="string">'Radiohead'</span>, <span class="string">'Simple Plan'</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #1: &#123;0&#125;"</span>.format(band)) <span class="comment">#将列表打印出来，包括方括号</span></span><br></pre></td></tr></table></figure></p>
+<p>  列表非常适合用于存储在程序运行期间可能变化的数据集，因为列表是可以修改的，但有的时候，也需要创建一系列不可修改的元素。Python将不能修改的值称为<strong>不可变的(immutable)</strong>，而不可变的序列被称为元组，下面是一个简单的元组实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dimensions = (200, 120)</span><br></pre></td></tr></table></figure></p>
 <h3 id="2-1-2-通用序列操作"><a href="#2-1-2-通用序列操作" class="headerlink" title="2.1.2 通用序列操作"></a>2.1.2 通用序列操作</h3><p>  大多数序列类型（包括可变序列和不可变序列）都支持下面表个中的操作。</p>
 <table>
 <thead>
@@ -369,365 +260,328 @@
 </tr>
 </tbody>
 </table>
-<h2 id="2-2-列表（Lists）元素"><a href="#2-2-列表（Lists）元素" class="headerlink" title="2.2 列表（Lists）元素"></a>2.2 列表（Lists）元素</h2><h3 id="2-2-1-访问列表元素"><a href="#2-2-1-访问列表元素" class="headerlink" title="2.2.1 访问列表元素"></a>2.2.1 访问列表元素</h3><p>  列表是<strong>有序集合</strong>，因此也可以通过索引访问列表的任何元素，具体形式为<code>list_name[index]</code>。当通过索引访问列表元素时，只返回访问的元素，而不包括方括号和引号：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #2: &#123;0&#125;"</span>.format(band[0])) <span class="comment">#列表索引也是从0开始</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #3: &#123;0&#125;"</span>.format(band[-1])) <span class="comment">#同样可以使用负数索引</span></div></pre></td></tr></table></figure></p>
-<p>  同样的，列表也可以进行切片操作，且切片操作会返回一个包含所请求元素的新列表，这意味着切片操作将会返回一个此列表的（浅）拷贝：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #4: &#123;0&#125;"</span>.format(band[-3:]))</div></pre></td></tr></table></figure></p>
-<h3 id="2-2-2-使用列表中的各个值"><a href="#2-2-2-使用列表中的各个值" class="headerlink" title="2.2.2 使用列表中的各个值"></a>2.2.2 使用列表中的各个值</h3><p>  可像使用其他变量一样使用列表中的各个值。如可以使用拼接根据列表中的值来创建消息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">message = <span class="string">"My favorite band is "</span> + band[0].title() + <span class="string">"!"</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #5: &#123;0&#125;"</span>.format(message))</div></pre></td></tr></table></figure></p>
+<h2 id="2-2-列表（Lists）元素"><a href="#2-2-列表（Lists）元素" class="headerlink" title="2.2 列表（Lists）元素"></a>2.2 列表（Lists）元素</h2><h3 id="2-2-1-访问列表元素"><a href="#2-2-1-访问列表元素" class="headerlink" title="2.2.1 访问列表元素"></a>2.2.1 访问列表元素</h3><p>  列表是<strong>有序集合</strong>，因此也可以通过索引访问列表的任何元素，具体形式为<code>list_name[index]</code>。当通过索引访问列表元素时，只返回访问的元素，而不包括方括号和引号：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"Output #2: &#123;0&#125;"</span>.format(band[0])) <span class="comment">#列表索引也是从0开始</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #3: &#123;0&#125;"</span>.format(band[-1])) <span class="comment">#同样可以使用负数索引</span></span><br></pre></td></tr></table></figure></p>
+<p>  同样的，列表也可以进行切片操作，且切片操作会返回一个包含所请求元素的新列表，这意味着切片操作将会返回一个此列表的（浅）拷贝：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"Output #4: &#123;0&#125;"</span>.format(band[-3:]))</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-2-使用列表中的各个值"><a href="#2-2-2-使用列表中的各个值" class="headerlink" title="2.2.2 使用列表中的各个值"></a>2.2.2 使用列表中的各个值</h3><p>  可像使用其他变量一样使用列表中的各个值。如可以使用拼接根据列表中的值来创建消息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">message = <span class="string">"My favorite band is "</span> + band[0].title() + <span class="string">"!"</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #5: &#123;0&#125;"</span>.format(message))</span><br></pre></td></tr></table></figure></p>
 <p>  运行上面的代码，在<code>Output #4</code>后是message的值，即<code>My favorite band is Bon Jovi！</code></p>
-<h3 id="2-2-3-添加列表元素"><a href="#2-2-3-添加列表元素" class="headerlink" title="2.2.3 添加列表元素"></a>2.2.3 添加列表元素</h3><p>  不同于字符串，创建的列表大多数是动态的，这意味着列表创建后，可以随着程序的运行增删改元素。<br>  Python提供了多种在既有列表中添加新数据的方式，最常用的是使用append()函数在列表末尾添加元素，或使用insert()函数将元素插入到指定位置。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">band.append(<span class="string">'Zard'</span>) <span class="comment">#使用append(),将元素附加到列表末尾</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #6: &#123;0&#125;"</span>.format(band)) </div><div class="line">band.insert(1, <span class="string">'Sum 41'</span>) <span class="comment">#使用insert(),将元素插入到列表中第二个位置</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #7: &#123;0&#125;"</span>.format(band))</div></pre></td></tr></table></figure></p>
-<h3 id="2-2-4-修改列表元素"><a href="#2-2-4-修改列表元素" class="headerlink" title="2.2.4 修改列表元素"></a>2.2.4 修改列表元素</h3><p>  修改列表元素的语法与访问列表元素的语法类似。要修改列表元素，可指定列表名和要修改的元素的索引，再指定该元素的新值。例如，将<code>band[1]</code>重新指定为<code>&#39;Sum 42&#39;</code>:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">band[1] = <span class="string">"Sum 42"</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #8: &#123;0&#125;"</span>.format(band[1]))</div></pre></td></tr></table></figure></p>
-<h3 id="2-2-5-删除列表元素"><a href="#2-2-5-删除列表元素" class="headerlink" title="2.2.5 删除列表元素"></a>2.2.5 删除列表元素</h3><p>  经常需要删除列表中的一个或多个元素，可根据位置或值来删除列表中的元素，常见的方法有以下四种：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#方法1：使用del语句删除指定位置的元素</span></div><div class="line">del band[1] </div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #9: &#123;0&#125;"</span>.format(band)) </div><div class="line"><span class="comment">#方法2：使用pop()删除列表末尾的元素，或者更形象的称之为弹出</span></div><div class="line">popped_band = band.pop()</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #10 (band): &#123;0&#125;"</span>.format(band)) </div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #10 (popped_band): &#123;0&#125;"</span>.format(popped_band)) </div><div class="line"><span class="comment">#方法3：使用pop()来删除列表中指定位置的元素</span></div><div class="line">first_band = band.pop(0)</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #11 (band): &#123;0&#125;"</span>.format(band)) </div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #11 (first_band): &#123;0&#125;"</span>.format(first_band)) </div><div class="line"><span class="comment">#方法4：使用remove()根据元素值删除元素</span></div><div class="line">band.remove(<span class="string">'Simple Plan'</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #12 (band): &#123;0&#125;"</span>.format(band))</div></pre></td></tr></table></figure></p>
-<h3 id="2-2-6-对列表进行排序"><a href="#2-2-6-对列表进行排序" class="headerlink" title="2.2.6 对列表进行排序"></a>2.2.6 对列表进行排序</h3><p>  列表中的元素排列顺序通常是没有规律的，但又经常有以特定顺序呈现信息的需求，因此需要对列表进行排序。最简单的是通过sort()函数对列表进行排序。假设现在有一个汽车列表，并要让其中的汽车按字母顺序排列。为简化这项任务，我们假设该列表中的所有值都是小写的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</div><div class="line">cars.sort()</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #13: &#123;0&#125;"</span>.format(cars))</div></pre></td></tr></table></figure></p>
-<p>  sort()永久性地改变了列表元素的排列顺序。现在，汽车是按字母顺序排列的，且再也无法恢复到原来的排列顺序。若想保留列表元素原来的排列顺序，同时以特定的顺序呈现它们，可使用sorted()函数:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #14 (sorted): &#123;0&#125;"</span>.format(sorted(cars)))</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #14 (original): &#123;0&#125;"</span>.format(cars))</div></pre></td></tr></table></figure></p>
+<h3 id="2-2-3-添加列表元素"><a href="#2-2-3-添加列表元素" class="headerlink" title="2.2.3 添加列表元素"></a>2.2.3 添加列表元素</h3><p>  不同于字符串，创建的列表大多数是动态的，这意味着列表创建后，可以随着程序的运行增删改元素。<br>  Python提供了多种在既有列表中添加新数据的方式，最常用的是使用append()函数在列表末尾添加元素，或使用insert()函数将元素插入到指定位置。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">band.append(<span class="string">'Zard'</span>) <span class="comment">#使用append(),将元素附加到列表末尾</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #6: &#123;0&#125;"</span>.format(band)) </span><br><span class="line">band.insert(1, <span class="string">'Sum 41'</span>) <span class="comment">#使用insert(),将元素插入到列表中第二个位置</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #7: &#123;0&#125;"</span>.format(band))</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-4-修改列表元素"><a href="#2-2-4-修改列表元素" class="headerlink" title="2.2.4 修改列表元素"></a>2.2.4 修改列表元素</h3><p>  修改列表元素的语法与访问列表元素的语法类似。要修改列表元素，可指定列表名和要修改的元素的索引，再指定该元素的新值。例如，将<code>band[1]</code>重新指定为<code>&#39;Sum 42&#39;</code>:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">band[1] = <span class="string">"Sum 42"</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #8: &#123;0&#125;"</span>.format(band[1]))</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-5-删除列表元素"><a href="#2-2-5-删除列表元素" class="headerlink" title="2.2.5 删除列表元素"></a>2.2.5 删除列表元素</h3><p>  经常需要删除列表中的一个或多个元素，可根据位置或值来删除列表中的元素，常见的方法有以下四种：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法1：使用del语句删除指定位置的元素</span></span><br><span class="line">del band[1] </span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #9: &#123;0&#125;"</span>.format(band)) </span><br><span class="line"><span class="comment">#方法2：使用pop()删除列表末尾的元素，或者更形象的称之为弹出</span></span><br><span class="line">popped_band = band.pop()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #10 (band): &#123;0&#125;"</span>.format(band)) </span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #10 (popped_band): &#123;0&#125;"</span>.format(popped_band)) </span><br><span class="line"><span class="comment">#方法3：使用pop()来删除列表中指定位置的元素</span></span><br><span class="line">first_band = band.pop(0)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #11 (band): &#123;0&#125;"</span>.format(band)) </span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #11 (first_band): &#123;0&#125;"</span>.format(first_band)) </span><br><span class="line"><span class="comment">#方法4：使用remove()根据元素值删除元素</span></span><br><span class="line">band.remove(<span class="string">'Simple Plan'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #12 (band): &#123;0&#125;"</span>.format(band))</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-6-对列表进行排序"><a href="#2-2-6-对列表进行排序" class="headerlink" title="2.2.6 对列表进行排序"></a>2.2.6 对列表进行排序</h3><p>  列表中的元素排列顺序通常是没有规律的，但又经常有以特定顺序呈现信息的需求，因此需要对列表进行排序。最简单的是通过sort()函数对列表进行排序。假设现在有一个汽车列表，并要让其中的汽车按字母顺序排列。为简化这项任务，我们假设该列表中的所有值都是小写的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line">cars.sort()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #13: &#123;0&#125;"</span>.format(cars))</span><br></pre></td></tr></table></figure></p>
+<p>  sort()永久性地改变了列表元素的排列顺序。现在，汽车是按字母顺序排列的，且再也无法恢复到原来的排列顺序。若想保留列表元素原来的排列顺序，同时以特定的顺序呈现它们，可使用sorted()函数:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #14 (sorted): &#123;0&#125;"</span>.format(sorted(cars)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #14 (original): &#123;0&#125;"</span>.format(cars))</span><br></pre></td></tr></table></figure></p>
 <p>  前面都是使用字母顺序排序，若想按与字母顺序相反的顺序显示列表，也可向sort()或sorted()传递参数<code>reverse=True</code>。</p>
-<h3 id="2-2-7-反转列表"><a href="#2-2-7-反转列表" class="headerlink" title="2.2.7 反转列表"></a>2.2.7 反转列表</h3><p>  使用reverse()函数可轻松地反转列表，且可以很方便的恢复，只需要再次调用reverse()即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cars.reverse()</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #15 (reversed): &#123;0&#125;"</span>.format(cars))</div><div class="line">cars.reverse()</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #15 (original): &#123;0&#125;"</span>.format(cars))</div></pre></td></tr></table></figure></p>
-<h3 id="2-2-8-确定列表长度"><a href="#2-2-8-确定列表长度" class="headerlink" title="2.2.8 确定列表长度"></a>2.2.8 确定列表长度</h3><p>  使用len()函数可快速获悉列表的长度。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #16: &#123;0&#125;"</span>.format(len(cars))) <span class="comment">#4</span></div></pre></td></tr></table></figure></p>
-<h3 id="2-2-9-索引错误-IndexError"><a href="#2-2-9-索引错误-IndexError" class="headerlink" title="2.2.9 索引错误(IndexError)"></a>2.2.9 索引错误(IndexError)</h3><p>  使用列表经常易犯索引错误，如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Traceback (most recent call last):</div><div class="line">    File <span class="string">"F:/pivotlab/learn_python/lists.py"</span>, line 57, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">        band[42]</div><div class="line">IndexError: list index out of range</div></pre></td></tr></table></figure></p>
+<h3 id="2-2-7-反转列表"><a href="#2-2-7-反转列表" class="headerlink" title="2.2.7 反转列表"></a>2.2.7 反转列表</h3><p>  使用reverse()函数可轻松地反转列表，且可以很方便的恢复，只需要再次调用reverse()即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cars.reverse()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #15 (reversed): &#123;0&#125;"</span>.format(cars))</span><br><span class="line">cars.reverse()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #15 (original): &#123;0&#125;"</span>.format(cars))</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-8-确定列表长度"><a href="#2-2-8-确定列表长度" class="headerlink" title="2.2.8 确定列表长度"></a>2.2.8 确定列表长度</h3><p>  使用len()函数可快速获悉列表的长度。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"Output #16: &#123;0&#125;"</span>.format(len(cars))) <span class="comment">#4</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-9-索引错误-IndexError"><a href="#2-2-9-索引错误-IndexError" class="headerlink" title="2.2.9 索引错误(IndexError)"></a>2.2.9 索引错误(IndexError)</h3><p>  使用列表经常易犯索引错误，如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">    File <span class="string">"F:/pivotlab/learn_python/lists.py"</span>, line 57, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">        band[42]</span><br><span class="line">IndexError: list index out of range</span><br></pre></td></tr></table></figure></p>
 <p>  索引错误意味着Python无法理解你指定的索引，这时可以尝试将你指定的索引减1，或者索引<code>-1</code>，以检查索引错误是因为多了一位，还是列表为空。</p>
-<h2 id="2-3-操作列表"><a href="#2-3-操作列表" class="headerlink" title="2.3 操作列表"></a>2.3 操作列表</h2><h3 id="2-3-1-遍历整个列表"><a href="#2-3-1-遍历整个列表" class="headerlink" title="2.3.1 遍历整个列表"></a>2.3.1 遍历整个列表</h3><p>  现在假设我们有一个名单，需要将名单中的名字都打印出来。我们可以通过索引分别获取并打印名单中每个名字，但这样会有大量的重复，且每次名单发生变化，都需要修改代码。因此，我们需要使用for循环（将在控制流中深入讨论）去遍历整个列表，逐个打印名单中的名字：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ninja_turtles = [<span class="string">'Leonardo'</span>, <span class="string">'Raphael'</span>, <span class="string">'Michelangelo'</span>, <span class="string">'Donatello'</span>]</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #17: "</span>)</div><div class="line"><span class="keyword">for</span> ninja_turtle <span class="keyword">in</span> ninja_turtles:</div><div class="line">    <span class="built_in">print</span>(ninja_turtle)</div></pre></td></tr></table></figure></p>
-<p>  在for循环中，可对每个元素执行任何操作。下面来扩展前面的示例，对于每位神龟，都打印一条消息，指出他是一个忍者了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ninja_turtles = [<span class="string">'Leonardo'</span>, <span class="string">'Raphael'</span>, <span class="string">'Michelangelo'</span>, <span class="string">'Donatello'</span>]</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #18: "</span>)</div><div class="line"><span class="keyword">for</span> ninja_turtle <span class="keyword">in</span> ninja_turtles:</div><div class="line">    <span class="built_in">print</span>(ninja_turtle.title() + <span class="string">", is a ninja!"</span>)</div></pre></td></tr></table></figure></p>
-<h3 id="2-3-2-创建数值列表"><a href="#2-3-2-创建数值列表" class="headerlink" title="2.3.2 创建数值列表"></a>2.3.2 创建数值列表</h3><p>  前面的列表存储的均为字符串，但列表也经常用于存储一组数字，下面先用range()函数生成一些数字：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"Output #19: "</span>) </div><div class="line"><span class="keyword">for</span> value <span class="keyword">in</span> range(1,5):</div><div class="line">    <span class="built_in">print</span>(value)</div></pre></td></tr></table></figure></p>
-<p>  可以看到，上述代码只打印了数字1~4，而没有包括5，需要打印1~5，则应写成<code>for value in range(1,6)</code>。<br>  接着，我们通过使用list()函数将range()的结果直接转换为列表：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#range()中第1、2个参数分别是起始值，第3个参数为步长，从2开始数，然后不断地加2，直到达到或超过终值（11）</span></div><div class="line">numbers = list(range(2,11,2)) </div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #20: &#123;0&#125;"</span>.format(numbers))</div></pre></td></tr></table></figure></p>
-<p>  使用函数range()几乎能够创建任何需要的数字集，例如，如何创建一个列表，其中包含前10个整数（即1~10）的平方：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">squares = []</div><div class="line"><span class="keyword">for</span> square <span class="keyword">in</span> range(1,11):</div><div class="line">    squares.append(square**2)</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #21: &#123;0&#125;"</span>.format(squares))</div></pre></td></tr></table></figure></p>
-<p>  前面介绍的生成列表squares的方式包含三行代码，而<strong>列表解析</strong>让你只需编写一行代码就能生成这样的列表。如下列代码所示，列表解析将for循环和创建新元素的代码合并成一行，并自动附加新元素。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">squares = [value**2 <span class="keyword">for</span> value <span class="keyword">in</span> range(1,11)]</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #22: &#123;0&#125;"</span>.format(squares))</div></pre></td></tr></table></figure></p>
-<p>  可以利用几个专门用于处理数字列表的Python函数，对列表进行简单的统计计算，例如，你可以轻松地找出数字列表的最大值、最小值和总和：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #23 (min): &#123;0&#125;"</span>.format(min(digits))) <span class="comment">#0</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #23 (max): &#123;0&#125;"</span>.format(max(digits))) <span class="comment">#9</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #23 (sum): &#123;0&#125;"</span>.format(sum(digits))) <span class="comment">#45</span></div></pre></td></tr></table></figure></p>
-<h3 id="2-3-3-使用列表的一部分"><a href="#2-3-3-使用列表的一部分" class="headerlink" title="2.3.3 使用列表的一部分"></a>2.3.3 使用列表的一部分</h3><p>  在前面介绍访问列表元素的时候，已简单地提到了<strong>切片</strong>操作，通过切片，可以很方便地使用列表的一部分元素。下面使用切片进行的遍历列表元素和复制列表的示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">players = [<span class="string">'charles'</span>, <span class="string">'martina'</span>, <span class="string">'michael'</span>, <span class="string">'florence'</span>, <span class="string">'eli'</span>]</div><div class="line"><span class="built_in">print</span>(<span class="string">"Here are the first three players on my team:"</span>)</div><div class="line"><span class="keyword">for</span> player <span class="keyword">in</span> players[:3]: <span class="comment">#遍历切片</span></div><div class="line">    <span class="built_in">print</span>(player.title())</div><div class="line">other_players = players[3:] <span class="comment">#复制列表的剩余部分</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"Here are the other players on my team:"</span>)</div><div class="line"><span class="keyword">for</span> player <span class="keyword">in</span> other_players [:]: <span class="comment">#遍历切片</span></div><div class="line">    <span class="built_in">print</span>(player.title())</div></pre></td></tr></table></figure></p>
-<h2 id="2-4-元组-Tuples"><a href="#2-4-元组-Tuples" class="headerlink" title="2.4 元组(Tuples)"></a>2.4 元组(Tuples)</h2><h3 id="2-4-1-定义元组"><a href="#2-4-1-定义元组" class="headerlink" title="2.4.1 定义元组"></a>2.4.1 定义元组</h3><p>  元组看起来与列表非常相似，但使用的是圆括号<code>()</code>而非方括号<code>[]</code>来标识。定义元组后，就可以像访问列表元素一样使用索引来访问元组元素。下面的代码定义了一个名为<code>dimensions</code>的元组，存储了一个矩形的长度和宽度：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dimensions = (200, 120)</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #24 (length): &#123;0&#125;"</span>.format(dimensions[0]))</div><div class="line"><span class="built_in">print</span>(<span class="string">"Output #24 (width): &#123;0&#125;"</span>.format(dimensions[1]))</div></pre></td></tr></table></figure></p>
-<p>  下面来尝试通过<code>dimensions[0] = 250</code>修改元组dimensions中的一个元素，结果将得到一个类型错误(TypeError)：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TypeError: <span class="string">'tuple'</span> object does not support item assignment</div></pre></td></tr></table></figure></p>
-<h3 id="2-4-2-遍历元组"><a href="#2-4-2-遍历元组" class="headerlink" title="2.4.2 遍历元组"></a>2.4.2 遍历元组</h3><p>  像列表一样，也可以使用for循环来遍历元组中的所有值：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> dimension <span class="keyword">in</span> dimensions:</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Output #25: &#123;0&#125;"</span>.format(dimension))</div></pre></td></tr></table></figure></p>
-<h3 id="2-4-3-修改元组变量"><a href="#2-4-3-修改元组变量" class="headerlink" title="2.4.3 修改元组变量"></a>2.4.3 修改元组变量</h3><p>  虽然不能修改元组的元素，但可以给存储元组的变量赋值。因此，如果要修改前述矩形的尺寸，可重新定义整个元组：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dimensions = (400, 100)</div><div class="line"><span class="built_in">print</span>(<span class="string">"\nModified dimensions:"</span>)</div><div class="line"><span class="keyword">for</span> dimension <span class="keyword">in</span> dimensions:</div><div class="line">    <span class="built_in">print</span>(dimension)</div></pre></td></tr></table></figure></p>
-<p>  本篇文章的代码可从<a href="https://github.com/gaiusyao/pivotlab/tree/master/learn_python" target="_blank" rel="external">我的GitHub</a>上获取。</p>
+<h2 id="2-3-操作列表"><a href="#2-3-操作列表" class="headerlink" title="2.3 操作列表"></a>2.3 操作列表</h2><h3 id="2-3-1-遍历整个列表"><a href="#2-3-1-遍历整个列表" class="headerlink" title="2.3.1 遍历整个列表"></a>2.3.1 遍历整个列表</h3><p>  现在假设我们有一个名单，需要将名单中的名字都打印出来。我们可以通过索引分别获取并打印名单中每个名字，但这样会有大量的重复，且每次名单发生变化，都需要修改代码。因此，我们需要使用for循环（将在控制流中深入讨论）去遍历整个列表，逐个打印名单中的名字：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ninja_turtles = [<span class="string">'Leonardo'</span>, <span class="string">'Raphael'</span>, <span class="string">'Michelangelo'</span>, <span class="string">'Donatello'</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #17: "</span>)</span><br><span class="line"><span class="keyword">for</span> ninja_turtle <span class="keyword">in</span> ninja_turtles:</span><br><span class="line">    <span class="built_in">print</span>(ninja_turtle)</span><br></pre></td></tr></table></figure></p>
+<p>  在for循环中，可对每个元素执行任何操作。下面来扩展前面的示例，对于每位神龟，都打印一条消息，指出他是一个忍者了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ninja_turtles = [<span class="string">'Leonardo'</span>, <span class="string">'Raphael'</span>, <span class="string">'Michelangelo'</span>, <span class="string">'Donatello'</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #18: "</span>)</span><br><span class="line"><span class="keyword">for</span> ninja_turtle <span class="keyword">in</span> ninja_turtles:</span><br><span class="line">    <span class="built_in">print</span>(ninja_turtle.title() + <span class="string">", is a ninja!"</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-3-2-创建数值列表"><a href="#2-3-2-创建数值列表" class="headerlink" title="2.3.2 创建数值列表"></a>2.3.2 创建数值列表</h3><p>  前面的列表存储的均为字符串，但列表也经常用于存储一组数字，下面先用range()函数生成一些数字：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"Output #19: "</span>) </span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> range(1,5):</span><br><span class="line">    <span class="built_in">print</span>(value)</span><br></pre></td></tr></table></figure></p>
+<p>  可以看到，上述代码只打印了数字1~4，而没有包括5，需要打印1~5，则应写成<code>for value in range(1,6)</code>。<br>  接着，我们通过使用list()函数将range()的结果直接转换为列表：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#range()中第1、2个参数分别是起始值，第3个参数为步长，从2开始数，然后不断地加2，直到达到或超过终值（11）</span></span><br><span class="line">numbers = list(range(2,11,2)) </span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #20: &#123;0&#125;"</span>.format(numbers))</span><br></pre></td></tr></table></figure></p>
+<p>  使用函数range()几乎能够创建任何需要的数字集，例如，如何创建一个列表，其中包含前10个整数（即1~10）的平方：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">squares = []</span><br><span class="line"><span class="keyword">for</span> square <span class="keyword">in</span> range(1,11):</span><br><span class="line">    squares.append(square**2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #21: &#123;0&#125;"</span>.format(squares))</span><br></pre></td></tr></table></figure></p>
+<p>  前面介绍的生成列表squares的方式包含三行代码，而<strong>列表解析</strong>让你只需编写一行代码就能生成这样的列表。如下列代码所示，列表解析将for循环和创建新元素的代码合并成一行，并自动附加新元素。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">squares = [value**2 <span class="keyword">for</span> value <span class="keyword">in</span> range(1,11)]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #22: &#123;0&#125;"</span>.format(squares))</span><br></pre></td></tr></table></figure></p>
+<p>  可以利用几个专门用于处理数字列表的Python函数，对列表进行简单的统计计算，例如，你可以轻松地找出数字列表的最大值、最小值和总和：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #23 (min): &#123;0&#125;"</span>.format(min(digits))) <span class="comment">#0</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #23 (max): &#123;0&#125;"</span>.format(max(digits))) <span class="comment">#9</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #23 (sum): &#123;0&#125;"</span>.format(sum(digits))) <span class="comment">#45</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-3-3-使用列表的一部分"><a href="#2-3-3-使用列表的一部分" class="headerlink" title="2.3.3 使用列表的一部分"></a>2.3.3 使用列表的一部分</h3><p>  在前面介绍访问列表元素的时候，已简单地提到了<strong>切片</strong>操作，通过切片，可以很方便地使用列表的一部分元素。下面使用切片进行的遍历列表元素和复制列表的示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">players = [<span class="string">'charles'</span>, <span class="string">'martina'</span>, <span class="string">'michael'</span>, <span class="string">'florence'</span>, <span class="string">'eli'</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Here are the first three players on my team:"</span>)</span><br><span class="line"><span class="keyword">for</span> player <span class="keyword">in</span> players[:3]: <span class="comment">#遍历切片</span></span><br><span class="line">    <span class="built_in">print</span>(player.title())</span><br><span class="line">other_players = players[3:] <span class="comment">#复制列表的剩余部分</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Here are the other players on my team:"</span>)</span><br><span class="line"><span class="keyword">for</span> player <span class="keyword">in</span> other_players [:]: <span class="comment">#遍历切片</span></span><br><span class="line">    <span class="built_in">print</span>(player.title())</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-4-元组-Tuples"><a href="#2-4-元组-Tuples" class="headerlink" title="2.4 元组(Tuples)"></a>2.4 元组(Tuples)</h2><h3 id="2-4-1-定义元组"><a href="#2-4-1-定义元组" class="headerlink" title="2.4.1 定义元组"></a>2.4.1 定义元组</h3><p>  元组看起来与列表非常相似，但使用的是圆括号<code>()</code>而非方括号<code>[]</code>来标识。定义元组后，就可以像访问列表元素一样使用索引来访问元组元素。下面的代码定义了一个名为<code>dimensions</code>的元组，存储了一个矩形的长度和宽度：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dimensions = (200, 120)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #24 (length): &#123;0&#125;"</span>.format(dimensions[0]))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Output #24 (width): &#123;0&#125;"</span>.format(dimensions[1]))</span><br></pre></td></tr></table></figure></p>
+<p>  下面来尝试通过<code>dimensions[0] = 250</code>修改元组dimensions中的一个元素，结果将得到一个类型错误(TypeError)：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: <span class="string">'tuple'</span> object does not support item assignment</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-4-2-遍历元组"><a href="#2-4-2-遍历元组" class="headerlink" title="2.4.2 遍历元组"></a>2.4.2 遍历元组</h3><p>  像列表一样，也可以使用for循环来遍历元组中的所有值：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> dimension <span class="keyword">in</span> dimensions:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Output #25: &#123;0&#125;"</span>.format(dimension))</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-4-3-修改元组变量"><a href="#2-4-3-修改元组变量" class="headerlink" title="2.4.3 修改元组变量"></a>2.4.3 修改元组变量</h3><p>  虽然不能修改元组的元素，但可以给存储元组的变量赋值。因此，如果要修改前述矩形的尺寸，可重新定义整个元组：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dimensions = (400, 100)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\nModified dimensions:"</span>)</span><br><span class="line"><span class="keyword">for</span> dimension <span class="keyword">in</span> dimensions:</span><br><span class="line">    <span class="built_in">print</span>(dimension)</span><br></pre></td></tr></table></figure></p>
+<p>  本篇文章的代码可从<a href="https://github.com/gaiusyao/pivotlab/tree/master/learn_python" target="_blank" rel="noopener">我的GitHub</a>上获取。</p>
 
-                
-<p class="red-link-context">
-    <a href="/2017/10/28/dictionaries/" rel="next" title="Python基础03：字典">
-    下一篇：Python基础03：字典
-  </a>
-</p>
+        </div>
 
-
-
-<p class="red-link-context">
-    <a href="/2017/10/27/numbers-strings/" rel="next" title="Python基础01：变量和简单数据类型">
-    上一篇：Python基础01：变量和简单数据类型
-  </a>
-</p>
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-01-09T09:39:09.787Z" itemprop="dateUpdated">2018-01-09 17:39:09</time>
+</span><br>
 
 
-            </div>
-			
+        
+        May the force be with you.
+        
+    </div>
+    <footer>
+        <a href="http://gaiusyao.cn">
+            <img src="/img/avatar.jpg" alt="Gaius Yao">
+            Gaius Yao
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://gaiusyao.cn/2017/10/28/lists-tuples/&title=《Python基础02：列表和元组》 — Gaius Blog&pic=http://gaiusyao.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://gaiusyao.cn/2017/10/28/lists-tuples/&title=《Python基础02：列表和元组》 — Gaius Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://gaiusyao.cn/2017/10/28/lists-tuples/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python基础02：列表和元组》 — Gaius Blog&url=http://gaiusyao.cn/2017/10/28/lists-tuples/&via=http://gaiusyao.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://gaiusyao.cn/2017/10/28/lists-tuples/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
         </div>
     </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/28/dictionaries/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python基础03：字典</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/27/numbers-strings/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python基础01：变量和简单数据类型</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </article>
 
-
-
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
 
 
 
 </div>
 
-        <div class="fixed-action-btn float-sitemap">
-    <a class="btn-floating btn-large red">
-      <i class="fa fa-caret-square-o-up"></i>
-    </a>
-    <ul>
-      <li><a class="btn-return-top btn-floating waves-effect indigo" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
-      <li><a class="btn-floating waves-effect button-collapse orange darken-1"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
-    </ul>
-  </div>
+        <footer class="footer">
+    <div class="top">
+    <!--
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
 
-    </main>
-    <footer class="page-footer indigo darken-1">
-    
-    <div class="footer-container container">
-        <div class="row">
+
+        <p>
             
-            <div class="social-group col m8 s12">
-                <h5 class="white-text">社交</h5>
-                
-                    <a class="social-link" href="https://github.com/gaiusyao" target="_blank">
-                        <i class="fa fa-2x fa-github"></i>
-                    </a>
-                
-                    <a class="social-link" href="https://codepen.io/gaiusyao/" target="_blank">
-                        <i class="fa fa-2x fa-codepen"></i>
-                    </a>
-                
-                    <a class="social-link" href="/atom.xml" target="_blank">
-                        <i class="fa fa-2x fa-rss"></i>
-                    </a>
-                
-                <!--
-
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-    <div class="site-visitors-container white-text">
-        <span>
-            <i class="fa fa-user"></i>
-            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-        </span>
-        <span>&nbsp;|&nbsp;</span>
-        <span>
-            <i class="fa fa-eye"></i>
-            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-        </span>
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    -->
+        <p>print("The ultimate answer is {0}".format(len(question)))</p>
     </div>
-
--->
-
-            </div>
-            
-
-            
-            <div class="col m4 s12">
-                <h5 class="white-text">友情链接</h5>
+    <div class="bottom">
+        <p><span>Gaius Yao &copy; 2017 - 2018</span>
+            <span>
                 
-                    <a class="social-link" href="https://william8188.github.io/" target="_blank">李梓峰的技术博客</a>
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备18001119号</a><br>
                 
-            </div>
-            
-        </div>
-    </div>
-    
-
-    <div class="footer-copyright red-link-context">
-        <div class="container">
-            © 2017 Gaius-Yao, All rights reserved.
-            <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
-        </div>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
     </div>
 </footer>
 
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-    <noscript>
-    <div class="noscript">
-        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
-    </div>
-</noscript>
-<div class="noscript">
-    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://gaiusyao.cn/2017/10/28/lists-tuples/&title=《Python基础02：列表和元组》 — Gaius Blog&pic=http://gaiusyao.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://gaiusyao.cn/2017/10/28/lists-tuples/&title=《Python基础02：列表和元组》 — Gaius Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://gaiusyao.cn/2017/10/28/lists-tuples/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python基础02：列表和元组》 — Gaius Blog&url=http://gaiusyao.cn/2017/10/28/lists-tuples/&via=http://gaiusyao.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://gaiusyao.cn/2017/10/28/lists-tuples/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://gaiusyao.cn/2017/10/28/lists-tuples/" alt="微信分享二维码">
 </div>
 
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/materialize.min.js"></script>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
 
 <script>
-    (function($) {
-        $(document).ready(function() {
-            // 隐藏禁用javascript（针对微信内置浏览器）的提示
-            $('.noscript').hide();
-
-            // 图片缩放效果
-            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
-
-            // 给图片加上点击放大效果（materialbox插件）
-            $imgs.addClass('materialboxed').each(function(i, el) {
-                $(this).attr('data-caption', $(this).attr('alt') || ' ');
-            }).materialbox();
-
-            // 优化表格的显示
-            $('table').each(function() {
-                var $table = $(this);
-                // 除去多行代码的情况
-                if ($table.find('pre').length == 0) {
-                    $table.addClass('responsive-table striped bordered');
-                }
-            });
-
-            // 首页幻灯片
-            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
-
-            $(".button-collapse").sideNav();
-            $(".category-menu").sideNav();
-
-            // 针对gallery post
-            $('.carousel').carousel({full_width: true});
-            $('.carousel-control.prev').click(function() {
-                $('.carousel').carousel('prev');
-            });
-            $('.carousel-control.next').click(function() {
-                $('.carousel').carousel('next');
-            });
-
-            // 文章目录
-            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
-
-            // 目录随屏幕滚动（防止目录过长越过footer）
-            var $toc = $('.toc');
-            var scrollTargetTop = 0;
-            $(window).scroll(function() {
-                var $activeLink = $toc.find('a.active.section');
-                if ($(window).scrollTop() < 100) {
-                    scrollTargetTop = 0;
-                } else {
-                    if ($activeLink[0]) {
-                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
-                    }
-                }
-                $toc.css('top', '-' + scrollTargetTop + 'px');
-            });
-
-            // 修正文章目录的left-border颜色
-            var color = $('.table-of-contents-text').css('color');
-            $('.table-of-contents-link').css('border-left-color', color);
-
-            // 针对移动端做的优化：FAB按钮点击一下收回
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                $('.fixed-action-btn').addClass('click-to-toggle');
-            }
-            // 回到顶部
-            $('.btn-return-top').click(function() {
-                $('body, html').animate({
-                    scrollTop: 0
-                }, 500);
-            });
-
-            // 重置读书页面的Tab标签页的颜色
-            $('li.tab a').hover(function() {
-                $(this).toggleClass('text-lighten-4');
-            });
-            $('.indicator').addClass('red lighten-2');
-
-            
-            // 添加new标签
-            $('.menu-search').append('<span class="new badge red"></span>');
-            
-
-            // 搜索功能
-            $('.modal-trigger').leanModal({
-                // 打开搜索框时自动聚焦
-                ready: function() {
-                    if ($('#search').is(":visible")) {
-                        $('#search-input').focus();
-                    }
-                }
-            });
-            var searchXml = "search.xml";
-            if (searchXml.length == 0) {
-             	searchXml = "search.xml";
-            }
-            var searchPath = "/" + searchXml;
-            initSearch(searchPath, 'search-input', 'search-result');
-        });
-
-        // 初始化搜索与匹配函数
-        var initSearch = function(path, search_id, content_id) {
-            'use strict';
-            $.ajax({
-                url: path,
-                dataType: "xml",
-                success: function(xmlResponse) {
-                    // get the contents from search data
-                    var datas = $("entry", xmlResponse).map(function() {
-                        return {
-                            title: $("title", this).text(),
-                            content: $("content", this).text(),
-                            url: $("url", this).text()
-                        };
-                    }).get();
-                    var $input = document.getElementById(search_id);
-                    var $resultContent = document.getElementById(content_id);
-                    $input.addEventListener('input', function() {
-                        var str = '<ul class=\"search-result-list\">';
-                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                        $resultContent.innerHTML = "";
-                        if (this.value.trim().length <= 0) {
-                            return;
-                        }
-                        // perform local searching
-                        datas.forEach(function(data) {
-                            var isMatch = true;
-                            var content_index = [];
-                            var data_title = data.title.trim().toLowerCase();
-                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                            var data_url = data.url;
-                            var index_title = -1;
-                            var index_content = -1;
-                            var first_occur = -1;
-                            // only match artiles with not empty titles and contents
-                            if (data_title != '' && data_content != '') {
-                                keywords.forEach(function(keyword, i) {
-                                    index_title = data_title.indexOf(keyword);
-                                    index_content = data_content.indexOf(keyword);
-                                    if (index_title < 0 && index_content < 0) {
-                                        isMatch = false;
-                                    } else {
-                                        if (index_content < 0) {
-                                            index_content = 0;
-                                        }
-                                        if (i == 0) {
-                                            first_occur = index_content;
-                                        }
-                                    }
-                                });
-                            }
-                            // show search results
-                            if (isMatch) {
-                                keywords.forEach(function(keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    data_title = data_title.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
-                                });
-
-                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                                var content = data.content.trim().replace(/<[^>]+>/g, "");
-                                if (first_occur >= 0) {
-                                    // cut out 100 characters
-                                    var start = first_occur - 20;
-                                    var end = first_occur + 80;
-                                    if (start < 0) {
-                                        start = 0;
-                                    }
-                                    if (start == 0) {
-                                        end = 100;
-                                    }
-                                    if (end > content.length) {
-                                        end = content.length;
-                                    }
-                                    var match_content = content.substring(start, end);
-                                    // highlight all keywords
-                                    keywords.forEach(function(keyword) {
-                                        var regS = new RegExp(keyword, "gi");
-                                        match_content = match_content.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
-                                    });
-
-                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
-                                }
-                                str += "</li>";
-                            }
-                        });
-                        str += "</ul>";
-                        $resultContent.innerHTML = str;
-                    });
-                }
-            });
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(つェ⊂)你快回来~';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Hail Python!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
         }
-    })(jQuery);
-</script>
-
-
-<script src="/js/prettify.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("pre").addClass("prettyprint");
-        prettyPrint();
     });
-</script>
-
-
-
-
-<script type="text/javascript" src="http://tajs.qq.com/stats?sId=63863615" charset="UTF-8"></script>
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-});
-</script>
-<script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+})();
 </script>
 
 

@@ -1,900 +1,795 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=63863615"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    
+    
+    <title>Gaius Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Gaius Blog">
+<meta property="og:url" content="http://gaiusyao.cn/index.html">
+<meta property="og:site_name" content="Gaius Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gaius Blog">
+    
+        <link rel="alternate" type="application/atom+xml" title="Gaius Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
+    <!-- custom head -->
     
 
-    <title>尧翔的个人博客</title>
-    <meta name="author" content="Gaius Yao">
-    
-    <meta name="description" content="Gaius Yao Blog">
-    
-    
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    
-    <meta property="og:site_name" content="尧翔的个人博客"/>
-
-    
-    <meta property="og:image" content=""/>
-    
-
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="alternate" href="/atom.xml" title="尧翔的个人博客" type="application/atom+xml">
-    <link rel="stylesheet" href="/css/lib/materialize.min.css">
-    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-
-    
-        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
-    
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
-
 <body>
-    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
-
-    <nav class="indigo">
-    <div class="nav-wrapper">
-        <a href="#" data-activates="main-menu" class="button-collapse">
-            <i class="fa fa-navicon"></i>
-        </a>
-        <div class="">
-            <a href="/" class="brand-logo hide-on-med-and-down">尧翔的个人博客</a>
-            <ul class="right hide-on-med-and-down">
-                
-                    <li>
-                        <a class="menu-home " href="/" >
-                            <i class="fa fa-home "></i>
-                            
-                            首页
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-archive " href="/archives" >
-                            <i class="fa fa-archive "></i>
-                            
-                            归档
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
-                            <i class="fa fa-bookmark "></i>
-                            
-                            分类
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-reading " href="/reading" >
-                            <i class="fa fa-book "></i>
-                            
-                            读书
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-about " href="/about" >
-                            <i class="fa fa-user "></i>
-                            
-                            关于
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-search modal-trigger " href="#search" >
-                            <i class="fa fa-search "></i>
-                            
-                            搜索
-                        </a>
-                    </li>
-                
-            </ul>
-            <div>
-    <ul class="side-nav indigo darken-1" id="main-menu">
-        
-        <li class="side-user">
-            <div class="row">
-                <div class="col s4 no-padding">
-                    <img class="avatar-image circle responsive-img" src="http://oxv2o8wp9.bkt.clouddn.com/gaius.jpg" alt="User Avatar">
-                </div>
-                <div class="info col s8 valign-wrapper no-padding">
-                    <div class="valign">
-                        <p class="name">尧翔</p>
-                        <p class="desc">PM, UXer, Huge Nerd</p>
-                    </div>
-                </div>
-            </div>
-        </li>
-        
-
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-home " href="/" >
-                    <i class="fa fa-home "></i>
-                    
-                    首页
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-archive " href="/archives" >
-                    <i class="fa fa-archive "></i>
-                    
-                    归档
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
-                    <i class="fa fa-bookmark "></i>
-                    
-                    分类
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-reading " href="/reading" >
-                    <i class="fa fa-book "></i>
-                    
-                    读书
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-about " href="/about" >
-                    <i class="fa fa-user "></i>
-                    
-                    关于
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-search modal-trigger " href="#search" >
-                    <i class="fa fa-search "></i>
-                    
-                    搜索
-                </a>
-            </li>
-        
-    </ul>
-
-    <ul class="side-nav indigo darken-1" id="category-menu">
-    
-
-            
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/项目介绍/">
-                    项目介绍 <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/项目介绍/Gaius-Things-Done/">
-                    Gaius-Things-Done <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/代码之美/">
-                    代码之美 <span class="right">9 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/代码之美/人生苦短，我用Python/">
-                    人生苦短，我用Python <span class="right">8 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-2" collapse-level="2">
-                <a class="no-padding" href="/categories/代码之美/人生苦短，我用Python/Python基础/">
-                    Python基础 <span class="right">6 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-2" collapse-level="2">
-                <a class="no-padding" href="/categories/代码之美/人生苦短，我用Python/Python进阶/">
-                    Python进阶 <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-2" collapse-level="2">
-                <a class="no-padding" href="/categories/代码之美/人生苦短，我用Python/Python数据分析/">
-                    Python数据分析 <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/代码之美/Hexo/">
-                    Hexo <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-    </ul>
-</div>
-
-        </div>
-    </div>
-</nav>
-
-<div id="search" class="modal search-modal">
-    <div class="row">
-        <div class="input-field col s12">
-              <input id="search-input" type="text">
-              <label for="search-input">搜索</label>
-        </div>
-
-    </div>
-    <div id="search-result" class="search-result col s12">
-
-    </div>
-</div>
-
-
-    <main>
-        
-
-
-
-<div id="article-list" class="container main-container">
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2017/11/10/python-pandas/">Python进阶01：Pandas</a></h1>
-    
-
-
-            </div>
-
-            <time class="red-link-context" datetime="2017-11-10T02:18:43.000Z"><a href="/2017/11/10/python-pandas/">2017-11-10</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2017/11/04/wine-quality/">Python分析葡萄酒质量</a></h1>
-    
-
-
-            </div>
-
-            <time class="red-link-context" datetime="2017-11-04T12:30:48.000Z"><a href="/2017/11/04/wine-quality/">2017-11-04</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
-        
-            <a href="/tags/牛刀小试/" class="chip red lighten-1">牛刀小试</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2017/10/30/class/">Python基础06：类</a></h1>
-    
-
-
-            </div>
-
-            <time class="red-link-context" datetime="2017-10-30T05:53:27.000Z"><a href="/2017/10/30/class/">2017-10-30</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2017/10/30/functions/">Python基础05：函数</a></h1>
-    
-
-
-            </div>
-
-            <time class="red-link-context" datetime="2017-10-30T03:03:45.000Z"><a href="/2017/10/30/functions/">2017-10-30</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2017/10/29/control-flow/">Python基础04：控制流</a></h1>
-    
-
-
-            </div>
-
-            <time class="red-link-context" datetime="2017-10-29T02:17:07.000Z"><a href="/2017/10/29/control-flow/">2017-10-29</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2017/10/28/dictionaries/">Python基础03：字典</a></h1>
-    
-
-
-            </div>
-
-            <time class="red-link-context" datetime="2017-10-28T13:17:18.000Z"><a href="/2017/10/28/dictionaries/">2017-10-28</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2017/10/28/lists-tuples/">Python基础02：列表和元组</a></h1>
-    
-
-
-            </div>
-
-            <time class="red-link-context" datetime="2017-10-28T02:42:18.000Z"><a href="/2017/10/28/lists-tuples/">2017-10-28</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2017/10/27/numbers-strings/">Python基础01：变量和简单数据类型</a></h1>
-    
-
-
-            </div>
-
-            <time class="red-link-context" datetime="2017-10-26T16:00:00.000Z"><a href="/2017/10/27/numbers-strings/">2017-10-27</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/python3/" class="chip red lighten-1">python3</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2017/10/21/gtd-intro/">GTD简介</a></h1>
-    
-
-
-            </div>
-
-            <time class="red-link-context" datetime="2017-10-20T16:00:00.000Z"><a href="/2017/10/21/gtd-intro/">2017-10-21</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/D-B/" class="chip red lighten-1">D&amp;B</a>
-        
-            <a href="/tags/GTD/" class="chip red lighten-1">GTD</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2017/10/15/hexo-githubpages/">Hexo + GitHub Pages搭建个人博客</a></h1>
-    
-
-
-            </div>
-
-            <time class="red-link-context" datetime="2017-10-14T16:00:00.000Z"><a href="/2017/10/15/hexo-githubpages/">2017-10-15</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/Hexo/" class="chip red lighten-1">Hexo</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-
-    <ul class="pagination center-align">
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-left"></i></a>
-    </li>
-    
-    
-        <li class="active red"><a href="/">1</a></li>
-    
-    
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-right"></i></a>
-    </li>
- </ul>
-
-</div>
-
-        <div class="fixed-action-btn float-sitemap">
-    <a class="btn-floating btn-large red">
-      <i class="fa fa-caret-square-o-up"></i>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
     </a>
-    <ul>
-      <li><a class="btn-return-top btn-floating waves-effect indigo" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
-      <li><a class="btn-floating waves-effect button-collapse orange darken-1"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
-    </ul>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="https://github.com/gaiusyao" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Gaius Yao</h5>
+          <a href="mailto:gaiusyao@yeah.net" title="gaiusyao@yeah.net" class="mail">gaiusyao@yeah.net</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect active">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/gaiusyao" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.jianshu.com/u/f9bdc00c5771" target="_blank" >
+                <i class="icon icon-lg icon-bookmark"></i>
+                简书
+              </a>
+            </li>
+        
+      </ul>
+    </div>
   </div>
+</aside>
 
-    </main>
-    <footer class="page-footer indigo darken-1">
-    
-    <div class="footer-container container">
-        <div class="row">
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Gaius Blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Gaius Blog</h1>
+        <h5 class="subtitle">
             
-            <div class="social-group col m8 s12">
-                <h5 class="white-text">社交</h5>
                 
-                    <a class="social-link" href="https://github.com/gaiusyao" target="_blank">
-                        <i class="fa fa-2x fa-github"></i>
-                    </a>
-                
-                    <a class="social-link" href="https://codepen.io/gaiusyao/" target="_blank">
-                        <i class="fa fa-2x fa-codepen"></i>
-                    </a>
-                
-                    <a class="social-link" href="/atom.xml" target="_blank">
-                        <i class="fa fa-2x fa-rss"></i>
-                    </a>
-                
-                <!--
-
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-    <div class="site-visitors-container white-text">
-        <span>
-            <i class="fa fa-user"></i>
-            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-        </span>
-        <span>&nbsp;|&nbsp;</span>
-        <span>
-            <i class="fa fa-eye"></i>
-            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-        </span>
+            
+        </h5>
     </div>
 
--->
-
-            </div>
-            
-
-            
-            <div class="col m4 s12">
-                <h5 class="white-text">友情链接</h5>
-                
-                    <a class="social-link" href="https://william8188.github.io/" target="_blank">李梓峰的技术博客</a>
-                
-            </div>
-            
-        </div>
-    </div>
     
 
-    <div class="footer-copyright red-link-context">
-        <div class="container">
-            © 2017 Gaius-Yao, All rights reserved.
-            <p class="right" style="margin-top: 0;">Blog powered by <a href="https://hexo.io">Hexo</a> | Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
-        </div>
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-pandas"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-01-09 18:07:00" datetime="2018-01-09T10:07:00.000Z"  itemprop="datePublished">2018-01-09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/">人生苦短，我用Python</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/Python数据可视化/">Python数据可视化</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/01/09/pandas/">Python数据可视化01：Pandas</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        pandas简介&emsp; &emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库：
+123456# 导入相关库import pandas as pdimport numpy as npimport matplotl...
+    
+
+        <a href="/2018/01/09/pandas/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据可视化/">数据可视化</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-wine-quality"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-11-04 20:30:48" datetime="2017-11-04T12:30:48.000Z"  itemprop="datePublished">2017-11-04</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/">人生苦短，我用Python</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/Python数据分析/">Python数据分析</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/11/04/wine-quality/">Python分析葡萄酒质量</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+          本篇博文是作者在阅读完Foundations for Analytics with Python一书后，使用Python进行数据分析的一次实战，所用数据集为葡萄酒质量数据集，该数据集是由UCI机器学习资料库中找到的两个数据集合并成的:
+
+红葡萄酒
+白葡萄酒
+
+（一）描述性统计1.1 将数据集读入数据框  在下面的代码中，首先完成了import工作，将所需的包加载到脚本中。之后用panda...
+    
+
+        <a href="/2017/11/04/wine-quality/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/牛刀小试/">牛刀小试</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-class"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-10-30 13:53:27" datetime="2017-10-30T05:53:27.000Z"  itemprop="datePublished">2017-10-30</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/">人生苦短，我用Python</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/Python基础/">Python基础</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/10/30/class/">Python基础06：类</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+          面向对象编程是最有效的软件编写方法之一。而理解面向对象编程有助于你像程序员那样看世界，还可以帮助你真正明白自己编写的代码：不仅是各行代码的作用，还有代码背后更宏大的概念。在面向对象编程中，需要编写表示现实世界中的事物和情景的类，并基于这些类来创建对象。
+6.1 创建和使用类6.1.1 创建Dog类  使用类几乎可以模拟任何东西。下面来编写一个表示小狗的简单类Dog——它表示的不是特定的小...
+    
+
+        <a href="/2017/10/30/class/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-functions"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-10-30 11:03:45" datetime="2017-10-30T03:03:45.000Z"  itemprop="datePublished">2017-10-30</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/">人生苦短，我用Python</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/Python基础/">Python基础</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/10/30/functions/">Python基础05：函数</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+          可以将函数理解为带名字的代码块，用于被反复调用以完成具体的工作。函数的使用，极大地减少了重复代码的出现，提升了代码的可复用性，让程序的编写、阅读、测试和修复都变得更容易。
+5.1 函数的定义5.1.1 示例  通过关键字def引入函数的定义。它必须后跟函数名和形式参数的括号列表。形成函数体的语句从下一行开始，必须缩进。下面定义了一个函数，用以将Fibonacci序列写入任意边界：1234...
+    
+
+        <a href="/2017/10/30/functions/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-control-flow"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-10-29 10:17:07" datetime="2017-10-29T02:17:07.000Z"  itemprop="datePublished">2017-10-29</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/">人生苦短，我用Python</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/Python基础/">Python基础</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/10/29/control-flow/">Python基础04：控制流</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+          目前为止，除了简单地使用过if语句和for循环以外，Python都是按从上到下的顺序执行语句。如果想要让程序根据不同的情况做不同的事情，例如根据条件执行语句或循环语句，则需要用到控制流。这里介绍三种常见的控制流语句————if、for和while。
+4.1 条件测试4.1.1 一个if语句的简单示例  下面是一个简短的示例，演示了如何使用if语句来正确地处理特殊情况：12345678av...
+    
+
+        <a href="/2017/10/29/control-flow/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-dictionaries"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-10-28 21:17:18" datetime="2017-10-28T13:17:18.000Z"  itemprop="datePublished">2017-10-28</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/">人生苦短，我用Python</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/Python基础/">Python基础</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/10/28/dictionaries/">Python基础03：字典</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        3.1 字典(Dictionaries)简介  Python中的字典本质上是包含各种带有唯一标识符的成对信息的列表，可以理解为是一系列的键—值对，但与列表不同的是，字典是以键（整数、字符串、列表、字典或其他Python 对象）而非索引来引用某个元素，在唯一键值比连续整数更能反映出变量值含义的情况下，这个特点使字典比列表更实用。另外，字典是由花括号{}括起的，而非列表的中括号[]。而更为关键的...
+    
+
+        <a href="/2017/10/28/dictionaries/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-lists-tuples"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-10-28 10:42:18" datetime="2017-10-28T02:42:18.000Z"  itemprop="datePublished">2017-10-28</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/">人生苦短，我用Python</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/Python基础/">Python基础</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/10/28/lists-tuples/">Python基础02：列表和元组</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        2.1 序列(Sequence)简介  序列是Python中最基本的数据结构，一组有顺序的元素的集合。序列中的每个元素都分配一个数字指向它的位置，这个数字被称之为索引，第一个索引是0，第二个索引是1，依此类推。
+2.1.1 基本序列类型  Python有6个序列的内置类型，但最常见的是列表(lists)和元组(tuples)。其中，列表是由一系列按特定顺序排列的元素组成，用方括号[]来表示列...
+    
+
+        <a href="/2017/10/28/lists-tuples/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-numbers-strings"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-10-27 00:00:00" datetime="2017-10-26T16:00:00.000Z"  itemprop="datePublished">2017-10-27</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/">人生苦短，我用Python</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/Python基础/">Python基础</a></li></ul></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/10/27/numbers-strings/">Python基础01：变量和简单数据类型</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+          人生苦短，我用Python。
+  根据GitHub2017开发者年度报告，Python已成为了GitHub上第二受欢迎的语言（第一名是JavaScript）。这从一个侧面反映了Python正越来越被广泛地使用，也许是因为越来越多的开发者明白了“生命的可贵”？  作为一名会点编程的产品狗，从大二开始接触Python，但除写爬虫以外，基本没用Python做什么正确的事情。目前对使用Pytho...
+    
+
+        <a href="/2017/10/27/numbers-strings/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-gtd-intro"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-10-21 00:00:00" datetime="2017-10-20T16:00:00.000Z"  itemprop="datePublished">2017-10-21</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/其他文章/">其他文章</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/10/21/gtd-intro/">GTD简介</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+          GTD（Getting Things Done）是一套出色的时间管理系统，其核心理念是以下这段话：
+
+“把所有事情都从你的脑袋里弄出来。在事情出现就做好相关行动的一系列决定，而不是在事情爆发的时候。以合适的类别组织好你的项目的各种提醒以及下一步行动。保持你的系统更新和完整，及时进行回顾，使你在任何时候都能信任你的系统和对任务的处理。”
+
+  可以概括为：通过记录的方式将各种事情从脑海中移...
+    
+
+        <a href="/2017/10/21/gtd-intro/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GTD/">GTD</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-hello-world"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-10-15 00:00:00" datetime="2017-10-14T16:00:00.000Z"  itemprop="datePublished">2017-10-15</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/个人博客/">个人博客</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/10/15/hello-world/">Hexo + GitHub Pages搭建个人博客</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+          今天刚建好博客，还没什么内容可以放上来，就先从如何搭建个人博客（毕竟在这走了不少弯路）开始，写一篇微小的教程吧！首先，笔者的个人博客是使用Hexo + GitHub Pages搭建的。至于为什么要使用Hexo来搭建个人博客，而不是GitHub Pages钦定的jeklly，这和笔者被jeklly坑过完全没关系，主要是Hexo足够快速、简洁和高效。不过这里不展开介绍了，详细介绍可以看Hex...
+    
+
+        <a href="/2017/10/15/hello-world/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+    <!--
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    -->
+        <p>print("The ultimate answer is {0}".format(len(question)))</p>
+    </div>
+    <div class="bottom">
+        <p><span>Gaius Yao &copy; 2017 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备18001119号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
     </div>
 </footer>
 
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-    <noscript>
-    <div class="noscript">
-        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
-    </div>
-</noscript>
-<div class="noscript">
-    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://gaiusyao.cn/&title=Gaius Blog&pic=http://gaiusyao.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://gaiusyao.cn/&title=Gaius Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://gaiusyao.cn/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Gaius Blog&url=http://gaiusyao.cn/&via=http://gaiusyao.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://gaiusyao.cn/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://gaiusyao.cn/" alt="微信分享二维码">
 </div>
 
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/materialize.min.js"></script>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
 
 <script>
-    (function($) {
-        $(document).ready(function() {
-            // 隐藏禁用javascript（针对微信内置浏览器）的提示
-            $('.noscript').hide();
-
-            // 图片缩放效果
-            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
-
-            // 给图片加上点击放大效果（materialbox插件）
-            $imgs.addClass('materialboxed').each(function(i, el) {
-                $(this).attr('data-caption', $(this).attr('alt') || ' ');
-            }).materialbox();
-
-            // 优化表格的显示
-            $('table').each(function() {
-                var $table = $(this);
-                // 除去多行代码的情况
-                if ($table.find('pre').length == 0) {
-                    $table.addClass('responsive-table striped bordered');
-                }
-            });
-
-            // 首页幻灯片
-            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
-
-            $(".button-collapse").sideNav();
-            $(".category-menu").sideNav();
-
-            // 针对gallery post
-            $('.carousel').carousel({full_width: true});
-            $('.carousel-control.prev').click(function() {
-                $('.carousel').carousel('prev');
-            });
-            $('.carousel-control.next').click(function() {
-                $('.carousel').carousel('next');
-            });
-
-            // 文章目录
-            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
-
-            // 目录随屏幕滚动（防止目录过长越过footer）
-            var $toc = $('.toc');
-            var scrollTargetTop = 0;
-            $(window).scroll(function() {
-                var $activeLink = $toc.find('a.active.section');
-                if ($(window).scrollTop() < 100) {
-                    scrollTargetTop = 0;
-                } else {
-                    if ($activeLink[0]) {
-                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
-                    }
-                }
-                $toc.css('top', '-' + scrollTargetTop + 'px');
-            });
-
-            // 修正文章目录的left-border颜色
-            var color = $('.table-of-contents-text').css('color');
-            $('.table-of-contents-link').css('border-left-color', color);
-
-            // 针对移动端做的优化：FAB按钮点击一下收回
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                $('.fixed-action-btn').addClass('click-to-toggle');
-            }
-            // 回到顶部
-            $('.btn-return-top').click(function() {
-                $('body, html').animate({
-                    scrollTop: 0
-                }, 500);
-            });
-
-            // 重置读书页面的Tab标签页的颜色
-            $('li.tab a').hover(function() {
-                $(this).toggleClass('text-lighten-4');
-            });
-            $('.indicator').addClass('red lighten-2');
-
-            
-            // 添加new标签
-            $('.menu-search').append('<span class="new badge red"></span>');
-            
-
-            // 搜索功能
-            $('.modal-trigger').leanModal({
-                // 打开搜索框时自动聚焦
-                ready: function() {
-                    if ($('#search').is(":visible")) {
-                        $('#search-input').focus();
-                    }
-                }
-            });
-            var searchXml = "search.xml";
-            if (searchXml.length == 0) {
-             	searchXml = "search.xml";
-            }
-            var searchPath = "/" + searchXml;
-            initSearch(searchPath, 'search-input', 'search-result');
-        });
-
-        // 初始化搜索与匹配函数
-        var initSearch = function(path, search_id, content_id) {
-            'use strict';
-            $.ajax({
-                url: path,
-                dataType: "xml",
-                success: function(xmlResponse) {
-                    // get the contents from search data
-                    var datas = $("entry", xmlResponse).map(function() {
-                        return {
-                            title: $("title", this).text(),
-                            content: $("content", this).text(),
-                            url: $("url", this).text()
-                        };
-                    }).get();
-                    var $input = document.getElementById(search_id);
-                    var $resultContent = document.getElementById(content_id);
-                    $input.addEventListener('input', function() {
-                        var str = '<ul class=\"search-result-list\">';
-                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                        $resultContent.innerHTML = "";
-                        if (this.value.trim().length <= 0) {
-                            return;
-                        }
-                        // perform local searching
-                        datas.forEach(function(data) {
-                            var isMatch = true;
-                            var content_index = [];
-                            var data_title = data.title.trim().toLowerCase();
-                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                            var data_url = data.url;
-                            var index_title = -1;
-                            var index_content = -1;
-                            var first_occur = -1;
-                            // only match artiles with not empty titles and contents
-                            if (data_title != '' && data_content != '') {
-                                keywords.forEach(function(keyword, i) {
-                                    index_title = data_title.indexOf(keyword);
-                                    index_content = data_content.indexOf(keyword);
-                                    if (index_title < 0 && index_content < 0) {
-                                        isMatch = false;
-                                    } else {
-                                        if (index_content < 0) {
-                                            index_content = 0;
-                                        }
-                                        if (i == 0) {
-                                            first_occur = index_content;
-                                        }
-                                    }
-                                });
-                            }
-                            // show search results
-                            if (isMatch) {
-                                keywords.forEach(function(keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    data_title = data_title.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
-                                });
-
-                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                                var content = data.content.trim().replace(/<[^>]+>/g, "");
-                                if (first_occur >= 0) {
-                                    // cut out 100 characters
-                                    var start = first_occur - 20;
-                                    var end = first_occur + 80;
-                                    if (start < 0) {
-                                        start = 0;
-                                    }
-                                    if (start == 0) {
-                                        end = 100;
-                                    }
-                                    if (end > content.length) {
-                                        end = content.length;
-                                    }
-                                    var match_content = content.substring(start, end);
-                                    // highlight all keywords
-                                    keywords.forEach(function(keyword) {
-                                        var regS = new RegExp(keyword, "gi");
-                                        match_content = match_content.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
-                                    });
-
-                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
-                                }
-                                str += "</li>";
-                            }
-                        });
-                        str += "</ul>";
-                        $resultContent.innerHTML = str;
-                    });
-                }
-            });
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(つェ⊂)你快回来~';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Hail Python!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
         }
-    })(jQuery);
-</script>
-
-
-<script src="/js/prettify.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("pre").addClass("prettyprint");
-        prettyPrint();
     });
-</script>
-
-
-
-
-<script type="text/javascript" src="http://tajs.qq.com/stats?sId=63863615" charset="UTF-8"></script>
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-});
-</script>
-<script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+})();
 </script>
 
 
