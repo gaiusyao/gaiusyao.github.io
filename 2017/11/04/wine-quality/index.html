@@ -37,7 +37,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://oxv2o8wp9.bkt.clouddn.com/output_7_1.png">
 <meta property="og:image" content="http://oxv2o8wp9.bkt.clouddn.com/output_10_1.png">
-<meta property="og:updated_time" content="2018-01-10T05:46:55.122Z">
+<meta property="og:updated_time" content="2018-01-10T05:51:55.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python分析葡萄酒质量">
 <meta name="twitter:description" content="本篇博文是作者在阅读完Foundations for Analytics with Python一书后，使用Python进行数据分析的一次实战，所用数据集为葡萄酒质量数据集，该数据集是由UCI机器学习资料库中找到的两个数据集合并成的:  红葡萄酒 白葡萄酒  1.描述性统计1.1 将数据集读入数据框  在下面的代码中，首先完成了import工作，将所需的包加载到脚本中。之后用pandas的re">
@@ -176,7 +176,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-描述性统计"><span class="post-toc-text">1.描述性统计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-将数据集读入数据框"><span class="post-toc-text">1.1 将数据集读入数据框</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-显示所有变量的描述性统计量"><span class="post-toc-text">1.2 显示所有变量的描述性统计量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-分析质量列"><span class="post-toc-text">1.3 分析质量列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-4-分组显示"><span class="post-toc-text">1.4 分组显示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-5-相关矩阵"><span class="post-toc-text">1.5 相关矩阵</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-直方图与t检验"><span class="post-toc-text">2.直方图与t检验</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-成对变量之间的关系和相关性"><span class="post-toc-text">3.成对变量之间的关系和相关性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-使用最小二乘估计进行线性回归"><span class="post-toc-text">4.使用最小二乘估计进行线性回归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-自变量标准化"><span class="post-toc-text">5.自变量标准化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#（六）预测"><span class="post-toc-text">（六）预测</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-描述性统计"><span class="post-toc-text">1.描述性统计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-将数据集读入数据框"><span class="post-toc-text">1.1 将数据集读入数据框</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-显示所有变量的描述性统计量"><span class="post-toc-text">1.2 显示所有变量的描述性统计量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-分析质量列"><span class="post-toc-text">1.3 分析质量列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-4-分组显示"><span class="post-toc-text">1.4 分组显示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-5-相关矩阵"><span class="post-toc-text">1.5 相关矩阵</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-直方图与t检验"><span class="post-toc-text">2.直方图与t检验</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-成对变量之间的关系和相关性"><span class="post-toc-text">3.成对变量之间的关系和相关性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-使用最小二乘估计进行线性回归"><span class="post-toc-text">4.使用最小二乘估计进行线性回归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-自变量标准化"><span class="post-toc-text">5.自变量标准化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-预测"><span class="post-toc-text">6.预测</span></a></li></ol>
         </nav>
     </aside>
     
@@ -485,7 +485,7 @@ Prob(Omnibus):                  0.000   Jarque-Bera (JB):              324.712
 Skew:                          -0.006   Prob(JB):                     3.09e-71
 Kurtosis:                       4.095   Cond. No.                         9.61
 ==============================================================================
-</code></pre><h2 id="（六）预测"><a href="#（六）预测" class="headerlink" title="（六）预测"></a>（六）预测</h2><p>  在某些情况下，我们需要使用没有用来拟合模型的新数据进行预测。例如，你会收到关于葡萄酒成分的一个新观测，并需要根据这些成分预测这种葡萄酒的质量评分。下面使用葡萄酒数据集中的前10个观测创建10个“新”观测（只包含模型中使用的自变量），接着基于新观测中的葡萄酒特性预测质量评分，并将预测值打印到屏幕上。</p>
+</code></pre><h2 id="6-预测"><a href="#6-预测" class="headerlink" title="6.预测"></a>6.预测</h2><p>  在某些情况下，我们需要使用没有用来拟合模型的新数据进行预测。例如，你会收到关于葡萄酒成分的一个新观测，并需要根据这些成分预测这种葡萄酒的质量评分。下面使用葡萄酒数据集中的前10个观测创建10个“新”观测（只包含模型中使用的自变量），接着基于新观测中的葡萄酒特性预测质量评分，并将预测值打印到屏幕上。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">new_observations = wine.ix[wine.index.isin(range(<span class="number">10</span>)), \</span><br><span class="line">independent_variables.columns]</span><br><span class="line">y_predicted = lm.predict(new_observations)</span><br><span class="line">y_predicted_rounded = [round(score, <span class="number">2</span>) <span class="keyword">for</span> score <span class="keyword">in</span> y_predicted]</span><br><span class="line">print(y_predicted_rounded)</span><br></pre></td></tr></table></figure>
 <pre><code>[5.0, 4.92, 5.03, 5.68, 5.0, 5.04, 5.02, 5.30, 5.24, 5.69]
 </code></pre>
@@ -495,7 +495,7 @@ Kurtosis:                       4.095   Cond. No.                         9.61
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-01-10T05:46:55.122Z" itemprop="dateUpdated">2018-01-10 13:46:55</time>
+    最后更新时间：<time datetime="2018-01-10T05:51:55.145Z" itemprop="dateUpdated">2018-01-10 13:51:55</time>
 </span><br>
 
 
