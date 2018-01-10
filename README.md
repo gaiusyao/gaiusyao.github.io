@@ -7,3 +7,6 @@ init  *-- October 15, 2017*
 ### Release_0.1 *Sulla* 
 - [x] search
 - [x] rss
+
+### Release_1 *Ceaser* 
+Hail Python!  *-- January 10, 2018*
