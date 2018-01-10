@@ -10,3 +10,6 @@ init  *-- October 15, 2017*
 
 ### Release_1 *Ceaser* 
 Hail Python!  *-- January 10, 2018*
+- [ ] comments
+- [ ] TOC
+- [ ] highlight
