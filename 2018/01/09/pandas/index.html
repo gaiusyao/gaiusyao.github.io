@@ -27,18 +27,18 @@
     
     
     <meta name="keywords" content="python3,数据可视化">
-    <meta name="description" content="1.pandas简介&amp;emsp; &amp;emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库： 123456# 导入相关库import pandas as pdimport numpy as npimport matplotli">
+    <meta name="description" content="1.pandas简介&amp;emsp; &amp;emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，需要快速了解pandas的可以尝试官方教程Ten_Minutes_to_Pandas（已汉化），让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库： 123456# 导入相关库impor">
 <meta name="keywords" content="python3,数据可视化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python数据可视化01：Pandas">
 <meta property="og:url" content="http://gaiusyao.cn/2018/01/09/pandas/index.html">
 <meta property="og:site_name" content="Gaius Blog">
-<meta property="og:description" content="1.pandas简介&amp;emsp; &amp;emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库： 123456# 导入相关库import pandas as pdimport numpy as npimport matplotli">
+<meta property="og:description" content="1.pandas简介&amp;emsp; &amp;emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，需要快速了解pandas的可以尝试官方教程Ten_Minutes_to_Pandas（已汉化），让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库： 123456# 导入相关库impor">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-10T05:45:08.810Z">
+<meta property="og:updated_time" content="2018-01-11T10:16:49.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python数据可视化01：Pandas">
-<meta name="twitter:description" content="1.pandas简介&amp;emsp; &amp;emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库： 123456# 导入相关库import pandas as pdimport numpy as npimport matplotli">
+<meta name="twitter:description" content="1.pandas简介&amp;emsp; &amp;emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，需要快速了解pandas的可以尝试官方教程Ten_Minutes_to_Pandas（已汉化），让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库： 123456# 导入相关库impor">
     
         <link rel="alternate" type="application/atom+xml" title="Gaius Blog" href="/atom.xml">
     
@@ -198,7 +198,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="1-pandas简介"><a href="#1-pandas简介" class="headerlink" title="1.pandas简介"></a>1.pandas简介</h2><p>&emsp; &emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库：</p>
+            <h2 id="1-pandas简介"><a href="#1-pandas简介" class="headerlink" title="1.pandas简介"></a>1.pandas简介</h2><p>&emsp; &emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，需要快速了解pandas的可以尝试官方教程<a href="https://github.com/gaiusyao/pivotlab/blob/master/ipynb/tutorials/pandas/Ten_Minutes_to_Pandas.ipynb" target="_blank" rel="noopener">Ten_Minutes_to_Pandas（已汉化）</a>，让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入相关库</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
 <h2 id="2-文件读取"><a href="#2-文件读取" class="headerlink" title="2.文件读取"></a>2.文件读取</h2><p>&emsp;&emsp;这里以读取csv文件为例，介绍3种常用的数据读取函数：</p>
 <ul>
@@ -368,7 +368,12 @@ memory usage: 2.5+ MB
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">comic.head() <span class="comment">#结果略</span></span><br></pre></td></tr></table></figure>
 <h2 id="7-导出数据"><a href="#7-导出数据" class="headerlink" title="7.导出数据"></a>7.导出数据</h2><p>&emsp;&emsp;通过<strong>to_csv()函数</strong>导出数据：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">comic.to_csv(<span class="string">'data/comic_characters.csv'</span>)</span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/gaiusyao/pivotlab/blob/master/ipynb/gaius_blog/pandas.ipynb" target="_blank" rel="noopener">文章源代码</a></p>
+<p>&emsp;&emsp;至此，我们已经通过pandas将两个数据集合为了一个，下一期将会使用seaborn对该数据集进行可视化的工作。</p>
+<ul>
+<li><a href="https://github.com/gaiusyao/pivotlab/blob/master/ipynb/gaius_blog/pandas.ipynb" target="_blank" rel="noopener">文章源代码</a></li>
+<li><a href="https://github.com/gaiusyao/pivotlab/blob/master/datawarehouse/gaiusyao-blog/marvel.csv" target="_blank" rel="noopener">marvel.csv</a></li>
+<li><a href="https://github.com/gaiusyao/pivotlab/blob/master/datawarehouse/gaiusyao-blog/dc.csv" target="_blank" rel="noopener">dc.csv</a></li>
+</ul>
 
         </div>
 
@@ -376,7 +381,7 @@ memory usage: 2.5+ MB
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-01-10T05:45:08.810Z" itemprop="dateUpdated">2018-01-10 13:45:08</time>
+    最后更新时间：<time datetime="2018-01-11T10:16:49.095Z" itemprop="dateUpdated">2018-01-11 18:16:49</time>
 </span><br>
 
 
