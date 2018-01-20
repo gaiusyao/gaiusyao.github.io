@@ -20,7 +20,7 @@
     
     
     
-    <title>Python数据可视化01：Pandas | Gaius Blog</title>
+    <title>Python数据可视化01：Pandas | Gaius Yao | Product Manager, Huge Nerd</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -32,15 +32,15 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python数据可视化01：Pandas">
 <meta property="og:url" content="http://gaiusyao.cn/2018/01/09/pandas/index.html">
-<meta property="og:site_name" content="Gaius Blog">
+<meta property="og:site_name" content="Gaius Yao">
 <meta property="og:description" content="1.pandas简介&amp;emsp; &amp;emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，需要快速了解pandas的可以尝试官方教程Ten_Minutes_to_Pandas（已汉化），让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库： 123456# 导入相关库impor">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-11T10:16:49.095Z">
+<meta property="og:updated_time" content="2018-01-20T01:11:02.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python数据可视化01：Pandas">
 <meta name="twitter:description" content="1.pandas简介&amp;emsp; &amp;emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，需要快速了解pandas的可以尝试官方教程Ten_Minutes_to_Pandas（已汉化），让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库： 123456# 导入相关库impor">
     
-        <link rel="alternate" type="application/atom+xml" title="Gaius Blog" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="Gaius Yao" href="/atom.xml">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -61,7 +61,7 @@
     </a>
     <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
-        <a href="https://github.com/gaiusyao" class="avatar waves-effect waves-circle waves-light">
+        <a href="http://gaiusyao.cn" class="avatar waves-effect waves-circle waves-light">
           <img src="/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
@@ -198,7 +198,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="1-pandas简介"><a href="#1-pandas简介" class="headerlink" title="1.pandas简介"></a>1.pandas简介</h2><p>&emsp; &emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，需要快速了解pandas的可以尝试官方教程<a href="https://github.com/gaiusyao/pivotlab/blob/master/ipynb/tutorials/pandas/Ten_Minutes_to_Pandas.ipynb" target="_blank" rel="noopener">Ten_Minutes_to_Pandas（已汉化）</a>，让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库：</p>
+            <h2 id="1-pandas简介"><a href="#1-pandas简介" class="headerlink" title="1.pandas简介"></a>1.pandas简介</h2><p>&emsp; &emsp; 首先引用官方介绍：“pandas是一个采用BSD协议的开源库，为Python编程语言提供了高性能，易于使用的数据结构和数据分析工具。”这里不做过多展开，需要快速了解pandas的可以尝试官方教程<a href="https://nbviewer.jupyter.org/github/gaiusyao/gaius_nb/blob/master/tutorials/Ten_Minutes_to_Pandas.ipynb" target="_blank" rel="noopener">Ten_Minutes_to_Pandas（已汉化）</a>，让我们马上通过一个实例来展示pandas的功能吧！首先导入相关库：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入相关库</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
 <h2 id="2-文件读取"><a href="#2-文件读取" class="headerlink" title="2.文件读取"></a>2.文件读取</h2><p>&emsp;&emsp;这里以读取csv文件为例，介绍3种常用的数据读取函数：</p>
 <ul>
@@ -331,9 +331,7 @@ memory usage: 1.6+ MB
 16374        UnKnown
 16375        UnKnown
 Name: EYE, Length: 16376, dtype: object
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将所有缺失数据填充为UnKnown</span></span><br><span class="line">dc = dc.fillna(<span class="string">'UnKnown'</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">marvel = marvel.fillna(<span class="string">'UnKnown'</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dc.head() <span class="comment">#结果略</span></span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dc[<span class="string">'EYE'</span>].fillna(<span class="string">'UnKnown'</span>) <span class="comment">#结果略</span></span><br></pre></td></tr></table></figure>
 <h2 id="5-添加-插入行列"><a href="#5-添加-插入行列" class="headerlink" title="5.添加/插入行列"></a>5.添加/插入行列</h2><p>&emsp;&emsp;接下来我们为两个DateFrame添加<code>COMPANY</code>列，并演示如何插入行列。其中插入行的过程会略复杂，需要先切割，再拼接。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">marvel[<span class="string">'COMPANY'</span>] = <span class="string">'Marvel'</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dc[<span class="string">'COMPANY'</span>] = <span class="string">'DC'</span></span><br></pre></td></tr></table></figure>
@@ -370,9 +368,8 @@ memory usage: 2.5+ MB
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">comic.to_csv(<span class="string">'data/comic_characters.csv'</span>)</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;至此，我们已经通过pandas将两个数据集合为了一个，下一期将会使用seaborn对该数据集进行可视化的工作。</p>
 <ul>
-<li><a href="https://github.com/gaiusyao/pivotlab/blob/master/ipynb/gaius_blog/pandas.ipynb" target="_blank" rel="noopener">文章源代码</a></li>
-<li><a href="https://github.com/gaiusyao/pivotlab/blob/master/datawarehouse/gaiusyao-blog/marvel.csv" target="_blank" rel="noopener">marvel.csv</a></li>
-<li><a href="https://github.com/gaiusyao/pivotlab/blob/master/datawarehouse/gaiusyao-blog/dc.csv" target="_blank" rel="noopener">dc.csv</a></li>
+<li><a href="https://github.com/gaiusyao/gaius_nb/blob/master/data/marvel.csv" target="_blank" rel="noopener">marvel.csv</a></li>
+<li><a href="https://github.com/gaiusyao/gaius_nb/blob/master/data/dc.csv" target="_blank" rel="noopener">dc.csv</a></li>
 </ul>
 
         </div>
@@ -381,7 +378,7 @@ memory usage: 2.5+ MB
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-01-11T10:16:49.095Z" itemprop="dateUpdated">2018-01-11 18:16:49</time>
+    最后更新时间：<time datetime="2018-01-20T01:11:02.299Z" itemprop="dateUpdated">2018-01-20 09:11:02</time>
 </span><br>
 
 
@@ -416,7 +413,7 @@ memory usage: 2.5+ MB
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://gaiusyao.cn/2018/01/09/pandas/&title=《Python数据可视化01：Pandas》 — Gaius Blog&pic=http://gaiusyao.cn/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://gaiusyao.cn/2018/01/09/pandas/&title=《Python数据可视化01：Pandas》 — Gaius Yao&pic=http://gaiusyao.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -426,7 +423,7 @@ memory usage: 2.5+ MB
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://gaiusyao.cn/2018/01/09/pandas/&title=《Python数据可视化01：Pandas》 — Gaius Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://gaiusyao.cn/2018/01/09/pandas/&title=《Python数据可视化01：Pandas》 — Gaius Yao&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -436,7 +433,7 @@ memory usage: 2.5+ MB
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python数据可视化01：Pandas》 — Gaius Blog&url=http://gaiusyao.cn/2018/01/09/pandas/&via=http://gaiusyao.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python数据可视化01：Pandas》 — Gaius Yao&url=http://gaiusyao.cn/2018/01/09/pandas/&via=http://gaiusyao.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -461,7 +458,14 @@ memory usage: 2.5+ MB
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/20/seaborn/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python数据可视化02：Seaborn</h4>
+      </a>
+    </div>
   
 
   
@@ -567,7 +571,7 @@ memory usage: 2.5+ MB
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://gaiusyao.cn/2018/01/09/pandas/&title=《Python数据可视化01：Pandas》 — Gaius Blog&pic=http://gaiusyao.cn/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://gaiusyao.cn/2018/01/09/pandas/&title=《Python数据可视化01：Pandas》 — Gaius Yao&pic=http://gaiusyao.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -577,7 +581,7 @@ memory usage: 2.5+ MB
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://gaiusyao.cn/2018/01/09/pandas/&title=《Python数据可视化01：Pandas》 — Gaius Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://gaiusyao.cn/2018/01/09/pandas/&title=《Python数据可视化01：Pandas》 — Gaius Yao&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -587,7 +591,7 @@ memory usage: 2.5+ MB
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python数据可视化01：Pandas》 — Gaius Blog&url=http://gaiusyao.cn/2018/01/09/pandas/&via=http://gaiusyao.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python数据可视化01：Pandas》 — Gaius Yao&url=http://gaiusyao.cn/2018/01/09/pandas/&via=http://gaiusyao.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>

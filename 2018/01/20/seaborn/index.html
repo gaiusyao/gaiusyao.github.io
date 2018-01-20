@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=63863615"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Python数据可视化02：Seaborn | Gaius Yao | Product Manager, Huge Nerd</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python3,数据可视化">
+    <meta name="description" content="&amp;emsp;&amp;emsp;照例引用官方介绍“Seaborn是一个带着定制主题和高级界面控制的Matplotlib扩展包，能让绘图变得更轻松”，这里我们只需要知道Seaborn是一个用于数据可视化的包就行了，可以让我们用最少的代码去绘制一些描述性统计的图，便于找寻各维度变量之间的特征和关系，需要快速了解Seaborn的，可以查看Seaborn官方教程。接下来我们将通过一个经典数据集——鸢尾花来初步认识">
+<meta name="keywords" content="python3,数据可视化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python数据可视化02：Seaborn">
+<meta property="og:url" content="http://gaiusyao.cn/2018/01/20/seaborn/index.html">
+<meta property="og:site_name" content="Gaius Yao">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;照例引用官方介绍“Seaborn是一个带着定制主题和高级界面控制的Matplotlib扩展包，能让绘图变得更轻松”，这里我们只需要知道Seaborn是一个用于数据可视化的包就行了，可以让我们用最少的代码去绘制一些描述性统计的图，便于找寻各维度变量之间的特征和关系，需要快速了解Seaborn的，可以查看Seaborn官方教程。接下来我们将通过一个经典数据集——鸢尾花来初步认识">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-0c000e45f35e210c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-8151af2b03192013.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-6a9e69c5831f0f59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-f35b487584e890e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-e3746b347b2bd67b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-d4589a7c413a4780.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-655703e44930bba0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-6b25d5823f1e3e0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-9590e301bb615193.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-a02d357361fc9962.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-9bb8c26b5132454b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-9dc7afb7342acfe8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-93296d992575d56c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-cbc5d6cbf81dfe8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-9afae1d01beac888.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-9034558dd08128f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-7d73092d89a6fa88.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-2c6cfe94f6e7519f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-e2b512232b611a98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-01-20T02:54:41.542Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python数据可视化02：Seaborn">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;照例引用官方介绍“Seaborn是一个带着定制主题和高级界面控制的Matplotlib扩展包，能让绘图变得更轻松”，这里我们只需要知道Seaborn是一个用于数据可视化的包就行了，可以让我们用最少的代码去绘制一些描述性统计的图，便于找寻各维度变量之间的特征和关系，需要快速了解Seaborn的，可以查看Seaborn官方教程。接下来我们将通过一个经典数据集——鸢尾花来初步认识">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/6533825-0c000e45f35e210c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="Gaius Yao" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="http://gaiusyao.cn" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Gaius Yao</h5>
+          <a href="mailto:gaiusyao@yeah.net" title="gaiusyao@yeah.net" class="mail">gaiusyao@yeah.net</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/gaiusyao" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.jianshu.com/u/f9bdc00c5771" target="_blank" >
+                <i class="icon icon-lg icon-bookmark"></i>
+                简书
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python数据可视化02：Seaborn</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python数据可视化02：Seaborn</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-20T02:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-01-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/">人生苦短，我用Python</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/Python数据可视化/">Python数据可视化</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0-开始前的准备"><span class="post-toc-text">0.开始前的准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Stripplot-amp-Swarmplot"><span class="post-toc-text">1.Stripplot &amp; Swarmplot</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Boxplot-amp-Violinplot"><span class="post-toc-text">2.Boxplot &amp; Violinplot</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Barplot"><span class="post-toc-text">3.Barplot</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Countplot"><span class="post-toc-text">4.Countplot</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-Pointplot"><span class="post-toc-text">5.Pointplot</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-Factorplot"><span class="post-toc-text">6. Factorplot</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-PairGrid"><span class="post-toc-text">7. PairGrid</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-seaborn"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python数据可视化02：Seaborn</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-20 10:00:00" datetime="2018-01-20T02:00:00.000Z"  itemprop="datePublished">2018-01-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/">人生苦短，我用Python</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/人生苦短，我用Python/Python数据可视化/">Python数据可视化</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>&emsp;&emsp;照例引用官方介绍“Seaborn是一个带着定制主题和高级界面控制的Matplotlib扩展包，能让绘图变得更轻松”，这里我们只需要知道Seaborn是一个用于数据可视化的包就行了，可以让我们用最少的代码去绘制一些描述性统计的图，便于找寻各维度变量之间的特征和关系，需要快速了解Seaborn的，可以查看<a href="http://seaborn.pydata.org/introduction.html" target="_blank" rel="noopener">Seaborn官方教程</a>。接下来我们将通过一个经典数据集——鸢尾花来初步认识Seaborn。</p>
+<h2 id="0-开始前的准备"><a href="#0-开始前的准备" class="headerlink" title="0.开始前的准备"></a>0.开始前的准备</h2><p>&emsp;&emsp;Iris鸢尾花数据集是一个经典数据集，在统计学习和机器学习领域都经常被用作示例。数据集内包含3类共150条记录，每类各50个数据，每个数据都有4个属性：花萼长度、花萼宽度、花瓣长度、花瓣宽度，可以通过这4个属性预测鸢尾花卉属于（iris-setosa，iris-versicolour，iris-virginica）中的哪一类，但据说现实中，这三种花的基本判别依据其实是种子（因为花瓣非常容易枯萎）。<br>&emsp;&emsp;在分析这个数据集之前，让我们先做好相关准备，包括导入相关包、导入数据集等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入相关包</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入数据集，也可以通过iris = sns.load_dataset("iris") 导入</span></span><br><span class="line">iris = pd.read_csv(<span class="string">'data/iris.csv'</span>, header=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置列名</span></span><br><span class="line">iris.columns = [<span class="string">'sepal-length'</span>, <span class="string">'sepal-width'</span>, <span class="string">'petal-length'</span>, <span class="string">'petal-width'</span>, <span class="string">'species'</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看数据集信息</span></span><br><span class="line">iris.info()</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 5 columns):
+sepal-length    150 non-null float64
+sepal-width     150 non-null float64
+petal-length    150 non-null float64
+petal-width     150 non-null float64
+species         150 non-null object
+dtypes: float64(4), object(1)
+memory usage: 5.9+ KB
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看数据集头5条记录</span></span><br><span class="line">iris.head()</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-0c000e45f35e210c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_4_0.png" title="">
+                </div>
+                <div class="image-caption">output_4_0.png</div>
+            </figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看鸢尾花的所有种类</span></span><br><span class="line">iris[<span class="string">'species'</span>].unique()</span><br></pre></td></tr></table></figure>
+<pre><code>array([&apos;Iris-setosa&apos;, &apos;Iris-versicolor&apos;, &apos;Iris-virginica&apos;], dtype=object)
+</code></pre><p>&emsp;&emsp;完成这些准备工作后，我们可以通过seaborn对该数据集进行可视化分析。</p>
+<h2 id="1-Stripplot-amp-Swarmplot"><a href="#1-Stripplot-amp-Swarmplot" class="headerlink" title="1.Stripplot &amp; Swarmplot"></a>1.Stripplot &amp; Swarmplot</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置seaborn样式</span></span><br><span class="line">sns.set_style(<span class="string">"whitegrid"</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>seaborn.stripplot(x=None, y=None, hue=None, data=None, order=None, hue_order=None, jitter=False, dodge=False, orient=None, color=None, palette=None, size=5, edgecolor=’gray’, linewidth=0, ax=None, **kwargs)</p>
+</blockquote>
+<p>&emsp;&emsp;<strong>Stripplot</strong>主要用于绘制散点图，下面将鸢尾花数据集中的花萼长度属性按品种分类绘制成散点图分析：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax = sns.stripplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-length"</span>, data=iris)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-8151af2b03192013.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_8_0.png" title="">
+                </div>
+                <div class="image-caption">output_8_0.png</div>
+            </figure>
+<p>&emsp;&emsp;通过<code>jitter</code>属性为散点图设置抖动，以便更好地观察数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax = sns.stripplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-length"</span>, data=iris, jitter=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-6a9e69c5831f0f59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_9_0.png" title="">
+                </div>
+                <div class="image-caption">output_9_0.png</div>
+            </figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax = sns.stripplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-length"</span>, data=iris, jitter=<span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-f35b487584e890e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_10_0.png" title="">
+                </div>
+                <div class="image-caption">output_10_0.png</div>
+            </figure>
+<p>&emsp;&emsp;改变轴向观察数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax = sns.stripplot(x=<span class="string">"sepal-length"</span>, y=<span class="string">"species"</span>, data=iris, jitter=<span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-e3746b347b2bd67b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_11_0.png" title="">
+                </div>
+                <div class="image-caption">output_11_0.png</div>
+            </figure>
+<p>&emsp;&emsp;通过改变颜色、样式、大小等更好地观察数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">antV = [<span class="string">'#1890FF'</span>, <span class="string">'#2FC25B'</span>, <span class="string">'#FACC14'</span>, <span class="string">'#223273'</span>, <span class="string">'#8543E0'</span>, <span class="string">'#13C2C2'</span>, <span class="string">'#3436c7'</span>, <span class="string">'#F04864'</span>]</span><br><span class="line">ax = sns.stripplot(x=<span class="string">"sepal-length"</span>, y=<span class="string">"species"</span>, data=iris, jitter=<span class="number">0.05</span>, palette=antV)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-d4589a7c413a4780.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_12_0.png" title="">
+                </div>
+                <div class="image-caption">output_12_0.png</div>
+            </figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax =  sns.stripplot(<span class="string">"species"</span>, <span class="string">"sepal-length"</span>, data=iris, palette=<span class="string">"Set2"</span>, size=<span class="number">12</span>, marker=<span class="string">"D"</span>,</span><br><span class="line">                    jitter=<span class="number">0.05</span>, edgecolor=<span class="string">"gray"</span>, alpha=<span class="number">.25</span>)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-655703e44930bba0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_13_0.png" title="">
+                </div>
+                <div class="image-caption">output_13_0.png</div>
+            </figure>
+<blockquote>
+<p>seaborn.swarmplot(x=None, y=None, hue=None, data=None, order=None, hue_order=None, dodge=False, orient=None, color=None, palette=None, size=5, edgecolor=’gray’, linewidth=0, ax=None, **kwargs)</p>
+</blockquote>
+<p>&emsp;&emsp;<strong>Swarmplot</strong>也是绘制散点图，但它会通过算法，在类别坐标轴的方向上延展那些原本重合的点，与通过<code>jitter</code>属性增加抖动有异曲同工之妙。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax = sns.swarmplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-length"</span>, data=iris)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-6b25d5823f1e3e0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_15_0.png" title="">
+                </div>
+                <div class="image-caption">output_15_0.png</div>
+            </figure>
+<p>&emsp;&emsp;现在我们通过Swarmplot观察花萼长度、花萼宽度、花瓣长度、花瓣宽度与类别之间的关系。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">f, axes = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">12</span>, <span class="number">12</span>), sharex=<span class="keyword">True</span>)</span><br><span class="line">sns.despine(left=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">sns.swarmplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-length"</span>, data=iris, palette=antV, ax=axes[<span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">sns.swarmplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-width"</span>, data=iris, palette=antV, ax=axes[<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">sns.swarmplot(x=<span class="string">"species"</span>, y=<span class="string">"petal-length"</span>, data=iris, palette=antV, ax=axes[<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">sns.swarmplot(x=<span class="string">"species"</span>, y=<span class="string">"petal-width"</span>, data=iris, palette=antV, ax=axes[<span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.setp(axes, yticks=[])</span><br><span class="line">plt.tight_layout()</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-9590e301bb615193.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_16_0.png" title="">
+                </div>
+                <div class="image-caption">output_16_0.png</div>
+            </figure>
+<h2 id="2-Boxplot-amp-Violinplot"><a href="#2-Boxplot-amp-Violinplot" class="headerlink" title="2.Boxplot &amp; Violinplot"></a>2.Boxplot &amp; Violinplot</h2><blockquote>
+<p>seaborn.boxplot(x=None, y=None, hue=None, data=None, order=None, hue_order=None, orient=None, color=None, palette=None,<br>                saturation=0.75, width=0.8, dodge=True, fliersize=5, linewidth=None, whis=1.5, notch=False, ax=None, **kwargs)</p>
+</blockquote>
+<p>&emsp;&emsp;通过<strong>Boxplot</strong>可以看到数据的最大值、上四分位数Q3、中位数、下四分位数Q1、最小值和异常值的分布。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">f, axes = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">12</span>, <span class="number">12</span>), sharex=<span class="keyword">True</span>)</span><br><span class="line">sns.despine(left=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">sns.boxplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-length"</span>, data=iris, palette=<span class="string">'Set2'</span>, ax=axes[<span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">sns.boxplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-width"</span>, data=iris, palette=<span class="string">'Set2'</span>, ax=axes[<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">sns.boxplot(x=<span class="string">"species"</span>, y=<span class="string">"petal-length"</span>, data=iris, palette=<span class="string">'Set2'</span>, ax=axes[<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">sns.boxplot(x=<span class="string">"species"</span>, y=<span class="string">"petal-width"</span>, data=iris, palette=<span class="string">'Set2'</span>, ax=axes[<span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.setp(axes, yticks=[])</span><br><span class="line">plt.tight_layout()</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-a02d357361fc9962.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_18_0.png" title="">
+                </div>
+                <div class="image-caption">output_18_0.png</div>
+            </figure>
+<blockquote>
+<p>seaborn.violinplot(x=None, y=None, hue=None, data=None, order=None, hue_order=None, bw=’scott’, cut=2, scale=’area’, scale_hue=True, gridsize=100, width=0.8, inner=’box’, split=False, dodge=True, orient=None, linewidth=None, color=None, palette=None, saturation=0.75, ax=None, **kwargs)</p>
+</blockquote>
+<p>&emsp;&emsp;<strong>Violinplot</strong>与Boxplot相似，但其图形如同小提琴般，可以更好地展现出数据的量化形态。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Set up the matplotlib figure</span></span><br><span class="line">f, axes = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">12</span>, <span class="number">12</span>), sharex=<span class="keyword">True</span>)</span><br><span class="line">sns.despine(left=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">sns.violinplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-length"</span>, data=iris, palette=<span class="string">'Set2'</span>, ax=axes[<span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">sns.violinplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-width"</span>, data=iris, palette=<span class="string">'Set2'</span>, ax=axes[<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">sns.violinplot(x=<span class="string">"species"</span>, y=<span class="string">"petal-length"</span>, data=iris, palette=<span class="string">'Set2'</span>, ax=axes[<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">sns.violinplot(x=<span class="string">"species"</span>, y=<span class="string">"petal-width"</span>, data=iris, palette=<span class="string">'Set2'</span>, ax=axes[<span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.setp(axes, yticks=[])</span><br><span class="line">plt.tight_layout()</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-9bb8c26b5132454b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_20_0.png" title="">
+                </div>
+                <div class="image-caption">output_20_0.png</div>
+            </figure>
+<p>&emsp;&emsp;可以<strong>Stripplot &amp; Swarmplot</strong>与<strong>Boxplot &amp; Violinplot</strong>将相组合，以更好地查看数据分布情况。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax = sns.violinplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-length"</span>, data=iris, palette=<span class="string">'Set2'</span>)</span><br><span class="line">ax = sns.swarmplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-length"</span>, data=iris, color=<span class="string">"white"</span>, edgecolor=<span class="string">"gray"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-9dc7afb7342acfe8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_21_0.png" title="">
+                </div>
+                <div class="image-caption">output_21_0.png</div>
+            </figure>
+<h2 id="3-Barplot"><a href="#3-Barplot" class="headerlink" title="3.Barplot"></a>3.Barplot</h2><blockquote>
+<p>seaborn.barplot(x=None, y=None, hue=None, data=None, order=None, hue_order=None, estimator=<function mean="">, ci=95, n_boot=1000, units=None, orient=None, color=None, palette=None, saturation=0.75, errcolor=’.26’, errwidth=None, capsize=None, dodge=True, ax=None, **kwargs)</function></p>
+</blockquote>
+<p>&emsp;&emsp;<strong>Barplot</strong>主要是绘制条形图，利用条形的高度反映数值变量的集中趋势，在条形顶部还有误差棒。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">f, axes = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">10</span>, <span class="number">10</span>), sharex=<span class="keyword">True</span>)</span><br><span class="line">sns.despine(left=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">sns.barplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-length"</span>, data=iris, palette=<span class="string">'Set2'</span>, ax=axes[<span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">sns.barplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-width"</span>, data=iris, palette=<span class="string">'Set2'</span>, ax=axes[<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">sns.barplot(x=<span class="string">"species"</span>, y=<span class="string">"petal-length"</span>, data=iris, palette=<span class="string">'Set2'</span>, ax=axes[<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">sns.barplot(x=<span class="string">"species"</span>, y=<span class="string">"petal-width"</span>, data=iris, palette=<span class="string">'Set2'</span>, ax=axes[<span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.setp(axes, yticks=[])</span><br><span class="line">plt.tight_layout()</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-93296d992575d56c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_23_0.png" title="">
+                </div>
+                <div class="image-caption">output_23_0.png</div>
+            </figure>
+<h2 id="4-Countplot"><a href="#4-Countplot" class="headerlink" title="4.Countplot"></a>4.Countplot</h2><blockquote>
+<p>seaborn.countplot(x=None, y=None, hue=None, data=None, order=None, hue_order=None, orient=None, color=None, palette=None, saturation=0.75, dodge=True, ax=None, **kwargs)</p>
+</blockquote>
+<p>&emsp;&emsp;<strong>Countplot</strong>可以直观地查看每个类别下有多少个观察值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax = sns.countplot(y=<span class="string">"species"</span>, data=iris, palette=<span class="string">"Set3"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-cbc5d6cbf81dfe8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_25_0.png" title="">
+                </div>
+                <div class="image-caption">output_25_0.png</div>
+            </figure>
+<h2 id="5-Pointplot"><a href="#5-Pointplot" class="headerlink" title="5.Pointplot"></a>5.Pointplot</h2><blockquote>
+<p>seaborn.pointplot(x=None, y=None, hue=None, data=None, order=None, hue_order=None, estimator=<function mean="">, ci=95, n_boot=1000, units=None, markers=’o’, linestyles=’-‘, dodge=False, join=True, scale=1, orient=None, color=None, palette=None, errwidth=None, capsize=None, ax=None, **kwargs)</function></p>
+</blockquote>
+<p>&emsp;&emsp;<strong>Pointplot</strong>可以通过斜率很容易地看出各类别间的主要关系。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">f, axes = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">10</span>, <span class="number">10</span>), sharex=<span class="keyword">True</span>)</span><br><span class="line">sns.despine(left=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">sns.pointplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-length"</span>, data=iris, ax=axes[<span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">sns.pointplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-width"</span>, data=iris, ax=axes[<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">sns.pointplot(x=<span class="string">"species"</span>, y=<span class="string">"petal-length"</span>, data=iris, ax=axes[<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">sns.pointplot(x=<span class="string">"species"</span>, y=<span class="string">"petal-width"</span>, data=iris, ax=axes[<span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.setp(axes, yticks=[])</span><br><span class="line">plt.tight_layout()</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-9afae1d01beac888.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_27_0.png" title="">
+                </div>
+                <div class="image-caption">output_27_0.png</div>
+            </figure>
+<h2 id="6-Factorplot"><a href="#6-Factorplot" class="headerlink" title="6. Factorplot"></a>6. Factorplot</h2><blockquote>
+<p>seaborn.factorplot(x=None, y=None, hue=None, data=None, row=None, col=None, col_wrap=None, estimator=<function mean="">, ci=95, n_boot=1000, units=None, order=None, hue_order=None, row_order=None, col_order=None, kind=’point’, size=4, aspect=1, orient=None, color=None, palette=None, legend=True, legend_out=True, sharex=True, sharey=True, margin_titles=False, facet_kws=None, **kwargs)</function></p>
+</blockquote>
+<p>&emsp;&emsp;<strong>Factorplot</strong>将上述的函数与<code>FacetGrid</code>结合起来，通过设置<code>kind</code>属性，可以变化成不同的图形。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.factorplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-length"</span>, data=iris, kind=<span class="string">"violin"</span>)</span><br><span class="line">sns.factorplot(x=<span class="string">"species"</span>, y=<span class="string">"sepal-width"</span>, data=iris, kind=<span class="string">"box"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-9034558dd08128f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_29_0.png" title="">
+                </div>
+                <div class="image-caption">output_29_0.png</div>
+            </figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/6533825-7d73092d89a6fa88.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_29_1.png"></p>
+<h2 id="7-PairGrid"><a href="#7-PairGrid" class="headerlink" title="7. PairGrid"></a>7. PairGrid</h2><blockquote>
+<p>class seaborn.PairGrid(data, hue=None, hue_order=None, palette=None, hue_kws=None, vars=None, x_vars=None, y_vars=None, diag_sharey=True, size=2.5, aspect=1, despine=True, dropna=True)</p>
+</blockquote>
+<p>&emsp;&emsp;<strong>PairGrid</strong>可以用于绘制展现数据集内多个变量之间关系的矩阵图。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">g = sns.PairGrid(data=iris, palette=antV, hue=<span class="string">"species"</span>)</span><br><span class="line">g = g.map(plt.scatter)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-2c6cfe94f6e7519f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_31_0.png" title="">
+                </div>
+                <div class="image-caption">output_31_0.png</div>
+            </figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">g = sns.PairGrid(data=iris, palette=antV, hue=<span class="string">"species"</span>)</span><br><span class="line">g = g.map_diag(plt.hist)</span><br><span class="line">g = g.map_offdiag(plt.scatter)</span><br><span class="line">g = g.add_legend()</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-e2b512232b611a98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="output_32_0.png" title="">
+                </div>
+                <div class="image-caption">output_32_0.png</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-01-20T02:54:41.542Z" itemprop="dateUpdated">2018-01-20 10:54:41</time>
+</span><br>
+
+
+        
+        May the force be with you.
+        
+    </div>
+    <footer>
+        <a href="http://gaiusyao.cn">
+            <img src="/img/avatar.jpg" alt="Gaius Yao">
+            Gaius Yao
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python3/">python3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据可视化/">数据可视化</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://gaiusyao.cn/2018/01/20/seaborn/&title=《Python数据可视化02：Seaborn》 — Gaius Yao&pic=http://gaiusyao.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://gaiusyao.cn/2018/01/20/seaborn/&title=《Python数据可视化02：Seaborn》 — Gaius Yao&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://gaiusyao.cn/2018/01/20/seaborn/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python数据可视化02：Seaborn》 — Gaius Yao&url=http://gaiusyao.cn/2018/01/20/seaborn/&via=http://gaiusyao.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://gaiusyao.cn/2018/01/20/seaborn/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/09/pandas/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python数据可视化01：Pandas</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+    <!--
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    -->
+        <p>print("The ultimate answer is {0}".format(len(question)))</p>
+    </div>
+    <div class="bottom">
+        <p><span>Gaius Yao &copy; 2017 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备18001119号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://gaiusyao.cn/2018/01/20/seaborn/&title=《Python数据可视化02：Seaborn》 — Gaius Yao&pic=http://gaiusyao.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://gaiusyao.cn/2018/01/20/seaborn/&title=《Python数据可视化02：Seaborn》 — Gaius Yao&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://gaiusyao.cn/2018/01/20/seaborn/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python数据可视化02：Seaborn》 — Gaius Yao&url=http://gaiusyao.cn/2018/01/20/seaborn/&via=http://gaiusyao.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://gaiusyao.cn/2018/01/20/seaborn/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://gaiusyao.cn/2018/01/20/seaborn/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(つェ⊂)';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Hail Python!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
