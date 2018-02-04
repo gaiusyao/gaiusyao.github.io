@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=63863615"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>数读《后汉书·郡国志》：用Hex Map查看数据分布 | Gaius Yao | Product Manager, Huge Nerd</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="AntV">
+    <meta name="description" content="&amp;emsp;&amp;emsp;《后汉书·郡国志》记载的是东汉各级行政区划的历史沿革、山川奇异、风俗所由以及永和五年（即公元140年）的人口情况。笔者将《后汉书·郡国志》中记载的内容稍加整理，得到了一个105行7列的数据集（包括郡名、所属州、治所、城数、户数、人口数、历史沿革内容7个字段）。又为了获得更好的可视化效果，将6个属国并入了相关的郡国（如将广汉属国并入广汉郡），同时给数据集增加了两列位置坐标字段">
+<meta name="keywords" content="AntV">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数读《后汉书·郡国志》：用Hex Map查看数据分布">
+<meta property="og:url" content="http://gaiusyao.cn/2018/02/04/hex-map/index.html">
+<meta property="og:site_name" content="Gaius Yao">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;《后汉书·郡国志》记载的是东汉各级行政区划的历史沿革、山川奇异、风俗所由以及永和五年（即公元140年）的人口情况。笔者将《后汉书·郡国志》中记载的内容稍加整理，得到了一个105行7列的数据集（包括郡名、所属州、治所、城数、户数、人口数、历史沿革内容7个字段）。又为了获得更好的可视化效果，将6个属国并入了相关的郡国（如将广汉属国并入广汉郡），同时给数据集增加了两列位置坐标字段">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-4f48a19c8590800c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-b07afba0def5bcb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-5285bbff0c234cdc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-b15ff94a2ddbc6ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-e603f71ec0497570.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6533825-cbad39e03a361981.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-02-04T14:33:54.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数读《后汉书·郡国志》：用Hex Map查看数据分布">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;《后汉书·郡国志》记载的是东汉各级行政区划的历史沿革、山川奇异、风俗所由以及永和五年（即公元140年）的人口情况。笔者将《后汉书·郡国志》中记载的内容稍加整理，得到了一个105行7列的数据集（包括郡名、所属州、治所、城数、户数、人口数、历史沿革内容7个字段）。又为了获得更好的可视化效果，将6个属国并入了相关的郡国（如将广汉属国并入广汉郡），同时给数据集增加了两列位置坐标字段">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/6533825-4f48a19c8590800c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="Gaius Yao" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="http://gaiusyao.cn" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Gaius Yao</h5>
+          <a href="mailto:gaiusyao@yeah.net" title="gaiusyao@yeah.net" class="mail">gaiusyao@yeah.net</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/gaiusyao" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.jianshu.com/u/f9bdc00c5771" target="_blank" >
+                <i class="icon icon-lg icon-bookmark"></i>
+                简书
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">数读《后汉书·郡国志》：用Hex Map查看数据分布</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">数读《后汉书·郡国志》：用Hex Map查看数据分布</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-02-03T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-02-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数读/">数读</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-hex-map"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">数读《后汉书·郡国志》：用Hex Map查看数据分布</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-02-04 00:00:00" datetime="2018-02-03T16:00:00.000Z"  itemprop="datePublished">2018-02-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数读/">数读</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>&emsp;&emsp;《后汉书·郡国志》记载的是东汉各级行政区划的历史沿革、山川奇异、风俗所由以及永和五年（即公元140年）的人口情况。笔者将《后汉书·郡国志》中记载的内容稍加整理，得到了一个105行7列的数据集（包括郡名、所属州、治所、城数、户数、人口数、历史沿革内容7个字段）。又为了获得更好的可视化效果，将6个属国并入了相关的郡国（如将广汉属国并入广汉郡），同时给数据集增加了两列位置坐标字段，略去了城数、历史沿革内容两个字段，得到了一个99行7列的新数据集，并将其转化为json格式。为了能更好地展现当时的人口分布情况，选用了Hex Map（六边形地图）进行数据可视化，最终结果如下（颜色越深的人口数量越大）：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-4f48a19c8590800c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="东汉永和五年人口分布情况" title="">
+                </div>
+                <div class="image-caption">东汉永和五年人口分布情况</div>
+            </figure>
+<p><em>注1：各郡国的位置参考了谭其骧主编的《中国历史地图集》</em><br><em>注2：部分郡国的户数、人口数明显有误，如辽东郡，在合理推测的基础上进行了调整</em><br><em>注3：缺少郁林、交趾二郡的户数和人口数，显示为淡粉色</em><br><em>注4：《后汉书·郡国志》中记载的户数和人口数均为东汉户籍人口，还存在大量因豪强瞒报等原因游离在户籍之外的人口，这里不做展开</em></p>
+<p>&emsp;&emsp;这里选用Hex Map的原因主要有三点：</p>
+<ul>
+<li>可以省去各行政区划的面积等不必要的地理信息，减少信息干扰，以更好地观察数据；</li>
+<li>部分面积过小的行政区划（如鲁国）也能得到很好的展现；</li>
+<li>六边形较矩形可以保留更多的地理位置信息，更好地表现郡国间的地理位置关系。</li>
+</ul>
+<p>&emsp;&emsp;当然了，对于一名老战棋玩家来说，使用Hex Map是十分的熟悉和亲切的，这一点也是很重要的。</p>
+<p>&emsp;&emsp;接下来，就让我们开始通过Hex Map观察东汉永和五年（公元140年）的人口分布情况。首先，在上图中，我们可以看到东汉的人口多分布在东部，而西北的人口明显较少。若筛选掉人口在十万以下的郡国，河西走廊就全部变成灰色了。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-b07afba0def5bcb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="人口十万以上的郡国" title="">
+                </div>
+                <div class="image-caption">人口十万以上的郡国</div>
+            </figure>
+<p>&emsp;&emsp;而筛选掉人口在二十万以下的郡国，则西北几乎全变成灰色。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-5285bbff0c234cdc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="人口二十万以上的郡国" title="">
+                </div>
+                <div class="image-caption">人口二十万以上的郡国</div>
+            </figure>
+<p>&emsp;&emsp;而荆州、益州、司隶、豫州的人口明显较多，且包含人口在百万以上的郡国。在东汉末年，占据了这些州郡的军阀们，基本上都弄出了不小的动静。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-b15ff94a2ddbc6ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="人口一百万以上的郡国" title="">
+                </div>
+                <div class="image-caption">人口一百万以上的郡国</div>
+            </figure>
+<p>&emsp;&emsp;我们再用Hex Map查看美国2012年的人口分布情况：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-e603f71ec0497570.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="美国人口分布情况" title="">
+                </div>
+                <div class="image-caption">美国人口分布情况</div>
+            </figure>
+<p>&emsp;&emsp;当然，Hex Map不仅能看人口数据的分布情况，也可以看销售数量等数据的分布情况：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/6533825-cbad39e03a361981.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="销量分布情况（虚拟数据）" title="">
+                </div>
+                <div class="image-caption">销量分布情况（虚拟数据）</div>
+            </figure>
+<p>&emsp;&emsp;本文的所有可视化图形均基于AntV构建，详见<a href="https://antv.alipay.com/zh-cn/g2/3.x/demo/map/us-states-hex.html" target="_blank" rel="noopener">AntV：美国地图六边形分割</a>，源码及相关JSON文件如下，其中美国各州JSON来源为<a href="http://blog.apps.npr.org/2015/05/11/hex-tile-maps.html" target="_blank" rel="noopener">NPR Visuals</a>，其余为本人创建：</p>
+<ul>
+<li><a href="https://github.com/gaiusyao/datablog/tree/master/hex-map" target="_blank" rel="noopener">源代码</a></li>
+<li><a href="https://github.com/gaiusyao/datablog/blob/master/hex-map/data/us-states.hex.json" target="_blank" rel="noopener">美国各州JSON</a></li>
+<li><a href="https://github.com/gaiusyao/datablog/blob/master/hex-map/data/PRC-provinces.json" target="_blank" rel="noopener">中国各省JSON</a></li>
+<li><a href="https://github.com/gaiusyao/datablog/blob/master/hex-map/data/han-counties.json" target="_blank" rel="noopener">东汉州郡JSON</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-02-04T14:33:54.051Z" itemprop="dateUpdated">2018-02-04 22:33:54</time>
+</span><br>
+
+
+        
+        May the force be with you.
+        
+    </div>
+    <footer>
+        <a href="http://gaiusyao.cn">
+            <img src="/img/avatar.jpg" alt="Gaius Yao">
+            Gaius Yao
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AntV/">AntV</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://gaiusyao.cn/2018/02/04/hex-map/&title=《数读《后汉书·郡国志》：用Hex Map查看数据分布》 — Gaius Yao&pic=http://gaiusyao.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://gaiusyao.cn/2018/02/04/hex-map/&title=《数读《后汉书·郡国志》：用Hex Map查看数据分布》 — Gaius Yao&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://gaiusyao.cn/2018/02/04/hex-map/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数读《后汉书·郡国志》：用Hex Map查看数据分布》 — Gaius Yao&url=http://gaiusyao.cn/2018/02/04/hex-map/&via=http://gaiusyao.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://gaiusyao.cn/2018/02/04/hex-map/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/20/seaborn/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python数据可视化02：Seaborn</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多谢打赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+    <!--
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    -->
+        <p>print("The ultimate answer is {0}".format(len(question)))</p>
+    </div>
+    <div class="bottom">
+        <p><span>Gaius Yao &copy; 2017 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备18001119号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://gaiusyao.cn/2018/02/04/hex-map/&title=《数读《后汉书·郡国志》：用Hex Map查看数据分布》 — Gaius Yao&pic=http://gaiusyao.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://gaiusyao.cn/2018/02/04/hex-map/&title=《数读《后汉书·郡国志》：用Hex Map查看数据分布》 — Gaius Yao&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://gaiusyao.cn/2018/02/04/hex-map/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数读《后汉书·郡国志》：用Hex Map查看数据分布》 — Gaius Yao&url=http://gaiusyao.cn/2018/02/04/hex-map/&via=http://gaiusyao.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://gaiusyao.cn/2018/02/04/hex-map/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://gaiusyao.cn/2018/02/04/hex-map/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(つェ⊂)';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Hail Python!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
